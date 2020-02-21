@@ -19,17 +19,17 @@ die('For security reasons, this demo is disabled by default. Please comment out 
 $ServerInfo['gd_string']  = 'unknown';
 $ServerInfo['gd_numeric'] = 0;
 //ob_start();
-if (!include_once('../phpthumb.functions.php')) {
+if (!include_once '../phpthumb.functions.php' ) {
 	//ob_end_flush();
 	die('failed to include_once("../phpthumb.functions.php")');
 }
-if (!include_once('../phpthumb.class.php')) {
+if (!include_once '../phpthumb.class.php' ) {
 	//ob_end_flush();
 	die('failed to include_once("../phpthumb.class.php")');
 }
 //ob_end_clean();
 $phpThumb = new phpThumb();
-if (include_once('../phpThumb.config.php')) {
+if (include_once '../phpThumb.config.php' ) {
 	foreach ($PHPTHUMB_CONFIG as $key => $value) {
 		$keyname = 'config_'.$key;
 		$phpThumb->setParameter($keyname, $value);
@@ -72,7 +72,7 @@ if ($ServerInfo['gd_numeric'] >= 2) {
 	The following images have the textured background behind them to illustrate transparency effects.
 	Note that some browsers, notably Internet Explorer v6 and older, are incapable of displaying alpha-channel PNGs.
 	See my page on the <a href="http://www.silisoftware.com/png_alpha_transparency/" target="_blank">PNG transparency problem</a>.
-	All current browsers (2010 and newer) display alpha-transparent PNGs with no problems.</b>
+	All current browsers (2010 and newer) display alpha-transparent PNGs with no problems.
 </div>
 <br>
 <script type="text/javascript" defer="defer">
@@ -120,11 +120,11 @@ $png_alpha    = 'Note: PNG/ICO output is 32-bit with alpha transparency, subject
 $only_gd      = '<br>(only works with GD (any version), this server is '.($ServerInfo['gd_string'] ? 'running GD "<i>'.$ServerInfo['gd_string'].'</i>" so it <b><font color="green">will</font>' : 'not running any recognized version of GD so it <b><font color="red">will not</font>').'</b> work)';
 $only_gd2     = '<br>(only works with GD v2.0+, this server is running GD "<i>'.($ServerInfo['gd_string'] ? $ServerInfo['gd_string'] : 'n/a').'</i>" so it <b>'.(($ServerInfo['gd_numeric'] >= 2) ? '<font color="green">will</font>' : '<font color="red">will not</font>').'</b> work)';
 $only_gd2_im  = '<br>(only works with GD v2.0+ <i>or</i> ImageMagick, this server is running GD "<i>'.($ServerInfo['gd_string'] ? $ServerInfo['gd_string'] : 'n/a').'</i>" and ImageMagick "<i>'.($ServerInfo['im_version'] ? $ServerInfo['im_version'] : 'n/a').'</i>" so it <b>'.((($ServerInfo['gd_numeric'] >= 2) || $ServerInfo['im_version']) ? '<font color="green">will</font>' : '<font color="red">will not</font>').'</b> work)';
-$only_php42   = '<br>(only works with PHP v4.2.0+, this server is running PHP v'.phpversion().' so it <b>'.(version_compare(phpversion(), '4.2.0', '>=') ? '<font color="green">will</font>' : '<font color="red">will not</font>').'</b> work)';
-$only_php43   = '<br>(only works with PHP v4.3.0+, this server is running PHP v'.phpversion().' so it <b>'.(version_compare(phpversion(), '4.3.0', '>=') ? '<font color="green">will</font>' : '<font color="red">will not</font>').'</b> work)';
-$only_php432  = '<br>(only works with PHP v4.3.2+, this server is running PHP v'.phpversion().' so it <b>'.(version_compare(phpversion(), '4.3.2', '>=') ? '<font color="green">will</font>' : '<font color="red">will not</font>').'</b> work (correctly))';
-$only_php500  = '<br>(only works with PHP v5.0.0+, this server is running PHP v'.phpversion().' so it <b>'.(version_compare(phpversion(), '5.0.0', '>=') ? '<font color="green">will</font>' : '<font color="red">will not</font>').'</b> work (correctly))';
-$php5_or_IM   = '<br>(only works with PHP v5.0.0+ <i>or</i> ImageMagick, this server is running PHP v'.phpversion().' and "<i>'.($ServerInfo['im_version'] ? $ServerInfo['im_version'] : 'n/a').'</i>" so it <b>'.((version_compare(phpversion(), '5.0.0', '>=') || $ServerInfo['im_version']) ? '<font color="green">will</font>' : '<font color="red">will not</font>').'</b> work (correctly))';
+$only_php42   = '<br>(only works with PHP v4.2.0+, this server is running PHP v'. PHP_VERSION .' so it <b>'.(version_compare(PHP_VERSION, '4.2.0', '>=') ? '<font color="green">will</font>' : '<font color="red">will not</font>').'</b> work)';
+$only_php43   = '<br>(only works with PHP v4.3.0+, this server is running PHP v'. PHP_VERSION .' so it <b>'.(version_compare(PHP_VERSION, '4.3.0', '>=') ? '<font color="green">will</font>' : '<font color="red">will not</font>').'</b> work)';
+$only_php432  = '<br>(only works with PHP v4.3.2+, this server is running PHP v'. PHP_VERSION .' so it <b>'.(version_compare(PHP_VERSION, '4.3.2', '>=') ? '<font color="green">will</font>' : '<font color="red">will not</font>').'</b> work (correctly))';
+$only_php500  = '<br>(only works with PHP v5.0.0+, this server is running PHP v'. PHP_VERSION .' so it <b>'.(version_compare(PHP_VERSION, '5.0.0', '>=') ? '<font color="green">will</font>' : '<font color="red">will not</font>').'</b> work (correctly))';
+$php5_or_IM   = '<br>(only works with PHP v5.0.0+ <i>or</i> ImageMagick, this server is running PHP v'. PHP_VERSION .' and "<i>'.($ServerInfo[ 'im_version'] ? $ServerInfo[ 'im_version'] : 'n/a').'</i>" so it <b>'.((version_compare(PHP_VERSION, '5.0.0', '>=') || $ServerInfo[ 'im_version']) ? '<font color="green">will</font>' : '<font color="red">will not</font>').'</b> work (correctly))';
 $only_exif    = '<br>(only works when the EXIF extension is loaded, so on this server it <b>'.(extension_loaded('exif') ? '<font color="green">will</font>' : '<font color="red">will not</font>').'</b> work)';
 $only_im      = '<br>(requires ImageMagick, this server is running "<i>'.($ServerInfo['im_version'] ? $ServerInfo['im_version'] : 'n/a').'</i>" so it <b>'.($ServerInfo['im_version'] ? '<font color="green">will</font>' : '<font color="red">will not</font>').'</b> work)';
 $only_im_tiff = '<br>(requires ImageMagick compiled with TIFF delegate)';
@@ -142,7 +142,7 @@ $Examples[] = array('getstrings' => array('src='.$img['square'].'&w=300&fltr[]=w
 $Examples[] = array('getstrings' => array('src='.$img['watermark'].'&bg=00FFFF&f=png', 'src='.$img['watermark'].'&bg=00FFFF&f=gif', 'src='.$img['watermark'].'&bg=00FFFF&f=jpeg'), 'description' => 'source image (GIF) transpancy with transparent output (PNG, GIF) vs. specified background color (JPEG)');
 $Examples[] = array('getstrings' => array('src='.$img['anigif'], 'src='.$img['anigif'].'&w=25&f=gif', 'src='.$img['anigif'].'&w=25&f=png', 'src='.$img['anigif'].'&w=25&f=ico', 'src='.$img['anigif'].'&w=25&f=bmp', 'src='.$img['anigif'].'&w=25&f=jpeg'), 'description' => 'resize animated GIF. Notice how output format affects the result: GIF is animated and transparent; PNG and ICO are tranparent but not animated (first frame is rendered as a still image); JPEG and BMP are neither transparent nor animated. Any filters will disable animated resizing (may be fixed in a future version).<br>'.$only_im);
 $Examples[] = array('getstrings' => array('src='.$img['anigif'], 'src='.$img['anigif'].'&sfn=0&f=png', 'src='.$img['anigif'].'&sfn=2&f=png'), 'description' => 'Specifying still-image source frame in multi-frame source images<br>'.$only_im);
-$Examples[] = array('getstrings' => array('src='.$img['alpha'].'&f=png', 'src='.$img['alpha'].'&f=ico', 'src='.$img['alpha'].'&f=gif', 'src='.$img['alpha'].'&f=jpeg'), 'description' => 'PNG alpha transparency test, using test image from the <a href="http://trific.ath.cx/web/png/">PNG transparency test page</a>'.$only_php432);
+$Examples[] = array('getstrings' => array('src='.$img['alpha'].'&f=png', 'src='.$img['alpha'].'&f=ico', 'src='.$img['alpha'].'&f=gif', 'src='.$img['alpha'].'&f=jpeg'), 'description' => 'PNG alpha transparency test, using test image from the <a href="http://www.silisoftware.com/png_alpha_transparency/">PNG transparency test page</a>'.$only_php432);
 $Examples[] = array('getstrings' => array('src='.$img['square'].'&w=300&fltr[]=stc|FFFFFF|5|10&f=png'), 'description' => 'Create transparency from source image color'.$only_gd2);
 $Examples[] = array('getstrings' => array('src='.$img['landscape'].'&w=300', 'src='.$img['landscape'].'&w=300&fltr[]=usm|80|0.5|3'), 'description' => 'normal vs. unsharp masking at default settings'.$only_gd2);
 $Examples[] = array('getstrings' => array('src='.$img['landscape'].'&w=300', 'src='.$img['landscape'].'&w=300&fltr[]=blur|1', 'src='.$img['landscape'].'&w=300&fltr[]=blur|5'), 'description' => 'normal vs. blur at default (1) and heavy (5)'.$only_gd2);
@@ -163,7 +163,7 @@ $Examples[] = array('getstrings' => array('src='.$img['landscape'].'&w=300&fltr[
 $Examples[] = array('getstrings' => array('src='.$img['landscape'].'&w=300&fltr[]=gray', 'src='.$img['landscape'].'&w=300&fltr[]=sep'), 'description' => 'grayscale vs. sepia'.$only_gd2);
 $Examples[] = array('getstrings' => array('src='.$img['landscape'].'&w=300&fltr[]=mask|'.$img['mask3'].'&f=png', 'src='.$img['landscape'].'&w=300&fltr[]=mask|'.$img['mask1'].'&f=png', 'src='.$img['landscape'].'&w=300&fltr[]=mask|'.$img['mask2'].'&f=jpeg&bg=9900CC&q=100'), 'description' => 'Assorted alpha masks (seen below) applied<br>'.$png_alpha.$only_php432.'<br>JPEG/GIF output is flattened to "bg" background color'.$only_gd2.'<br><img src="../'.$img['mask3'].'" alt=""> <img src="../'.$img['mask1'].'" alt=""> <img src="../'.$img['mask2'].'" alt="">');
 $Examples[] = array('getstrings' => array('src='.$img['landscape'].'&w=300&fltr[]=drop|5|10|000000|225&f=png', 'src='.$img['landscape'].'&w=300&fltr[]=mask|'.$img['mask3'].'&fltr[]=drop|5|10|000000|225&f=png', 'src='.$img['landscape'].'&w=300&fltr[]=drop|5|10|000000|225&fltr[]=elip&f=png', 'src='.$img['landscape'].'&w=300&fltr[]=elip&fltr[]=drop|5|10|000000|225&f=png'), 'description' => 'Drop shadow. Note how the order in which filters are applied matters.'.$only_php432.$only_gd);
-$Examples[] = array('getstrings' => array('src='.$img['landscape'].'&w=300&fltr[]=elip&f=png', 'src='.$img['landscape'].'&w=300&fltr[]=elip&f=jpeg&bg=00FFFF'), 'description' => 'Elipse<br>'.$png_alpha.$only_php432.'<br>JPEG/GIF output is flattened to "bg" background color'.$only_gd2);
+$Examples[] = array('getstrings' => array('src='.$img['landscape'].'&w=300&fltr[]=elip&f=png', 'src='.$img['landscape'].'&w=300&fltr[]=elip&f=jpeg&bg=00FFFF'), 'description' => 'Ellipse<br>'.$png_alpha.$only_php432.'<br>JPEG/GIF output is flattened to "bg" background color'.$only_gd2);
 $Examples[] = array('getstrings' => array('src='.$img['landscape'].'&w=300&fltr[]=flip|x', 'src='.$img['landscape'].'&w=300&fltr[]=flip|y', 'src='.$img['landscape'].'&w=300&fltr[]=flip|xy'), 'description' => 'flipped on X, Y and X+Y axes'.$only_gd);
 $Examples[] = array('getstrings' => array('src='.$img['landscape'].'&w=300&fltr[]=bvl|10|FFFFFF|000000', 'src='.$img['landscape'].'&w=300&fltr[]=bvl|10|000000|FFFFFF'), 'description' => '10px bevel edge filter'.$only_php432.$only_gd);
 $Examples[] = array('getstrings' => array('src='.$img['landscape'].'&w=300&fltr[]=fram|3|2|CCCCCC|FFFFFF|000000', 'src='.$img['landscape'].'&w=300&fltr[]=fram|3|2|CC9966|333333|CCCCCC'), 'description' => '3+2px frame filter'.$only_gd);
