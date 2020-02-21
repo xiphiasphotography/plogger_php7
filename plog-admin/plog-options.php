@@ -51,6 +51,7 @@ if (isset($_POST['submit'])) {
 	\"comments_notify\"= '".intval($comments_notify)."',
 	\"comments_moderate\"= '".intval($comments_moderate)."',
 	\"gallery_url\"= ".$PLOGGER_DBH->quote($_POST['gallery_url']).",
+	\"cdn_url\"= ".$PLOGGER_DBH->quote($_POST['cdn_url']).",
 	\"gallery_name\"= ".$PLOGGER_DBH->quote($_POST['gallery_name']).",
 	\"thumb_nav_range\"= '".intval($_POST['thumb_nav_range'])."',
 	\"allow_fullpic\"= '".intval($allow_fullpic)."',
@@ -125,6 +126,7 @@ if (isset($_POST['submit'])) {
 
 	// And read the configuration back again
 	$config['gallery_url'] = $_POST['gallery_url'];
+	$config['cdn_url'] = $_POST['cdn_url'];
 	$config['use_mod_rewrite'] = (isset($_POST['use_mod_rewrite'])) ? 1 : 0;
 	configure_mod_rewrite($config['use_mod_rewrite']);
 
@@ -168,6 +170,10 @@ $output .= "\n\t" . '<h1>'.plog_tr('General').'</h1>
 					<tr>
 						<td class="left"><label for="gallery_url">'.plog_tr('Gallery URL').':</label></td>
 						<td class="right"><input size="40" type="text" id="gallery_url" name="gallery_url" value="'.stripslashes($config['gallery_url']).'" /></td>
+					</tr>
+					<tr>
+						<td class="left"><label for="cdn_url">'.plog_tr('CDN URL').':</label></td>
+						<td class="right"><input size="40" type="text" id="cdn_url" name="cdn_url" value="'.stripslashes($config['cdn_url']).'" /></td>
 					</tr>
 				</table>
 
