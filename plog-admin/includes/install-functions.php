@@ -410,6 +410,7 @@ function create_tables($dbtype) {
 		PLOGGER_TABLE_PREFIX.'config'
 		,"\"gallery_name\" varchar(255) NOT NULL,
 		\"gallery_url\" varchar(255) NOT NULL,
+		\"cdn_url\" varchar(255) NOT NULL,
 		\"admin_username\" varchar(64) NOT NULL,
 		\"admin_email\" varchar(50) NOT NULL,
 		\"admin_password\" varchar(64) NOT NULL,
@@ -511,6 +512,7 @@ function create_tables($dbtype) {
 		PLOGGER_TABLE_PREFIX.'config'
 		,"gallery_name text NOT NULL default '',
 		gallery_url text NOT NULL default '',
+		cdn_url text NOT NULL default '',
 		admin_username text NOT NULL default '',
 		admin_email text NOT NULL default '',
 		admin_password text NOT NULL default '',
@@ -608,7 +610,8 @@ function configure_plogger($form) {
 			\"date_format\",
 			\"feed_title\",
 			\"gallery_name\",
-			\"gallery_url\")
+			\"gallery_url\",
+			\"cdn_url\")
 			VALUES
 			('default',
 			75,
@@ -619,6 +622,7 @@ function configure_plogger($form) {
 			'n.j.Y',
 			'Plogger Photo Feed',
 			${config['gallery_name']},
+			${config['gallery_url']},
 			${config['gallery_url']})";
 	} else {
 		$query = "UPDATE \"".PLOGGER_TABLE_PREFIX."config\" SET
@@ -631,7 +635,8 @@ function configure_plogger($form) {
 			\"date_format\" = 'n.j.Y',
 			\"feed_title\" = 'Plogger Photo Feed',
 			\"gallery_name\" = ${config['gallery_name']},
-			\"gallery_url\" = ${config['gallery_url']}";
+			\"gallery_url\" = ${config['gallery_url']}
+			\"cdn_url\" = ${config['gallery_url']}";
 	}
 	run_query($query);
 
