@@ -108,6 +108,7 @@ if (!in_array($GLOBALS['plogger_level'], $allowed_levels)) {
 	$GLOBALS['plogger_level'] = 'collections';
 }
 
+define('GALLERY_URL', $config['gallery_url']);
 if ($config['cdn_url'] != '') {
 	define('CDN_URL', $config['cdn_url']);
 } else {
