@@ -1138,6 +1138,8 @@ function SmartStripSlashes($str) {
 // This tries hard to figure out level and object id from textual path to a resource, used
 // mostly if mod_rewrite is in use
 function resolve_path($str = '') {
+	global $PLOGGER_DBH;
+
 	$rv = array();
 	$path_parts = explode('/', $str);
 
