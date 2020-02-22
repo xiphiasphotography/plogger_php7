@@ -1112,16 +1112,24 @@ function get_collections($sort = 'alpha', $order = 'DESC') {
 }
 
 function SmartAddSlashes($str) {
-	if (get_magic_quotes_gpc()) {
-		return $str;
+	// check for magic quotes in PHP < 7.4.0 (when these functions became deprecated)
+	if (version_compare(PHP_VERSION, '7.4.0', '<')) {
+		// returned the fixed string if the evil "magic_quotes_gpc" setting is on
+		if (get_magic_quotes_gpc()) {
+			return $str;
+		}
 	} else {
 		return addslashes($str);
 	}
 }
 
 function SmartStripSlashes($str) {
-	if (get_magic_quotes_gpc()) {
-		return stripslashes($str);
+	// check for magic quotes in PHP < 7.4.0 (when these functions became deprecated)
+	if (version_compare(PHP_VERSION, '7.4.0', '<')) {
+		// returned the fixed string if the evil "magic_quotes_gpc" setting is on
+		if (get_magic_quotes_gpc()) {
+			return stripslashes($str);
+		} 
 	} else {
 		return $str;
 	}
@@ -3095,5 +3103,3 @@ function showEXIF() {
 	global $config;
 	return $config['show_exif'];
 }
-
-?>
