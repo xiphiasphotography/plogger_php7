@@ -1,34 +1,63 @@
+	<footer id="footer" class="container-fluid">
 
-	<div id="footer" class="clearfix">
+		<div class="row gutters-10">
 
-<?php if (plogger_pagination_control() != '') { ?>
-		<div id="pagination">
-			<?php echo plogger_pagination_control(5); ?>
-		</div><!-- /pagination -->
-<?php } ?>
-<?php if (plogger_download_selected_button() != '') { ?>
-		<div id="download-selected"><?php echo plogger_download_selected_button(); ?></div><!-- /download-selected -->
-<?php } ?>
-<?php if (generate_jump_menu() != '') { ?>
-		<div id="navigation-container">
-				<?php echo generate_jump_menu(); ?>
-		</div><!-- /navigation-container -->
-<?php } ?>
+			<div class="col-12 order-1 col-md-6 order-md-2 col-lg-12 order-lg-1">
+				<?php if (plogger_pagination_control() != '') { ?>
+					<div id="pagination">
+						<?php echo plogger_pagination_control(5); ?>
+					</div><!-- /pagination -->
+				<?php } ?>
+			</div>
 
-<?php if (plogger_sort_control() != '') { ?>
-		<div id="sort-control">
-<?php echo plogger_sort_control(); ?>
-		</div><!-- /sort-control -->
-<?php } ?>
+			<div class="col-12 order-2 col-md-6 order-md-1 col-lg-4 order-lg-4">
+				<?php if (plogger_sort_control() != '') { ?>
+					<div id="sort-control">
+						<?php echo plogger_sort_control(); ?>
+					</div><!-- /sort-control -->
+				<?php } ?>
+			</div>
 
-<?php if (plogger_rss_feed_button() != '') { ?>
-		<div id="rss-tag-container"><?php echo plogger_rss_feed_button(); ?></div><!-- /rss-tag-container -->
-<?php } ?>
+			<div class="col-12 order-3 col-md-6 col-sm-push-6 col-lg-4 order-lg-2">
+				<?php if (generate_jump_menu() != '') { ?>
+					<div id="navigation-container">
+						<?php echo generate_jump_menu(); ?>
+					</div><!-- /navigation-container -->
+				<?php } ?>
+			</div>
+			<div class="col-12 order-4 col-md-6 col-sm-pull-6 col-lg-4 order-lg-3">
+				<div id="search-container">
+					<?php echo generate_search_box(); ?>
+				</div><!-- /search-container -->
+			</div>
 
-		<div id="link-back"><?php echo plogger_link_back(); ?></div>
-		<div class="credit"><a title="ardamis.com" href="http://www.ardamis.com/"><?php echo plog_tr('Design by') ?> ardamis.com</a></div><!-- /credit -->
+		</div><!-- /row -->
 
-	</div><!-- /footer clearfix -->
-<?php echo plogger_download_selected_form_end(); ?>
+		<div class="row">
+
+			<div class="col-12">
+				<?php if (plogger_download_selected_button() != '') { ?>
+					<div id="download-selected"><?php echo plogger_download_selected_button(); ?></div><!-- /download-selected -->
+				<?php } ?>
+			</div>
+		</div>
+
+		<div class="row credit">
+			<div class="col-10">
+				<div id="link-back"><?php echo plogger_link_back(); ?></div>
+				<div class="credit"><a href="http://xiphias.photography/" title="xiphias.photography"><?php echo plog_tr('Design by') ?> xiphias.photography</a></div><!-- /credit -->
+			</div>
+
+			<div class="col-2">
+				<?php if (plogger_rss_feed_button() != '') { ?>
+					<div id="rss-tag-container"><?php echo plogger_rss_feed_button(); ?></div><!-- /rss-tag-container -->
+				<?php } ?>
+			</div>
+
+		</div><!-- /row -->
+
+	</footer><!-- /container-fluid -->
+
+	<?php echo plogger_download_selected_form_end(); ?>
 
 </div><!-- /plog-wrapper -->

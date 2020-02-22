@@ -1,10 +1,10 @@
 <?php plogger_get_header(); ?>
 
-<div id="thumbnail-container" class="container-fluid clearfix">
+<div id="thumbnail-container" class="container-fluid">
+	<div id="collections" class="row gutters-10">
 
-	<?php if (plogger_has_collections()) : ?>
+		<?php if (plogger_has_collections()) : ?>
 
-		<div id="collections" class="row">
 			<?php while (plogger_has_collections()) : plogger_load_collection();
 				// Find thumbnail width/height
 				$thumb_info = plogger_get_thumbnail_info();
@@ -16,28 +16,26 @@
 						<a class="collection-image-link" href="<?php echo plogger_get_collection_url(); ?>"><img class="photos" src="<?php echo plogger_get_collection_thumb(); ?>" width="<?php echo $thumb_width; ?>" height="<?php echo $thumb_height; ?>" title="<?php echo plogger_get_collection_name(); ?>" alt="<?php echo plogger_get_collection_name(); ?>" /></a>
 						<h2><a href="<?php echo plogger_get_collection_url(); ?>"><?php echo plogger_get_collection_name(); ?></a></h2>
 						<?php echo plogger_download_checkbox(plogger_get_collection_id()); ?>
-						<span class="meta-header"><?php echo plog_tr('Contains'); ?> <?php 
-							echo plogger_collection_album_count() . ' ';
-							echo (plogger_collection_album_count() == 1) ? plog_tr('Album') : plog_tr('Albums'); ?></span>
+						<span class="meta-header"><?php echo plog_tr('Contains'); ?> <?php
+																						echo plogger_collection_album_count() . ' ';
+																						echo (plogger_collection_album_count() == 1) ? plog_tr('Album') : plog_tr('Albums'); ?></span>
 						<p class="description"><?php echo plogger_get_collection_description(); ?></p>
 					</div><!-- /collection -->
 				</div><!-- /col -->
 			<?php endwhile; ?>
-		</div><!-- /row -->
 
-	<?php else : ?>
+		<?php else : ?>
 
-		<div class="row">
 			<div class="col-12">
 				<div id="no-pictures-msg">
 					<h2><?php echo plog_tr('No Images') ?></h2>
 					<p><?php echo plog_tr('Sorry, but there are no images in this gallery yet.') ?></p>
 				</div><!-- /no-pictures-msg -->
 			</div><!-- /col -->
-		</div><!-- /row -->
 
-	<?php endif; ?>
+		<?php endif; ?>
 
-</div><!-- /container-fluid clearfix -->
+	</div><!-- /row -->
+</div><!-- /container-fluid -->
 
 <?php plogger_get_footer(); ?>

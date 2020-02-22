@@ -1,10 +1,10 @@
 <?php plogger_get_header(); ?>
 
-<div id="thumbnail-container" class="container-fluid clearfix">
+<div id="thumbnail-container" class="container-fluid">
+	<div id="collection" class="row gutters-10">
 
-	<?php if (plogger_has_albums()) : ?>
+		<?php if (plogger_has_albums()) : ?>
 
-		<div id="collections" class="row">
 			<?php while (plogger_has_albums()) : plogger_load_album();
 				// Find thumbnail width/height
 				$thumb_info = plogger_get_thumbnail_info();
@@ -23,20 +23,19 @@
 					</div><!-- /collection -->
 				</div><!-- /col -->
 			<?php endwhile; ?>
-		</div><!-- /row -->
 
-	<?php else : ?>
+		<?php else : ?>
 
-		<div class="row">
-			<div class="col-12">
+			<div class="col-12 gutters-10">
 				<div id="no-pictures-msg">
 					<h2><?php echo plog_tr('No Albums') ?></h2>
 					<p><?php echo plog_tr('Sorry, but there are no images or albums in this collection yet.') ?></p>
 				</div><!-- /no-pictures-msg -->
 			</div><!-- /col -->
-		</div><!-- /row -->
 
-	<?php endif; ?>
-</div><!-- /container-fluid clearfix -->
+		<?php endif; ?>
+
+	</div><!-- /row -->
+</div><!-- /container-fluid -->
 
 <?php plogger_get_footer(); ?>
