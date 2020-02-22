@@ -789,14 +789,14 @@ function get_picture_by_id($id, $album_id = null) {
 		$where_cond = "= ".intval($id);
 	}
 
-	$sql = 'SELECT
-				"p".*,
-				"a"."path" AS "album_path",
-				"c"."path" AS "collection_path"
-			FROM "' . PLOGGER_TABLE_PREFIX . 'pictures" AS "p"
-				LEFT JOIN "' . PLOGGER_TABLE_PREFIX . 'albums" AS "a" ON "p"."parent_album"="a"."id"
-				LEFT JOIN "' . PLOGGER_TABLE_PREFIX . 'collections" AS "c" ON "p"."parent_collection"="c"."id"
-			WHERE "p"."id" ' . $where_cond;
+	$sql = "SELECT
+				p.*,
+				a.path AS album_path,
+				c.path AS collection_path
+			FROM " . PLOGGER_TABLE_PREFIX . "pictures AS p
+				LEFT JOIN " . PLOGGER_TABLE_PREFIX . "albums AS a ON p.parent_album=a.id
+				LEFT JOIN " . PLOGGER_TABLE_PREFIX . "collections AS c ON p.parent_collection=c.id
+			WHERE p.id " . $where_cond;
 
 	if ($album_id) {
 		$sql .= ' AND "p"."parent_album"=' . intval($album_id);
@@ -826,14 +826,14 @@ function get_picture_by_id($id, $album_id = null) {
 function get_pictures($album_id, $order = 'alpha', $sort = 'DESC') {
 	global $config;
 
-	$query = 'SELECT
-				"p".*,
-				"a"."path" AS "album_path",
-				"c"."path" AS "collection_path"
-			FROM "' . PLOGGER_TABLE_PREFIX . 'pictures" AS "p"
-				LEFT JOIN "' . PLOGGER_TABLE_PREFIX . 'albums" AS "a" ON "p"."parent_album"="a"."id"
-				LEFT JOIN "' . PLOGGER_TABLE_PREFIX . 'collections" AS "c" ON "p"."parent_collection"="c"."id"
-			WHERE "a"."id"=' . intval($album_id);
+	$query = "SELECT
+				p.*,
+				a.path AS album_path,
+				c.path AS collection_path
+			FROM " . PLOGGER_TABLE_PREFIX . "pictures AS p
+				LEFT JOIN " . PLOGGER_TABLE_PREFIX . "albums AS a ON p.parent_album=a.id
+				LEFT JOIN " . PLOGGER_TABLE_PREFIX . "collections AS c ON p.parent_collection=c.id
+			WHERE a.id=" . intval($album_id);
 
 	if ($order == 'mod') {
 		$query .= ' ORDER BY "p"."date_submitted" ';
@@ -876,15 +876,16 @@ function get_album_by_id($id) {
 	global $config;
 
 	$sql = "SELECT
-	\"a\".*,
-	\"c\".\"path\" AS \"collection_path\",
-	\"a\".\"path\" AS \"album_path\",
-	\"c\".\"name\" AS \"collection_name\",
-	\"a\".\"name\" AS \"album_name\"
-	FROM \"".PLOGGER_TABLE_PREFIX."albums\" AS \"a\"
-	LEFT JOIN \"".PLOGGER_TABLE_PREFIX."collections\" AS \"c\" ON \"a\".\"parent_id\"=\"c\".\"id\"
-	LEFT JOIN \"".PLOGGER_TABLE_PREFIX."pictures\" AS \"i\" ON \"a\".\"thumbnail_id\"=\"i\".\"id\"
-	WHERE \"a\".\"id\" = ".intval($id);
+				a.*,
+				c.path AS collection_path,
+				a.path AS album_path,
+				c.name AS collection_name,
+				a.name AS album_name
+			FROM " . PLOGGER_TABLE_PREFIX . "albums AS a
+				LEFT JOIN " . PLOGGER_TABLE_PREFIX . "collections AS c ON a.parent_id=c.id
+				LEFT JOIN " . PLOGGER_TABLE_PREFIX . "pictures AS i ON a.thumbnail_id=i.id
+			WHERE a.id = " . intval($id);
+
 	$result = run_query($sql);
 
 	if ($result->rowCount() > 0) {
@@ -940,12 +941,13 @@ function check_collection_id($id) {
 function get_collection_by_id($id) {
 	global $config;
 
-	$sqlCollection = "SELECT \"c\".*,
-	\"c\".\"path\" AS \"collection_path\"
-	FROM \"".PLOGGER_TABLE_PREFIX."collections\" AS \"c\"
-	LEFT JOIN \"".PLOGGER_TABLE_PREFIX."pictures\" AS \"i\" ON \"c\".\"thumbnail_id\"=\"i\".\"id\"
-	WHERE \"c\".\"id\"=".intval($id)."
-	ORDER BY \"c\".\"name\" ASC";
+	$sqlCollection = "SELECT c.*,
+						c.path AS collection_path
+					FROM " . PLOGGER_TABLE_PREFIX . "collections AS c
+						LEFT JOIN " . PLOGGER_TABLE_PREFIX . "pictures AS i ON c.thumbnail_id=i.id
+					WHERE c.id=" . intval($id)."
+					ORDER BY c.name ASC";
+
 	$resultCollection = run_query($sqlCollection);
 
 	if ($resultCollection->rowCount() == 0) {
@@ -1453,11 +1455,12 @@ function generate_url($level, $id = -1, $arg = array(), $plaintext = false) {
 				break;
 			case 'album':
 				$query = "SELECT
-				\"c\".\"path\" AS \"collection_path\",function generate_url
-				\"a\".\"path\" AS \"album_path\"
-				FROM \"".PLOGGER_TABLE_PREFIX."albums\" AS \"a\"
-				LEFT JOIN \"".PLOGGER_TABLE_PREFIX."collections\" AS \"c\" ON \"a\".\"parent_id\"=\"c\".\"id\"
-				WHERE \"a\".\"id\"=".intval($id);
+							c.path AS collection_path,
+							a.path AS album_path
+						FROM " . PLOGGER_TABLE_PREFIX . "albums AS a
+							LEFT JOIN " . PLOGGER_TABLE_PREFIX . "collections AS c ON a.parent_id=c.id
+						WHERE a.id=" . intval($id);
+
 				$result = run_query($query);
 				$row = $result->fetch();
 				$rv = $config['baseurl'].rawurlencode(SmartStripSlashes($row['collection_path'])).'/'.rawurlencode(SmartStripSlashes($row['album_path'])).'/'.$args;

@@ -231,8 +231,8 @@ function add_picture($album_id, $tmpname, $filename, $caption, $desc, $allow_com
 	// Now get the name of the collection
 	$sql = "SELECT c.path AS collection_path, c.id AS collection_id,
 			a.path AS album_path, a.id AS album_id
-			FROM ".PLOGGER_TABLE_PREFIX."albums a, ".PLOGGER_TABLE_PREFIX."collections c
-			WHERE c.id = a.parent_id AND a.id = '$album_id'";
+			FROM " . PLOGGER_TABLE_PREFIX . "albums a, " . PLOGGER_TABLE_PREFIX . "collections c
+			WHERE c.id = a.parent_id AND a.id = " . intval($album_id);
 
 	$sql_result = run_query($sql);
 	$albumdata = $sql_result->fetch();
@@ -623,8 +623,8 @@ function update_collection($collection_id, $name, $description, $thumbnail_id = 
 	// Rename the directory
 	// First, get the collection name of our source collection
 	$sql = "SELECT c.path as collection_path, name
-			FROM ".PLOGGER_TABLE_PREFIX."collections c
-			WHERE c.id = '$collection_id'";
+			FROM " . PLOGGER_TABLE_PREFIX . "collections c
+			WHERE c.id = " . intval($collection_id);
 
 	$result = run_query($sql);
 	$row = $result->fetch();
@@ -723,8 +723,8 @@ function update_collection_field($collection_id, $field, $value) {
 function delete_collection($del_id) {
 	global $config;
 	$sql = "SELECT c.name AS collection_name, c.path AS collection_path, c.id AS collection_id
-		FROM ".PLOGGER_TABLE_PREFIX."collections c
-		WHERE c.id = '$del_id'";
+		FROM " . PLOGGER_TABLE_PREFIX . "collections c
+		WHERE c.id = " . intval($del_id);
 
 	$result = run_query($sql);
 	$collection = $result->fetch();
@@ -776,7 +776,7 @@ function add_album($album_name, $description, $pid) {
 		return array('errors' => plog_tr('Please enter a valid name for the album.'));
 	}
 	// Get the parent collection name
-	$query = "SELECT c.path as collection_path FROM ". PLOGGER_TABLE_PREFIX."collections c WHERE id = '$pid'";
+	$query = "SELECT c.path as collection_path FROM " . PLOGGER_TABLE_PREFIX . "collections c WHERE id = " . intval($pid);
 
 	$result = run_query($query);
 	$row = $result->fetch();
@@ -848,8 +848,8 @@ function update_album($album_id, $name, $description, $thumbnail_id = 0) {
 
 	// First, get the album name and collection name of our source album
 	$sql = "SELECT c.path AS collection_path, a.path AS album_path, a.parent_id AS collection_id
-			FROM ".PLOGGER_TABLE_PREFIX."albums a, ".PLOGGER_TABLE_PREFIX."collections c
-			WHERE c.id = a.parent_id AND a.id = ".$album_id;
+			FROM " . PLOGGER_TABLE_PREFIX . "albums a, " . PLOGGER_TABLE_PREFIX . "collections c
+			WHERE c.id = a.parent_id AND a.id = " . intval($album_id);
 
 	$result = run_query($sql);
 	$row = $result->fetch();
@@ -967,8 +967,8 @@ function move_album($album_id, $to_collection) {
 				c.thumbnail_id as collection_thumb,
 				c.id as collection_id,
 				a.path as album_path
-			FROM ".PLOGGER_TABLE_PREFIX."albums a, ".PLOGGER_TABLE_PREFIX."collections c
-			WHERE c.id = a.parent_id AND a.id = '$album_id'";
+			FROM " . PLOGGER_TABLE_PREFIX . "albums a, " . PLOGGER_TABLE_PREFIX . "collections c
+			WHERE c.id = a.parent_id AND a.id = " . intval($album_id);
 
 	$result = run_query($sql);
 	$row = $result->fetch();
@@ -984,7 +984,7 @@ function move_album($album_id, $to_collection) {
 	}
 
 	// Next, get the collection name of our destination collection
-	$sql = "SELECT c.path as collection_path FROM ".PLOGGER_TABLE_PREFIX."collections c WHERE c.id = '$to_collection'";
+	$sql = "SELECT c.path as collection_path FROM " . PLOGGER_TABLE_PREFIX . "collections c WHERE c.id = " . intval($to_collection);
 
 	$result = run_query($sql);
 	$row = $result->fetch();
