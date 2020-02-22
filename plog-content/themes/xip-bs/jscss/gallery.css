@@ -200,6 +200,21 @@ a.pagPrev, a.pagNext {
 	margin-bottom: 10px;
 }
 
+#sort-control::before {
+	display: block;
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	content: '\f0dc';
+	width: 20px;
+	margin-right: 5px;
+}
+
+#sort-control form,
+#sort-control .nomargin {
+	display: inline-block;
+	margin: 0;
+}
+
 #sort-control label {
 	display: none;
 }
@@ -212,15 +227,6 @@ a.pagPrev, a.pagNext {
 
 #sort-control select.change_sortby {
 	width: 50%;
-}
-#sort-control select.change_sortby::before {
-	display: block;
-	font-family: 'Font Awesome 5 Free';
-	font-weight: 900;
-	content: '\f0dc';
-	width: 20px;
-	margin-right: 5px;
-
 }
 
 #sort-control select.change_sortdir {
