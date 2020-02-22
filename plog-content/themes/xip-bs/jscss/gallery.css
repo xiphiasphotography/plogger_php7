@@ -89,6 +89,10 @@ header p {
 	position: relative;
 }
 
+main {
+	min-height: calc(100vh - 182px);
+}
+
 /************************************************** FOOTER */
 footer {
 	/* footer contains the entire footer */
