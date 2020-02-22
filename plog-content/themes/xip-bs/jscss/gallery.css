@@ -109,6 +109,7 @@ main {
 footer {
 	/* footer contains the entire footer */
 	background-color: #000;
+	text-align: left;
 }
 #pagination {
 	/* #pagination contains the pagination */
@@ -117,6 +118,7 @@ footer {
 
 .page-link, .page-link-current {
 	/* .page_link controls the page numbers (link and non-link) */
+	display: inline-block;
 	padding-right: 5px;
 	padding-left: 5px;
 	text-decoration: none;
@@ -146,14 +148,14 @@ a.pagPrev, a.pagNext {
 	/* #search-container input is the search input box */
 	float: left;
 	width: calc(100% - 100px);
-	padding: .5em 1em;
+	padding: .5em;
 	border: 1px solid #ccc;
 }
 
 #search-container button {
 	/* #search-container button.submit is the search button */
 	width: 100px;
-	padding: .5em 1em;
+	padding: .5em;
 	border: 1px solid #ccc;
 }
 
@@ -172,7 +174,7 @@ a.pagPrev, a.pagNext {
 #download-selected button {
 	/* #download-selected button.submit controls the "Download Selected" button itself */
 	width: 100%;
-	padding: .5em 1em;
+	padding: .5em;
 	border: 1px solid #ccc;
 }
 
@@ -190,7 +192,7 @@ a.pagPrev, a.pagNext {
 #navigation-container select {
 	/* #navigation-container contains the "Jump to..." navigation drop down menu */
 	width: 100%;
-	padding: .5em 1em;
+	padding: .5em;
 	border: 1px solid #ccc;
 }
 
@@ -198,16 +200,36 @@ a.pagPrev, a.pagNext {
 	margin-bottom: 10px;
 }
 
+#sort-control label {
+	display: none;
+}
+
 #sort-control select {
 	/* #sort-control contains the "Sort by:" drop down menu */
-	width: 100%;
-	padding: .5em 1em;
+	padding: .5em;
 	border: 1px solid #ccc;
+}
+
+#sort-control select.change_sortby {
+	width: 50%;
+}
+#sort-control select.change_sortby::before {
+	display: block;
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	content: '\f0dc';
+	width: 20px;
+	margin-right: 5px;
+
+}
+
+#sort-control select.change_sortdir {
+	width: calc(50% - 25px);
 }
 
 #sort-control option {
 	/* option controls each item within the "Sort by:" drop down menu */
-	padding: .5em 1em;
+	padding: .5em;
 }
 
 #sort-control span {

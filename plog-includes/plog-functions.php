@@ -1448,7 +1448,7 @@ function generate_url($level, $id = -1, $arg = array(), $plaintext = false) {
 
 		switch($level) {
 			case 'collection':
-				$query = "SELECT \"path\" FROM \"".PLOGGER_TABLE_PREFIX."collections\" WHERE \"id\"=".intval($id);
+				$query = "SELECT path FROM " . PLOGGER_TABLE_PREFIX . "collections WHERE id=" . intval($id);
 				$result = run_query($query);
 				$row = $result->fetch();
 				$rv = $config['baseurl'].rawurlencode(SmartStripSlashes($row['path'])).'/'.$args;

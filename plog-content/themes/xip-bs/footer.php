@@ -1,7 +1,7 @@
 	<footer id="footer" class="container-fluid">
 
 		<div class="row gutters-10">
-			<div class="col-12 order-1 col-md-6 col-lg-12 order-lg-1">
+			<div class="col-12 order-1 col-md-6 col-lg-4">
 				<?php if (plogger_pagination_control() != '') { ?>
 					<div id="pagination">
 						<?php echo plogger_pagination_control(5); ?>
@@ -9,7 +9,7 @@
 				<?php } ?>
 			</div>
 
-			<div class="col-12 order-2 col-md-6 col-lg-4 order-lg-4">
+			<div class="col-12 order-2 col-md-12 order-md-3 col-lg-8 order-lg-2">
 				<?php if (plogger_sort_control() != '') { ?>
 					<div id="sort-control">
 						<?php echo plogger_sort_control(); ?>
@@ -17,7 +17,7 @@
 				<?php } ?>
 			</div>
 
-			<div class="col-12 order-3 col-md-6 col-lg-4 order-lg-2">
+			<div class="col-12 order-3 col-md-6 order-md-2 col-lg-4 order-lg-3">
 				<?php if (generate_jump_menu() != '') { ?>
 					<div id="navigation-container">
 						<?php echo generate_jump_menu(); ?>
@@ -25,7 +25,7 @@
 				<?php } ?>
 			</div>
 
-			<div class="col-12 order-4 col-md-6 col-lg-4 order-lg-3">
+			<div class="col-12 order-4 col-md-6 col-lg-4">
 				<div id="search-container">
 					<?php echo generate_search_box(); ?>
 				</div><!-- /search-container -->
