@@ -136,21 +136,23 @@ a.pagPrev, a.pagNext {
 #search-container input {
 	/* #search-container input is the search input box */
 	float: left;
-	width: calc(100% - 50px);
+	width: calc(100% - 80px);
 	padding: .5em .1em;
 	border: 1px solid #ccc;
 }
 
 #search-container button {
 	/* #search-container button.submit is the search button */
-	width: 50px;
+	width: 80px;
 	padding: .5em .1em;
 	border: 1px solid #ccc;
 }
 
 #search-container button span::before {
 	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
 	content: '\f002';
+	margin-right: 5px;
 }
 
 #download-selected button {
@@ -162,7 +164,9 @@ a.pagPrev, a.pagNext {
 
 #download-selected button span::before {
 	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
 	content: '\f019';
+	margin-right: 5px;
 }
 
 #navigation-container select {
