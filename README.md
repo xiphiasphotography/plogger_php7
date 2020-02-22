@@ -1,12 +1,10 @@
+THIS FORK IS STILL A WORK IN PROGRESS, SOME BITS HAVE BEEN UPDATED AND WORK ON PHP 7 BUT NOT EVERYTHING HAS BEEN CHECKED AND TESTED YET. 
+USE AT OWN RISK!!!
+
 plogger-php7
 =======
 A simple php7-based web gallery that can be integrated into your website.
-This fork uses the PDO fork by wuffleton which uses PDO as the database backend instead of the depreciated mysql library. This includes  support for mysql and pgsql out of the box. I've updated and altered all the code so it will run on PHP7.4.
-
-plogger-pdo
-=======
-A simple php-based web gallery that can be integrated into your website.
-This fork uses PDO as the database backend instead of the depreciated mysql library. I've included support for mysql and pgsql out of the box.
+This fork is based on the the fork by wuffleton which uses PDO as the database backend instead of the depreciated mysql library. This includes support for mysql and pgsql out of the box. I've updated and altered all the code so it will run on PHP 7.4.
 
 Installation & Usage
 --------------------
@@ -33,11 +31,16 @@ Upgrading from -RC1
 
 Differences from -RC1
 ---------------------
-- Database schema has been slightly changed to accomodate my changes to the codebase. If you are coming from RC1, see upgrade information above.
+- Database schema has been slightly changed to accomodate changes to the codebase. 
+  If you are coming from RC1, see upgrade information above.
 - Upgrade code for revisions older than RC1 has been removed since it would be overly complex and time consuming to update properly.
-- Gallery URL handling improved. Install script will detect HTTP/HTTPS, and admin panel will now allow relative paths to be used for the gallery location.
-- Certain error messages adapted to PDO changes. Most DB errors will be hidden by default unless PLOGGER_DEBUG is on for security and elegance reasons.
-- The phpthumb library has been updated to the latest version (1.7.13) 
+- Gallery URL handling improved. 
+  Install script will detect HTTP/HTTPS, and admin panel will now allow relative paths to be used for the gallery location.
+- CDN URL has been added so you can serve static files via a CDN.
+- Certain error messages adapted to PDO changes. 
+  Most DB errors will be hidden by default unless PLOGGER_DEBUG is on for security and elegance reasons.
+- The phpthumb library has been updated to the latest version (1.7.14)
+- Exifer 1.7 library has been updated to 2009 zenphoto version and improved for PHP7 compatability.
 - More elegant handling of the EXIF information boxes (hides blank fields, option to turn off display completely). 
 - SQL queries have been updated to be a more database agnostic and allow compatibility with both MySQL and PostgreSQL with minimal conditionals. 
 - Other minor fixes
@@ -45,7 +48,10 @@ Differences from -RC1
 Licensing, Support, and other Credits
 -------------------------------------
 - Original Project: http://www.plogger.org
-- Updated fork I used as the basis of mine https://github.com/alexzhuustc/plogger
-- phpThumb: http://phpthumb.sourceforge.net/
+- Updated fork I used as the basis of mine https://github.com/wuffleton/plogger-pdo 
+  which is based on https://github.com/alexzhuustc/plogger
+- phpThumb: https://github.com/JamesHeinrich/phpThumb
+- Exifer1_7: https://github.com/zenphoto/zenphoto/tree/master/zp-core/exif
 - My edits are licensed under the same terms as the original project (GPL).
-- If you see something wrong or that needs improving, file a bug or submit a pull request. I'll try my best to maintain this, but it's mostly a free-time project.
+- If you see something wrong or that needs improving, file a bug or submit a pull request.
+  I'll try my best to maintain this, but it's mostly a free-time project.
