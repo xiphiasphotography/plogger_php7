@@ -102,7 +102,7 @@ header p {
 }
 
 main {
-	min-height: calc(100vh - 182px);
+	min-height: calc(100vh - 280px);
 }
 
 /************************************************** FOOTER */
@@ -198,6 +198,7 @@ a.pagPrev, a.pagNext {
 
 #sort-control {
 	position: relative;
+	width: 100%;
 	margin-bottom: 10px;
 	padding-left: 25px;
 }
