@@ -53,7 +53,7 @@ header p {
 	color: #470047;
 	font-size: 2em;
 	font-family: "Oswald", "Lucida Grande", Verdana, Arial, sans-serif;
-	text-transform: uppercse;
+	text-transform: uppercase;
 }
 
 #breadcrumbs {
