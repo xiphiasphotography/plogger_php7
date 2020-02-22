@@ -112,6 +112,7 @@ footer {
 }
 #pagination {
 	/* #pagination contains the pagination */
+	margin-bottom: 10px;
 }
 
 .page-link, .page-link-current {
@@ -136,12 +137,9 @@ a.pagPrev, a.pagNext {
 	text-decoration: none;
 }
 
-#download-selected {
-	/* #download-selected contains the "Download Selected" button */
-}
-
 #search-container {
 	/* #search-container contains the seach box and the search button */
+	margin-bottom: 10px;
 }
 
 #search-container input {
@@ -166,6 +164,11 @@ a.pagPrev, a.pagNext {
 	margin-right: 5px;
 }
 
+#download-selected {
+	/* #download-selected contains the "Download Selected" button */
+	margin-bottom: 10px;
+}
+
 #download-selected button {
 	/* #download-selected button.submit controls the "Download Selected" button itself */
 	width: 100%;
@@ -180,11 +183,19 @@ a.pagPrev, a.pagNext {
 	margin-right: 5px;
 }
 
+#navigation-container {
+	margin-bottom: 10px;
+}
+
 #navigation-container select {
 	/* #navigation-container contains the "Jump to..." navigation drop down menu */
 	width: 100%;
 	padding: .5em 1em;
 	border: 1px solid #ccc;
+}
+
+#sort-control {
+	margin-bottom: 10px;
 }
 
 #sort-control select {
