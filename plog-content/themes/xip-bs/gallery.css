@@ -34,8 +34,7 @@ a:hover {
 
 #plog-wrapper {
 	/* #wrapper contains the entire content of the page; this is where one would center the page content, and give it a definite width, this is also where one would put borders around the content of the page */ 
-	margin: 0 auto 0;
-	width: 800px; /* any change to this width requires changes to the widths of .collection and #footer as well */
+	margin: 0 auto;
 	position: relative;
 }
 
@@ -231,15 +230,14 @@ a:hover {
 
 /* Begin album page styles */
 
-ul.slides {
+.slides {
 	/* ul.slides controls the unordered list of the thumbnails of images within an album */
-	margin: 10px 0 0 0;
+	margin-top: 10px;
 	padding: 0;
 	border: 1px solid #bed2d2;
-	width: 800px;
 }
 
-ul.slides li {
+.thumbnail {
 	/* ul.slides li controls each list item within the unordered list of the thumbnails of images within an album */
 	/* width is calculated by PHP in the HTML, style is applied inline */
 	float: left;
@@ -249,19 +247,19 @@ ul.slides li {
 	text-align: center;
 }
 
-ul.slides li img {
+.thumbnail img {
 	/* ul.slides li img controls the thumbnail image itself */
 	border: 1px solid #01b4e2;
 	background: #fff;
 	padding: 3px;
 }
 
-ul.slides li a {
+.thumbnail a {
 	/* ul.slides li a controls the thumbnail image link behavior */
 	display: block; /* display:block required to make anchor tag's border surround img in Firefox */
 }
 
-ul.slides li img:hover {
+.thumbnail img:hover {
 	/* ul.slides li img:hover controls the thumbnail image hover behavior */
 	background: #eaeae0;
 	border: 1px solid #f60;
@@ -502,7 +500,7 @@ ul.slides li img:hover {
 
 .errors {
 	/* .errors controls the error message when there is a problem with a comment */
-	width: 500px;
+	max-width: 720px;
 	margin: 15px 0 15px 0;
 	padding: 8px 8px 8px 30px;
 	border: 1px solid maroon;
@@ -540,7 +538,6 @@ ul.slides li img:hover {
 	margin: 10px auto 0;
 	border: 1px solid #bed2d2;
 	background: url("images/bg-field.png") repeat-x bottom left;
-	width: 748px; /* width must be 52 pixels less than the width of #wrapper */
 }
 
 #pagination {
@@ -692,13 +689,9 @@ option {
 .clearfix:after {
 	clear: both;
 	display: block;
-	content: ".";
+	content: "";
 	height: 0;
 	visibility: hidden;
-}
-
-.clearfix {
-	display: inline-block;
 }
 
 /* Hides from IE-mac \*/
