@@ -575,7 +575,7 @@ function run_query($query, $isFatal = true, $errmsg = "A database error occurred
 	} catch (PDOException $ex) {
 		echo $errmsg;
 		if (PLOGGER_DEBUG == '1') {
-			echo "<br />Error details: " . $ex->getMessage();
+			echo "<br />Query: " . $query ."<br />Error details: " . $ex->getMessage();
 		}
 		if ($isFatal) {
 			exit();
