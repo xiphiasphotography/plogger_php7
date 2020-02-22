@@ -1,6 +1,6 @@
-/* Air Theme stylesheet */
-/* Begin general styles for all pages */
+/************************************************** XiP-BS STYLESHEET */
 
+/************************************************** BASICS */
 * {
 	margin: 0;
 	padding: 0;
@@ -12,7 +12,7 @@ body {
 	padding: 0 0 25px 0;
 	background: #00000f;
 	color: #f5e5f5;
-	font: 16px "Lucida Grande", Verdana, Arial, sans-serif;
+	font: 16px "Montserrat", "Lucida Grande", Verdana, Arial, sans-serif;
 	text-align: center;
 }
 
@@ -23,20 +23,25 @@ img {
 
 a:link, a:visited {
 	/* a:link, a:visited control the default link behavior for all of the links on the page (but most of the link behaviors are changed later in the CSS) */
-	color: #7f807b;
+	color: #fff;
 	text-decoration: none;
 }
 
 a:hover {
 	/* a:hover controls the default hover behavior of all links */
-	color: #404040;
+	color: #d3a1d3;
 }
 
+/************************************************** MAIN */
 #plog-wrapper {
 	/* #wrapper contains the entire content of the page; this is where one would center the page content, and give it a definite width, this is also where one would put borders around the content of the page */ 
 	margin: 0 auto;
 	position: relative;
 }
+
+
+
+
 
 #header {
 	/* #header contains the gallery name, the search box, and the breadcrumbs */
@@ -529,11 +534,6 @@ a:hover {
 
 #footer {
 	/* #footer contains the entire footer */
-	clear: both;
-	padding: 10px 25px 0;
-	margin: 10px auto 0;
-	border: 1px solid #bed2d2;
-	background: url("images/bg-field.png") repeat-x bottom left;
 }
 
 #pagination {
@@ -648,14 +648,14 @@ option {
 	display: inline;
 }
 
-#link-back {
+.link-back {
 	/* #link-back controls the "Powered by Plogger" text */
 	clear: both;
 	font-size: 90%;
 	text-align: center;
 }
 
-#link-back a {
+.link-back a {
 	/* #link-back a controls the link behavior of the "Powered by Plogger" text */
 	color: #01b4e2;
 }

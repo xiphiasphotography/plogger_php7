@@ -39,10 +39,12 @@
 			</div>
 		</div>
 
-		<div class="row  gutters-10">
-			<div class="col-10 credit">
-				<div id="link-back"><?php echo plogger_link_back(); ?></div>
-				<div class="credit"><a href="http://xiphias.photography/" title="xiphias.photography"><?php echo plog_tr('Design by') ?> xiphias.photography</a></div><!-- /credit -->
+		<div class="row gutters-10">
+			<div class="col-10">
+				<span class="link-back"><?php echo plogger_link_back(); ?></span>
+				<span class="credit">
+					<a href="http://xiphias.photography/" title="xiphias.photography"><?php echo plog_tr('Design by') ?> xiphias.photography</a>
+				</span><!-- /credit -->
 			</div>
 
 			<div class="col-2">
@@ -56,4 +58,4 @@
 
 	<?php echo plogger_download_selected_form_end(); ?>
 
-</div><!-- /plog-wrapper -->
+	</div><!-- /plog-wrapper -->
