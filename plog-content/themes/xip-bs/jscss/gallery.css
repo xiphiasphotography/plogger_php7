@@ -137,14 +137,14 @@ a.pagPrev, a.pagNext {
 	/* #search-container input is the search input box */
 	float: left;
 	width: calc(100% - 80px);
-	padding: .5em .1em;
+	padding: .5em 1em;
 	border: 1px solid #ccc;
 }
 
 #search-container button {
 	/* #search-container button.submit is the search button */
 	width: 80px;
-	padding: .5em .1em;
+	padding: .5em 1em;
 	border: 1px solid #ccc;
 }
 
@@ -158,7 +158,7 @@ a.pagPrev, a.pagNext {
 #download-selected button {
 	/* #download-selected button.submit controls the "Download Selected" button itself */
 	width: 100%;
-	padding: .5em .1em;
+	padding: .5em 1em;
 	border: 1px solid #ccc;
 }
 
@@ -172,20 +172,20 @@ a.pagPrev, a.pagNext {
 #navigation-container select {
 	/* #navigation-container contains the "Jump to..." navigation drop down menu */
 	width: 100%;
-	padding: .5em .1em;
+	padding: .5em 1em;
 	border: 1px solid #ccc;
 }
 
 #sort-control select {
 	/* #sort-control contains the "Sort by:" drop down menu */
 	width: 100%;
-	padding: .5em .1em;
+	padding: .5em 1em;
 	border: 1px solid #ccc;
 }
 
 #sort-control option {
 	/* option controls each item within the "Sort by:" drop down menu */
-	padding: .5em .1em;
+	padding: .5em 1em;
 }
 
 #sort-control span {
