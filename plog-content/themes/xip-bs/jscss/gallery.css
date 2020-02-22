@@ -10,9 +10,9 @@ body {
 	/* body contains and controls all visible elements of the entire page, this is where you want to set things like the background of the page */
 	margin: 0;
 	padding: 0 0 25px 0;
-	background: #fff;
-	color: #404040;
-	font: 62.5% "Lucida Grande", Verdana, Arial, sans-serif; /* Resets 1em to 10px */
+	background: #00000f;
+	color: #f5e5f5;
+	font: 16px "Lucida Grande", Verdana, Arial, sans-serif;
 	text-align: center;
 }
 
@@ -71,21 +71,17 @@ a:hover {
 
 #search-container input {
 	/* #search-container input is the search input box */
-	border: 2px solid #4dc4e6;
 	float: left;
-	padding: 4px;
-	vertical-align: top;
+	width: calc(100% - 50px);
+	padding: .5em .1em;
+	border: 1px solid #ccc;
 }
 
-#search-container input.submit {
+#search-container button {
 	/* #search-container input.submit is the search button */
-	width: 82px;
-	height: 30px;
-	cursor: pointer;
-	background: #fff url("images/search-btn.png");
-	margin: 0 0 0 4px;
-	padding: 0 0 4px 0;
-	border: none;
+	width: 50px;
+	padding: .5em .1em;
+	border: 1px solid #ccc;
 }
 
 #breadcrumbs {
@@ -602,14 +598,11 @@ a.pagPrev, a.pagNext {
 	height: 23px;
 }
 
-#navigation-container {
+#navigation-container select {
 	/* #navigation-container contains the "Jump to..." navigation drop down menu */
-	float: left;
-	width: 40%;
-	text-align: left;
-	margin: 0 0 10px 0;
-	white-space: nowrap;
-	clear: left;
+	width: 100%;
+	padding: .5em .1em;
+	border: 1px solid #ccc;
 }
 
 #sort-control {

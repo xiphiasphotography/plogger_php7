@@ -1,7 +1,6 @@
 	<footer id="footer" class="container-fluid">
 
 		<div class="row gutters-10">
-
 			<div class="col-12 order-1 col-md-6 order-md-2 col-lg-12 order-lg-1">
 				<?php if (plogger_pagination_control() != '') { ?>
 					<div id="pagination">
@@ -30,11 +29,9 @@
 					<?php echo generate_search_box(); ?>
 				</div><!-- /search-container -->
 			</div>
-
 		</div><!-- /row -->
 
-		<div class="row">
-
+		<div class="row gutters-10">
 			<div class="col-12">
 				<?php if (plogger_download_selected_button() != '') { ?>
 					<div id="download-selected"><?php echo plogger_download_selected_button(); ?></div><!-- /download-selected -->
@@ -42,8 +39,8 @@
 			</div>
 		</div>
 
-		<div class="row credit">
-			<div class="col-10">
+		<div class="row  gutters-10">
+			<div class="col-10 credit">
 				<div id="link-back"><?php echo plogger_link_back(); ?></div>
 				<div class="credit"><a href="http://xiphias.photography/" title="xiphias.photography"><?php echo plog_tr('Design by') ?> xiphias.photography</a></div><!-- /credit -->
 			</div>
@@ -53,7 +50,6 @@
 					<div id="rss-tag-container"><?php echo plogger_rss_feed_button(); ?></div><!-- /rss-tag-container -->
 				<?php } ?>
 			</div>
-
 		</div><!-- /row -->
 
 	</footer><!-- /container-fluid -->
