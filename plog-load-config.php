@@ -111,7 +111,11 @@ if ($is_admin !== false) {
 	$config['baseurl'] = substr($config['baseurl'], 0, $is_admin);
 }
 
-$config['theme_url'] = $config['gallery_url'].'plog-content/themes/'.basename($config['theme_dir']).'/';
+if ($config['cdn_url'] != '') {
+	$config['theme_url'] = $config['cdn_url'].'plog-content/themes/'.basename($config['theme_dir']).'/';
+} else {
+	$config['theme_url'] = $config['gallery_url'].'plog-content/themes/'.basename($config['theme_dir']).'/';
+}
 
 $config['charset'] = 'utf-8';
 

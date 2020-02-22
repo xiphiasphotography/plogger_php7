@@ -6,8 +6,8 @@ if (intval(ini_get('max_execution_time')) < 300) {
 	@ini_set('max_execution_time', '300');
 }
 
-if (intval(ini_get('memory_limit')) < 64) {
-	@ini_set('memory_limit', '64M');
+if (intval(ini_get('memory_limit')) < 128) {
+	@ini_set('memory_limit', '128M');
 }
 
 // clean up $_SERVER['PHP_SELF'] so it's safe to use against potential XSS attacks

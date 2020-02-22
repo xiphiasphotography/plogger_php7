@@ -108,6 +108,12 @@ if (!in_array($GLOBALS['plogger_level'], $allowed_levels)) {
 	$GLOBALS['plogger_level'] = 'collections';
 }
 
+if ($config['cdn_url'] != '') {
+	define('CDN_URL', $config['cdn_url']);
+} else {
+	define('CDN_URL', $config['gallery_url']);
+}
+
 define('THEME_DIR', PLOGGER_DIR.'plog-content/themes/'.$config['theme_dir']);
 define('THEME_URL', $config['theme_url']);
 
