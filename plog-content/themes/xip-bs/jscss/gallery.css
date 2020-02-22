@@ -32,6 +32,12 @@ a:hover {
 	color: #d3a1d3;
 }
 
+/************************************************** HEADER */
+header {
+	/* header contains the gallery name, the search box, and the breadcrumbs */
+	background-color: #000;
+}
+
 /************************************************** MAIN */
 #plog-wrapper {
 	/* #wrapper contains the entire content of the page; this is where one would center the page content, and give it a definite width, this is also where one would put borders around the content of the page */ 
@@ -39,14 +45,12 @@ a:hover {
 	position: relative;
 }
 
-
-
-
-
-#header {
-	/* #header contains the gallery name, the search box, and the breadcrumbs */
-	text-align: left;
+/************************************************** FOOTER */
+footer {
+	/* #footer contains the entire footer */
+	background-color: #000;
 }
+
 
 #header p {
 	/* one can edit header.php, within the commented <p></p> tags, to add a few words below the breadcrumbs, in which case this controls that text */
@@ -532,20 +536,9 @@ a:hover {
 
 /* Begin Footer Section */
 
-#footer {
-	/* #footer contains the entire footer */
-}
 
 #pagination {
 	/* #pagination contains the pagination */
-	float: left;
-	width: 40%;
-	text-align: left;
-	margin: 0 0 10px 0;
-	font-size: 1.3em;
-	font-weight: bold;
-	height: 23px;
-	clear: left;
 }
 
 .page-link, .page-link-current {
