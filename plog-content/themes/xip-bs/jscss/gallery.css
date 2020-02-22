@@ -199,6 +199,7 @@ a.pagPrev, a.pagNext {
 #sort-control {
 	position: relative;
 	margin-bottom: 10px;
+	padding-left: 25px;
 }
 
 #sort-control::before {
@@ -234,7 +235,6 @@ a.pagPrev, a.pagNext {
 
 #sort-control select.change_sortby {
 	width: 50%;
-	margin-left: 25px;
 }
 
 #sort-control select.change_sortdir {
