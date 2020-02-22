@@ -136,14 +136,14 @@ a.pagPrev, a.pagNext {
 #search-container input {
 	/* #search-container input is the search input box */
 	float: left;
-	width: calc(100% - 80px);
+	width: calc(100% - 100px);
 	padding: .5em 1em;
 	border: 1px solid #ccc;
 }
 
 #search-container button {
 	/* #search-container button.submit is the search button */
-	width: 80px;
+	width: 100px;
 	padding: .5em 1em;
 	border: 1px solid #ccc;
 }
