@@ -43,6 +43,11 @@ class gettext_reader {
       return (int)(($byte[3]) | ($byte[2]<<8) | ($byte[1]<<16) | ($byte[0]<<24));
   }
 
+ 	// public: constructor
+   public function __construct($Reader) {
+		$this->gettext_reader($Reader);
+	}
+
   // constructor that requires StreamReader object
   function gettext_reader($Reader) {
     // If there isn't a StreamReader, turn on short circuit mode.

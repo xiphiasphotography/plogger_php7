@@ -48,6 +48,11 @@ class StringReader {
   var $_pos;
   var $_str;
 
+ 	// public: constructor
+	public function __construct($str='') {
+		$this->StringReader($str='');
+	}
+
   function StringReader($str='') {
     $this->_str = $str;
     $this->_pos = 0;
@@ -84,6 +89,11 @@ class FileReader {
   var $_fd;
   var $_length;
 
+ 	// public: constructor
+   public function __construct($filename) {
+		$this->FileReader($filename);
+	}
+
   function FileReader($filename) {
     if (file_exists($filename)) {
 
@@ -91,8 +101,8 @@ class FileReader {
       $this->_pos = 0;
       $this->_fd = fopen($filename,'rb');
       if (!$this->_fd) {
-	$this->error = 3; // Cannot read file, probably permissions
-	return false;
+        $this->error = 3; // Cannot read file, probably permissions
+        return false;
       }
     } else {
       $this->error = 2; // File doesn't exist
@@ -127,5 +137,3 @@ class FileReader {
   }
 
 }
-
-?>
