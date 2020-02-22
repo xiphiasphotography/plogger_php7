@@ -204,14 +204,14 @@ function generate_jump_menu() {
 	}
 
 	// 2. Get a list of all albums and collections
-	$sqlCollection = "SELECT
-	\"a\".id AS \"album_id\",
-	\"a\".name AS \"album_name\",
-	\"c\".id AS \"collection_id\",
-	\"c\".name AS \"collection_name\"
-	FROM \"".PLOGGER_TABLE_PREFIX."albums\" AS \"a\"
-	LEFT JOIN \"".PLOGGER_TABLE_PREFIX."collections\" AS \"c\" ON \"a\".\"parent_id\"=\"c\".\"id\"
-	ORDER BY \"c\".\"name\" ASC, \"a\".\"name\" ASC";
+	$sqlCollection = 'SELECT
+						"a"."id" AS "album_id",
+						"a"."name" AS "album_name",
+						"c"."id" AS "collection_id",
+						"c"."name" AS "collection_name"
+					FROM "' . PLOGGER_TABLE_PREFIX . 'albums" AS "a"
+						LEFT JOIN "' . PLOGGER_TABLE_PREFIX . 'collections" AS "c" ON "a"."parent_id"="c"."id"
+					ORDER BY "c"."name" ASC, "a"."name" ASC';
 	$result = run_query($sqlCollection);
 
 	$last_collection = '';
@@ -789,17 +789,17 @@ function get_picture_by_id($id, $album_id = null) {
 		$where_cond = "= ".intval($id);
 	}
 
-	$sql = "SELECT
-	\"p\".*,
-	\"a\".\"path\" AS \"album_path\",
-	\"c\".\"path\" AS \"collection_path\"
-	FROM \"".PLOGGER_TABLE_PREFIX."pictures\" AS \"p\"
-	LEFT JOIN \"".PLOGGER_TABLE_PREFIX."albums\" AS \"a\" ON \"p\".\"parent_album\"=\"a\".\"id\"
-	LEFT JOIN \"".PLOGGER_TABLE_PREFIX."collections\" AS \"c\" ON \"p\".\"parent_collection\"=\"c\".\"id\"
-	WHERE \"p\".\"id\" ".$where_cond;
+	$sql = 'SELECT
+				"p".*,
+				"a"."path" AS "album_path",
+				"c"."path" AS "collection_path"
+			FROM "' . PLOGGER_TABLE_PREFIX . 'pictures" AS "p"
+				LEFT JOIN "' . PLOGGER_TABLE_PREFIX . 'albums" AS "a" ON "p"."parent_album"="a"."id"
+				LEFT JOIN "' . PLOGGER_TABLE_PREFIX . 'collections" AS "c" ON "p"."parent_collection"="c"."id"
+			WHERE "p"."id" ' . $where_cond;
 
 	if ($album_id) {
-		$sql .= " AND \"p\".\"parent_album\"=".intval($album_id);
+		$sql .= ' AND "p"."parent_album"=' . intval($album_id);
 	}
 
 	$resultPicture = run_query($sql);
@@ -826,19 +826,19 @@ function get_picture_by_id($id, $album_id = null) {
 function get_pictures($album_id, $order = 'alpha', $sort = 'DESC') {
 	global $config;
 
-	$query = "SELECT
-	\"p\".*,
-	\"a\".\"path\" AS \"album_path\",
-	\"c\".\"path\" AS \"collection_path\"
-	FROM \"".PLOGGER_TABLE_PREFIX."pictures\" AS \"p\"
-	LEFT JOIN \"".PLOGGER_TABLE_PREFIX."albums\" AS \"a\" ON \"p\".\"parent_album\"=\"a\".\"id\"
-	LEFT JOIN \"".PLOGGER_TABLE_PREFIX."collections\" AS \"c\" ON \"p\".\"parent_collection\"=\"c\".\"id\"
-	WHERE \"a\".\"id\"=".intval($album_id);
+	$query = 'SELECT
+				"p".*,
+				"a"."path" AS "album_path",
+				"c"."path" AS "collection_path"
+			FROM "' . PLOGGER_TABLE_PREFIX . 'pictures" AS "p"
+				LEFT JOIN "' . PLOGGER_TABLE_PREFIX . 'albums" AS "a" ON "p"."parent_album"="a"."id"
+				LEFT JOIN "' . PLOGGER_TABLE_PREFIX . 'collections" AS "c" ON "p"."parent_collection"="c"."id"
+			WHERE "a"."id"=' . intval($album_id);
 
 	if ($order == 'mod') {
-		$query .= ' ORDER BY \"p\".\"date_submitted\" ';
+		$query .= ' ORDER BY "p"."date_submitted" ';
 	} else {
-		$query .= ' ORDER BY \"p\".\"caption\" ';
+		$query .= ' ORDER BY "p"."caption" ';
 	}
 
 	if ($sort == 'ASC') {
@@ -1768,28 +1768,28 @@ function plogger_init_picture($arr) {
 	// Determine sort ordering
 	switch ($_SESSION['plogger_sortby']) {
 		case 'number_of_comments':
-			$sql = "SELECT \"p\".\"id\",
-			COUNT(\"comment\") AS \"num_comments\"
-			FROM \"".PLOGGER_TABLE_PREFIX."pictures\" AS \"p\"
-			LEFT JOIN \"".PLOGGER_TABLE_PREFIX."comments\" AS \"c\" ON \"p\".\"id\"=\"c\".\"parent_id\"
-			WHERE \"parent_album\"=".$row['parent_album']."
-			GROUP BY \"p\".\"id\"
-			ORDER BY \"num_comments\" ";
+			$sql = 'SELECT "p"."id",
+						COUNT("comment") AS "num_comments"
+					FROM "' . PLOGGER_TABLE_PREFIX . 'pictures" AS "p"
+						LEFT JOIN "' . PLOGGER_TABLE_PREFIX . 'comments" AS "c" ON "p"."id"="c"."parent_id"
+					WHERE "parent_album"=' . $row['parent_album'] . '
+					GROUP BY "p"."id"
+					ORDER BY "num_comments" ';
 		break;
 		case 'caption':
-			$sql .= " ORDER BY \"caption\" ";
+			$sql .= ' ORDER BY "caption" ';
 		break;
 		case 'date_taken':
-			$sql .= " ORDER BY \"exif_date_taken\" ";
+			$sql .= ' ORDER BY "exif_date_taken" ';
 		break;
 		case 'filename':
-			$sql .= " ORDER BY \"path\" ";
+			$sql .= ' ORDER BY "path" ';
 		break;
 		case 'date':
-			$sql .= " ORDER BY \"date_submitted\" ";
+			$sql .= ' ORDER BY "date_submitted" ';
 		break;
 		default:
-		$sql .= " ORDER BY \"id\" ";
+		$sql .= ' ORDER BY "id" ';
 		break;
 	}
 

@@ -697,6 +697,8 @@ function update_collection($collection_id, $name, $description, $thumbnail_id = 
 }
 
 function update_collection_field($collection_id, $field, $value) {
+	global $PLOGGER_DBH;
+
 	$fields = array('name', 'description');
 	if (!in_array($field, $fields)) {
 		return array('errors' => plog_tr('Invalid action'));
@@ -766,6 +768,7 @@ function delete_collection($del_id) {
 
 function add_album($album_name, $description, $pid) {
 	global $config, $PLOGGER_DBH;
+
 	$output = $errors = '';
 	$id = 0;
 	$album_name = trim(SmartStripSlashes($album_name));
@@ -806,7 +809,7 @@ function add_album($album_name, $description, $pid) {
 	}
 
 	if (!makeDirs($create_path)) {
-		$errors .= sprintf(plog_tr('Could not create directory %s!'), '<strong>'.$path.'</strong>');
+		$errors .= sprintf(plog_tr('Could not create directory %s!'), '<strong>'.$create_path.'</strong>');
 	} else {
 		$sql_name = $PLOGGER_DBH->quote($album_name);
 		$description = $PLOGGER_DBH->quote($description);
@@ -923,6 +926,8 @@ function update_album($album_id, $name, $description, $thumbnail_id = 0) {
 }
 
 function update_album_field($album_id, $field, $value) {
+	global $PLOGGER_DBH;
+
 	$fields = array('name', 'description');
 	if (!in_array($field, $fields)) {
 		return array('errors' => plog_tr('Invalid action'));
@@ -1126,6 +1131,8 @@ function update_comment($id, $author, $email, $url, $comment) {
 }
 
 function update_comment_field($id, $field, $value) {
+	global $PLOGGER_DBH;
+
 	$allowed_fields = array('author', 'email', 'url', 'comment');
 	if (!in_array($field, $allowed_fields)) {
 		return array('errors' => plog_tr('Invalid action'));
