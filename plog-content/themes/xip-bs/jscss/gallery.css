@@ -60,6 +60,7 @@ header p {
 	/* #breadcrumbs contains the breadcrumbs */
 	background-color: #000;
 	color: #ccc;
+	text-align: left;
 }
 
 #breadcrumb-links {
@@ -147,11 +148,21 @@ a.pagPrev, a.pagNext {
 	border: 1px solid #ccc;
 }
 
+#search-container button span::before {
+	font-family: 'Font Awesome 5 Free';
+	content: '\f002';
+}
+
 #download-selected button {
 	/* #download-selected button.submit controls the "Download Selected" button itself */
 	width: 100%;
 	padding: .5em .1em;
 	border: 1px solid #ccc;
+}
+
+#download-selected button span::before {
+	font-family: 'Font Awesome 5 Free';
+	content: '\f019';
 }
 
 #navigation-container select {
