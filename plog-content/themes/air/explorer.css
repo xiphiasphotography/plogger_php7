@@ -60,6 +60,6 @@ li.thumbnail a:hover, .collection a:hover, #picture-holder a:hover, #thumb-nav a
 	width: 330px;
 }
 
-#download-selected input.submit {
+#download-selected button.submit {
 	background: #fff url("images/carrot_sel3.gif") no-repeat 0 50%;
 }

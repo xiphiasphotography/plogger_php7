@@ -45,7 +45,7 @@ input, select, textarea {
 	color: #444;
 }
 
-input.submit {
+button.submit {
 	background-color: #369;
 	background-image: url("images/blue-button-bg.gif");
 	background-repeat: repeat-x;

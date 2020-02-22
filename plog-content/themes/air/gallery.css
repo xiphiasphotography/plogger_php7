@@ -78,8 +78,8 @@ a:hover {
 	vertical-align: top;
 }
 
-#search-container input.submit {
-	/* #search-container input.submit is the search button */
+#search-container button.submit {
+	/* #search-container button.submit is the search button */
 	width: 82px;
 	height: 30px;
 	cursor: pointer;
@@ -590,8 +590,8 @@ a.pagPrev, a.pagNext {
 	clear: right;
 }
 
-#download-selected input.submit {
-	/* #download-selected input.submit controls the "Download Selected" button itself */
+#download-selected button.submit {
+	/* #download-selected button.submit controls the "Download Selected" button itself */
 	margin: 0;
 	padding: 0 0 0 26px;
 	float: right;

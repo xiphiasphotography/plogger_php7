@@ -48,17 +48,17 @@ header p {
 
 #gallery-name {
 	/* #gallery-name controls the name of the gallery */
-	float: left;
 	margin: 20px 0 0 0;
 	padding: 0 0 10px 0;
-	color: #01b4e2;
+	color: #470047;
 	font-size: 2em;
 	font-family: "Oswald", "Lucida Grande", Verdana, Arial, sans-serif;
+	text-transform: uppercse;
 }
 
 #breadcrumbs {
 	/* #breadcrumbs contains the breadcrumbs */
-	background-color: #470047;
+	background-color: #000;
 	color: #ccc;
 }
 
@@ -68,19 +68,16 @@ header p {
 
 #breadcrumb-links a {
 	/* #breadcrumb_links a controls the breadcrumbs text that is a link */
-	color: #fff;
 	text-decoration: underline;
 }
 
 #breadcrumb-links a:hover, #slideshow a:hover {
 	/* #breadcrumb_links a:hover, #slideshow a:hover a controls hover behavior of the breadcrumbs text that is a link */
-	color: #fff;
 	text-decoration: none;
 }
 
 #slideshow a {
 	/* #slideshow a controls the text of the View as Slideshow link */
-	color: #fff;
 	text-decoration: underline;
 }
 
@@ -116,32 +113,19 @@ a.pagPrev, a.pagNext {
 #pagination a {
 	/* #pagination a controls the link behavior of the page numbers */
 	text-decoration: none;
-	color: #4dc4e6;
 }
 
 #pagination a:hover {
 	/* #pagination a:hover controls the link hover behavior of the page numbers */
 	text-decoration: none;
-	color: #f60;
 }
 
 #download-selected {
 	/* #download-selected contains the "Download Selected" button */
-	margin: 0 0 10px 0;
-	padding: 0;
-	float: right;
-	display: inline;
-	width: 168px;
-	text-align: right;
-	clear: right;
 }
 
 #search-container {
 	/* #search-container contains the seach box and the search button */
-	float: right;
-	white-space: nowrap;
-	margin: 18px 0 0 0;
-	height: 30px;
 }
 
 #search-container input {
@@ -153,25 +137,17 @@ a.pagPrev, a.pagNext {
 }
 
 #search-container button {
-	/* #search-container input.submit is the search button */
+	/* #search-container button.submit is the search button */
 	width: 50px;
 	padding: .5em .1em;
 	border: 1px solid #ccc;
 }
 
-#download-selected input.submit {
-	/* #download-selected input.submit controls the "Download Selected" button itself */
-	margin: 0;
-	padding: 0 0 0 26px;
-	float: right;
-	display: inline;
-	cursor: pointer;
-	background: #fff url("images/carrot_sel3.png") no-repeat 0 50%;
-	border: none;
-	font-weight: bold;
-	color: #4dc4e6;
-	width: 168px;
-	height: 23px;
+#download-selected button {
+	/* #download-selected button.submit controls the "Download Selected" button itself */
+	width: 100%;
+	padding: .5em .1em;
+	border: 1px solid #ccc;
 }
 
 #navigation-container select {
@@ -181,40 +157,29 @@ a.pagPrev, a.pagNext {
 	border: 1px solid #ccc;
 }
 
-#sort-control {
+#sort-control select {
 	/* #sort-control contains the "Sort by:" drop down menu */
-	float: right;
-	text-align: right;
-	margin: 0 -10px 10px 0;
-	display: inline;
-	clear: right;
-	width: 47%;
+	width: 100%;
+	padding: .5em .1em;
+	border: 1px solid #ccc;
 }
 
-option {
+#sort-control option {
 	/* option controls each item within the "Sort by:" drop down menu */
-	padding: 0 4px;
+	padding: .5em .1em;
 }
 
 #sort-control span {
 	/* #sort-control span contains the ["Sort by:" text and 'by which criteria' menu] and [ascending/descending menu] */
-	float: left;
-	margin: 0 0 0 8px;
-	display: inline;
-	font-size: 1.2em;
 }
 
 #change_sortby {
 	/* #change_sortby controls the 'by which criteria' menu */
-	margin-left: 5px;
 }
 
 #rss-tag-container {
 	/* #rss-tag-container contains the rss image and link */
-	float: right;
-	width: 40%;
 	text-align: right;
-	clear: right;
 }
 
 #rss-image {
@@ -226,31 +191,24 @@ option {
 
 .link-back {
 	/* #link-back controls the "Powered by Plogger" text */
-	clear: both;
-	font-size: 90%;
-	text-align: center;
+	font-size: smaller;
 }
 
 .link-back a {
 	/* #link-back a controls the link behavior of the "Powered by Plogger" text */
-	color: #01b4e2;
 }
 
 .credit {
 	/* .credit controls the "Design by ardamis.com" text */
-	font-size: 90%;
-	padding: 0 0 10px 0;
-	text-align: center;
+	font-size: smaller;
 }
 
 .credit a {
 	/* .credit a controls the link behavior of the "Design by ardamis.com" text */
-	color: #01b4e2;
 }
 
 .credit a:hover {
 	/* .credit a:hover controls the hover behavior of the "Design by ardamis.com" link text */
-	color: #01b4e2;
 }
 
 

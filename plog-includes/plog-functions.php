@@ -393,7 +393,7 @@ function generate_search_box() {
 	$output = '<form id="plogsearch" action="'.generate_url('search').'" method="get">
 				<div id="search-box">
 					<input type="text" id="searchterms" name="searchterms" />
-					<input class="submit" type="submit" value="'.plog_tr('Search').'" />
+					<button type="submit" value="'.plog_tr('Search').'" class="submit"><span>'.plog_tr('Search').'</span></button>
 				</div>';
 	if (!$config['use_mod_rewrite']) {
 		$output .= "\n\t\t\t\t\t" . '<input type="hidden" name="level" value="search" />';
@@ -2232,7 +2232,7 @@ function plogger_get_footer() {
 function plogger_download_selected_button() {
 	global $config;
 	if ($GLOBALS['plogger_level'] != 'picture' && $GLOBALS['plogger_mode'] != 'slideshow' && $GLOBALS['plogger_level'] !='404' && $config['allow_dl']) {
-		return '<input id="download_selected_button" class="submit" type="submit" name="download_selected_button" value="'.plog_tr('Download Selected').'" />';
+		return '<button type="submit" name="download_selected_button" title="'.plog_tr('Download Selected').'" id="download_selected_button" class="submit"><span>'.plog_tr('Download Selected').'</span></button>';
 	}
 }
 

@@ -47,7 +47,7 @@ input, select, #jump-search-container select, #jump-search-container input, #jum
 	display: inline;
 }
 
-input.submit {
+button.submit {
 	border: 3px double #999;
 	border-top-color: #ccc;
 	border-left-color: #ccc;
