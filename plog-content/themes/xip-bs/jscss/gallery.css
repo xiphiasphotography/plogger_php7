@@ -38,21 +38,7 @@ header {
 	background-color: #000;
 }
 
-/************************************************** MAIN */
-#plog-wrapper {
-	/* #wrapper contains the entire content of the page; this is where one would center the page content, and give it a definite width, this is also where one would put borders around the content of the page */ 
-	margin: 0 auto;
-	position: relative;
-}
-
-/************************************************** FOOTER */
-footer {
-	/* #footer contains the entire footer */
-	background-color: #000;
-}
-
-
-#header p {
+header p {
 	/* one can edit header.php, within the commented <p></p> tags, to add a few words below the breadcrumbs, in which case this controls that text */
 	clear: both;
 	margin: 6px 25px;
@@ -67,7 +53,87 @@ footer {
 	padding: 0 0 10px 0;
 	color: #01b4e2;
 	font-size: 2em;
-	font-family: "Century Gothic", "Lucida Grande", Verdana, Arial, sans-serif;
+	font-family: "Oswald", "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+#breadcrumbs {
+	/* #breadcrumbs contains the breadcrumbs */
+	background-color: #470047;
+	color: #ccc;
+}
+
+#breadcrumb-links {
+	/* #breadcrumb_links controls the breadcrumbs text that isn't a link */
+}
+
+#breadcrumb-links a {
+	/* #breadcrumb_links a controls the breadcrumbs text that is a link */
+	color: #fff;
+	text-decoration: underline;
+}
+
+#breadcrumb-links a:hover, #slideshow a:hover {
+	/* #breadcrumb_links a:hover, #slideshow a:hover a controls hover behavior of the breadcrumbs text that is a link */
+	color: #fff;
+	text-decoration: none;
+}
+
+#slideshow a {
+	/* #slideshow a controls the text of the View as Slideshow link */
+	color: #fff;
+	text-decoration: underline;
+}
+
+
+/************************************************** MAIN */
+#plog-wrapper {
+	/* #wrapper contains the entire content of the page; this is where one would center the page content, and give it a definite width, this is also where one would put borders around the content of the page */ 
+	margin: 0 auto;
+	position: relative;
+}
+
+/************************************************** FOOTER */
+footer {
+	/* footer contains the entire footer */
+	background-color: #000;
+}
+#pagination {
+	/* #pagination contains the pagination */
+}
+
+.page-link, .page-link-current {
+	/* .page_link controls the page numbers (link and non-link) */
+	padding-right: 5px;
+	padding-left: 5px;
+	text-decoration: none;
+}
+
+a.pagPrev, a.pagNext {
+	text-decoration: none;
+	margin: 0 3px;
+}
+
+#pagination a {
+	/* #pagination a controls the link behavior of the page numbers */
+	text-decoration: none;
+	color: #4dc4e6;
+}
+
+#pagination a:hover {
+	/* #pagination a:hover controls the link hover behavior of the page numbers */
+	text-decoration: none;
+	color: #f60;
+}
+
+#download-selected {
+	/* #download-selected contains the "Download Selected" button */
+	margin: 0 0 10px 0;
+	padding: 0;
+	float: right;
+	display: inline;
+	width: 168px;
+	text-align: right;
+	clear: right;
 }
 
 #search-container {
@@ -93,44 +159,106 @@ footer {
 	border: 1px solid #ccc;
 }
 
-#breadcrumbs {
-	/* #breadcrumbs contains the breadcrumbs */
-	clear: both;
+#download-selected input.submit {
+	/* #download-selected input.submit controls the "Download Selected" button itself */
 	margin: 0;
-	font-size: 1.3em;
-	min-height: 24px;
-	border: 1px solid #039acb;
-	background: #01b4e2 url("images/blue-gradient.gif") repeat-x;
-	color: #fff;
-}
-
-#breadcrumb-links {
-	/* #breadcrumb_links controls the breadcrumbs text that isn't a link */
-	float: left;
-	display: inline;
-	padding: 4px 0 0 25px;
-}
-
-#breadcrumb-links a {
-	/* #breadcrumb_links a controls the breadcrumbs text that is a link */
-	color: #fff;
-	text-decoration: underline;
-}
-
-#breadcrumb-links a:hover, #slideshow a:hover {
-	/* #breadcrumb_links a:hover, #slideshow a:hover a controls hover behavior of the breadcrumbs text that is a link */
-	color: #fff;
-	text-decoration: none;
-}
-
-#slideshow a {
-	/* #slideshow a controls the text of the View as Slideshow link */
+	padding: 0 0 0 26px;
 	float: right;
 	display: inline;
-	padding: 4px 25px 0 0;
-	color: #fff;
-	text-decoration: underline;
+	cursor: pointer;
+	background: #fff url("images/carrot_sel3.png") no-repeat 0 50%;
+	border: none;
+	font-weight: bold;
+	color: #4dc4e6;
+	width: 168px;
+	height: 23px;
 }
+
+#navigation-container select {
+	/* #navigation-container contains the "Jump to..." navigation drop down menu */
+	width: 100%;
+	padding: .5em .1em;
+	border: 1px solid #ccc;
+}
+
+#sort-control {
+	/* #sort-control contains the "Sort by:" drop down menu */
+	float: right;
+	text-align: right;
+	margin: 0 -10px 10px 0;
+	display: inline;
+	clear: right;
+	width: 47%;
+}
+
+option {
+	/* option controls each item within the "Sort by:" drop down menu */
+	padding: 0 4px;
+}
+
+#sort-control span {
+	/* #sort-control span contains the ["Sort by:" text and 'by which criteria' menu] and [ascending/descending menu] */
+	float: left;
+	margin: 0 0 0 8px;
+	display: inline;
+	font-size: 1.2em;
+}
+
+#change_sortby {
+	/* #change_sortby controls the 'by which criteria' menu */
+	margin-left: 5px;
+}
+
+#rss-tag-container {
+	/* #rss-tag-container contains the rss image and link */
+	float: right;
+	width: 40%;
+	text-align: right;
+	clear: right;
+}
+
+#rss-image {
+	/* #rss-image controls the rss image */
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+.link-back {
+	/* #link-back controls the "Powered by Plogger" text */
+	clear: both;
+	font-size: 90%;
+	text-align: center;
+}
+
+.link-back a {
+	/* #link-back a controls the link behavior of the "Powered by Plogger" text */
+	color: #01b4e2;
+}
+
+.credit {
+	/* .credit controls the "Design by ardamis.com" text */
+	font-size: 90%;
+	padding: 0 0 10px 0;
+	text-align: center;
+}
+
+.credit a {
+	/* .credit a controls the link behavior of the "Design by ardamis.com" text */
+	color: #01b4e2;
+}
+
+.credit a:hover {
+	/* .credit a:hover controls the hover behavior of the "Design by ardamis.com" link text */
+	color: #01b4e2;
+}
+
+
+
+
+
+
+
 
 #no-pictures-msg {
 	/* #no-pictures-msg controls the "no collections", "no albums", and "no picture" messages displayed when a visitor goes to a page without collections, albums, or a picture */
@@ -534,151 +662,6 @@ footer {
 	padding: 0 4px;
 }
 
-/* Begin Footer Section */
-
-
-#pagination {
-	/* #pagination contains the pagination */
-}
-
-.page-link, .page-link-current {
-	/* .page_link controls the page numbers (link and non-link) */
-	padding-right: 5px;
-	padding-left: 5px;
-	text-decoration: none;
-}
-
-a.pagPrev, a.pagNext {
-	text-decoration: none;
-	margin: 0 3px;
-}
-
-#pagination a {
-	/* #pagination a controls the link behavior of the page numbers */
-	text-decoration: none;
-	color: #4dc4e6;
-}
-
-#pagination a:hover {
-	/* #pagination a:hover controls the link hover behavior of the page numbers */
-	text-decoration: none;
-	color: #f60;
-}
-
-#download-selected {
-	/* #download-selected contains the "Download Selected" button */
-	margin: 0 0 10px 0;
-	padding: 0;
-	float: right;
-	display: inline;
-	width: 168px;
-	text-align: right;
-	clear: right;
-}
-
-#download-selected input.submit {
-	/* #download-selected input.submit controls the "Download Selected" button itself */
-	margin: 0;
-	padding: 0 0 0 26px;
-	float: right;
-	display: inline;
-	cursor: pointer;
-	background: #fff url("images/carrot_sel3.png") no-repeat 0 50%;
-	border: none;
-	font-weight: bold;
-	color: #4dc4e6;
-	width: 168px;
-	height: 23px;
-}
-
-#navigation-container select {
-	/* #navigation-container contains the "Jump to..." navigation drop down menu */
-	width: 100%;
-	padding: .5em .1em;
-	border: 1px solid #ccc;
-}
-
-#sort-control {
-	/* #sort-control contains the "Sort by:" drop down menu */
-	float: right;
-	text-align: right;
-	margin: 0 -10px 10px 0;
-	display: inline;
-	clear: right;
-	width: 47%;
-}
-
-option {
-	/* option controls each item within the "Sort by:" drop down menu */
-	padding: 0 4px;
-}
-
-#sort-control span {
-	/* #sort-control span contains the ["Sort by:" text and 'by which criteria' menu] and [ascending/descending menu] */
-	float: left;
-	margin: 0 0 0 8px;
-	display: inline;
-	font-size: 1.2em;
-}
-
-#change_sortby {
-	/* #change_sortby controls the 'by which criteria' menu */
-	margin-left: 5px;
-}
-
-#rss-tag-container {
-	/* #rss-tag-container contains the rss image and link */
-	float: right;
-	width: 40%;
-	text-align: right;
-	clear: right;
-}
-
-#rss-image {
-	/* #rss-image controls the rss image */
-	margin: 0;
-	padding: 0;
-	display: inline;
-}
-
-.link-back {
-	/* #link-back controls the "Powered by Plogger" text */
-	clear: both;
-	font-size: 90%;
-	text-align: center;
-}
-
-.link-back a {
-	/* #link-back a controls the link behavior of the "Powered by Plogger" text */
-	color: #01b4e2;
-}
-
-.credit {
-	/* .credit controls the "Design by ardamis.com" text */
-	font-size: 90%;
-	padding: 0 0 10px 0;
-	text-align: center;
-}
-
-.credit a {
-	/* .credit a controls the link behavior of the "Design by ardamis.com" text */
-	color: #01b4e2;
-}
-
-.credit a:hover {
-	/* .credit a:hover controls the hover behavior of the "Design by ardamis.com" link text */
-	color: #01b4e2;
-}
-
-/* Begin div clearing code */
-
-.clearfix:after {
-	clear: both;
-	display: block;
-	content: "";
-	height: 0;
-	visibility: hidden;
-}
 
 /* Hides from IE-mac \*/
 * html .clearfix {
