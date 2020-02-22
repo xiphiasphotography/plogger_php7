@@ -47,7 +47,9 @@ class response {
 }
 
 function get_album_by_name($name) {
-	$sqlAlbum = "SELECT * FROM \"".PLOGGER_TABLE_PREFIX."albums\" WHERE name = '".$PLOGGER_DBH->quote($name)."'";
+	global $PLOGGER_DBH;
+
+	$sqlAlbum = "SELECT * FROM \"".PLOGGER_TABLE_PREFIX."albums\" WHERE name = ".$PLOGGER_DBH->quote($name);
 	$resultAlbum = run_query($sqlAlbum);
 	return $resultAlbum->fetch();
 }
@@ -194,8 +196,10 @@ function list_images($albumname) {
 }
 
 function gr_add_album($parent, $name, $description) {
+	global $PLOGGER_DBH;
+
 	// Parent is the name of the collection
-	$query = "SELECT * FROM \"".PLOGGER_TABLE_PREFIX."collections\" WHERE name = '".$PLOGGER_DBH->quote($parent)."'";
+	$query = "SELECT * FROM \"".PLOGGER_TABLE_PREFIX."collections\" WHERE name = ".$PLOGGER_DBH->quote($parent);
 	$result = run_query($query);
 
 	$row = $result->fetch();

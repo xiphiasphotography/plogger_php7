@@ -90,7 +90,8 @@ function get_popular_tags($limit=NULL) {
 }
 
 function insert_tag($tag) {
-	global $TABLE_PREFIX;
+	global $TABLE_PREFIX, $PLOGGER_DBH;
+
 	$urlified = $PLOGGER_DBH->quote(urlify_tag($tag));
 	$sql = 'INSERT INTO '.$TABLE_PREFIX.'tags ("tag","tagdate","urlified")
 	VALUES ("'.$PLOGGER_DBH->quote($tag).'", NOW(), "'.$urlified.'")';
@@ -164,8 +165,8 @@ function purge_unused_tags() {
 }
 
 function update_picture_tags($picture_id, $tags) {
-	global $config;
-	global $TABLE_PREFIX;
+	global $config, $TABLE_PREFIX, $PLOGGER_DBH;
+
 	$tags = parse_tags($tags);
 	$picture_id = intval($picture_id);
 
@@ -190,8 +191,7 @@ function update_picture_tags($picture_id, $tags) {
 		if (!isset($existing_tags[$tag])) {
 			// Must be a new tag, register it
 			$path = $PLOGGER_DBH->quote(preg_replace("/[^\w|\.|'|\-|\[|\]]/", "_", $tag));
-			$sql = 'INSERT INTO '.$TABLE_PREFIX.'tags ("tag", "tagdate", "path")
-			VALUES ("'.$PLOGGER_DBH->quote($tag).'", "'.$path.'", NOW())';
+			$sql = 'INSERT INTO '.$TABLE_PREFIX.'tags ("tag", "tagdate", "path") VALUES ("'.$PLOGGER_DBH->quote($tag).'", "'.$path.'", NOW())';
 			print $sql;
 			$result = run_query($sql);
 			$serialobj = getSerialObj('tags');
@@ -200,8 +200,7 @@ function update_picture_tags($picture_id, $tags) {
 
 		if (!isset($existing_rels[$existing_tags[$tag]])) {
 			// No connection between tag and picture? create if
-			$sql = 'INSERT INTO '.$TABLE_PREFIX.'tag2picture ("picture_id", "tag_id", "tagdate")
-			VALUES ("'.$picture_id.'", "'.$existing_tags[$tag].'", NOW())';
+			$sql = 'INSERT INTO '.$TABLE_PREFIX.'tag2picture ("picture_id", "tag_id", "tagdate") VALUES ("'.$picture_id.'", "'.$existing_tags[$tag].'", NOW())';
 			run_query($sql);
 		}
 	}
@@ -209,8 +208,7 @@ function update_picture_tags($picture_id, $tags) {
 	// Now remove links to any tags that have been deleted
 	foreach($existing_rels as $tag_id => $pic_id) {
 		if (!in_array($tag_id,$existing_tags)) {
-			$sql = "DELETE FROM "".$TABLE_PREFIX."tag2picture"
-			WHERE "picture_id" = '$picture_id' AND "tag_id" = '$tag_id'";
+			$sql = 'DELETE FROM '.$TABLE_PREFIX.'tag2picture WHERE "picture_id" = ' . $picture_id . ' AND "tag_id" = ' . $tag_id;
 			run_query($sql);
 		}
 	}

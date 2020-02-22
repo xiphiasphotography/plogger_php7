@@ -346,9 +346,9 @@ if (isset($_POST['upload'])) {
 
 			// Check if album exists
 			if (is_null($album_name)) // file is only one level deep, assume folder name is album name
-			$sql = "SELECT id FROM ".PLOGGER_TABLE_PREFIX."albums WHERE name = '".$PLOGGER_DBH->quote($collection_name)."'";
+			$sql = "SELECT id FROM ".PLOGGER_TABLE_PREFIX."albums WHERE name = ".$PLOGGER_DBH->quote($collection_name);
 			else
-			$sql = "SELECT id FROM ".PLOGGER_TABLE_PREFIX."albums WHERE name = '".$PLOGGER_DBH->quote($album_name)."'";
+			$sql = "SELECT id FROM ".PLOGGER_TABLE_PREFIX."albums WHERE name = ".$PLOGGER_DBH->quote($album_name);
 
 			$result = run_query($sql);
 			$row = $result->fetch();
