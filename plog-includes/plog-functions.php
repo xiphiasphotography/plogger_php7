@@ -1422,7 +1422,7 @@ function sanitize_filename($str, $is_file = false) {
 	$str = str_replace($special_chars, '', $str);
 	$str = str_replace(' ', '-', $str);
 	$str = preg_replace("/[^a-zA-Z0-9\-\.]/", "_", $str);
-	if ($is_file && intval($config['truncate']) > 0 && isset($str{intval($config['truncate'])})) {
+	if ($is_file && intval($config['truncate']) > 0 && isset($str[intval($config['truncate'])])) {
 		$str = substr($str, 0, intval($config['truncate']));
 	}
 	return $str;
@@ -2590,7 +2590,7 @@ function plogger_get_picture_filename($specialchars = false) {
 	$filename = substr($filename, 0, strrpos($filename, '.')); // Remove the file extension
 	// If the truncate value is set and the filename is longer than the truncate value,
 	// chop it off and add the trailing ellipses
-	if (intval($config['truncate']) > 0 && isset($filename{ intval($config['truncate'])})) {
+	if (intval($config['truncate']) > 0 && isset($filename[intval($config['truncate'])])) {
 		$filename = substr($filename, 0, intval($config['truncate'])).'...';
 	}
 	if ($specialchars) {
