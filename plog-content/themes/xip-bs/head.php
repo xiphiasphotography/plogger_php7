@@ -6,10 +6,10 @@
 {
   "@context": "http://schema.org",
   "@type": "WebSite",
-  "url": "<?= $config['gallery_url'] ?>",
+  "url": "<?php echo $config['gallery_url']; ?>",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "<?= $config['gallery_url'] ?>?searchterms={search_term_string}&level=search",
+    "target": "<?php echo $config['gallery_url']; ?>?searchterms={search_term_string}&level=search",
     "query-input": "required name=search_term_string"
   }
 }
