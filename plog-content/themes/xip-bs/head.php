@@ -6,10 +6,10 @@
 {
   "@context": "http://schema.org",
   "@type": "WebSite",
-  "url": "<?= CDN_URL ?>",
+  "url": "<?= $config['gallery_url'] ?>",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "<?= CDN_URL ?>?searchterms={search_term_string}&level=search",
+    "target": "<?= $config['gallery_url'] ?>?searchterms={search_term_string}&level=search",
     "query-input": "required name=search_term_string"
   }
 }
