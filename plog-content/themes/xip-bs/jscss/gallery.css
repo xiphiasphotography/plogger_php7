@@ -289,13 +289,109 @@ a.pagPrev, a.pagNext {
 	/* .credit a:hover controls the hover behavior of the "Design by ardamis.com" link text */
 }
 
+/************************************************** THUMBNAIL CONTAINER */
+.thumbcontainer {
+	text-align: center;
+	margin-bottom: 10px;
+	min-height: 180px;
+	overflow: hidden;
+    white-space: nowrap;
+	border: 1px solid #af74af;
+	border-radius: 5px !important;
+    opacity: 1;
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    transform-origin: 50% 50% 0px;
+    background-color: rgba(12,12,12, 0.5);
+	transition: border .25s ease-in,color .25s ease-in;
+}
+.thumbcontainer a
+{
+	display: inline-block;
+	-webkit-box-shadow: none;
+    box-shadow: none;
+    text-decoration: none;
+	text-align: center;
+	vertical-align:middle;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+.thumbcontainer .photos {
+	/* .thumbcontainer img controls the thumbnail image itself */
+	background: #ccc;
+	padding: 0px;
+	vertical-align: middle;
+	max-width: 100%;
+	height: auto;
+	opacity: .8;
+	-webkit-transition: all 130ms ease-in-out;
+	-moz-transition: all 130ms ease-in-out;
+	-ms-transition: all 130ms ease-in-out;
+	-o-transition: all 130ms ease-in-out;
+	transition: all 130ms ease-in-out;
+}
+.thumbcontainer:hover
+{
+    background-color: rgba(12,12,12, 0.8);
+	border-color: #fff;
+	-webkit-box-shadow: 3px 3px 10px rgba(0,0,0,.5);
+	-moz-box-shadow: 3px 3px 10px rgba(0,0,0,.5);
+	box-shadow: 3px 3px 10px rgba(0,0,0,.5);
+}
+.thumbcontainer a
+{
+    color: #fff;
+	transition: color .25s ease-in;
+}
+.thumbcontainer:hover a
+{
+	-webkit-box-shadow: none;
+    box-shadow: none;
+}
+.thumbcontainer:hover .photos
+{
+	/* .thumbcontainer:hover img controls the thumbnail image hover behavior */
+	opacity: 1;
+	-moz-transform: scale(1.15) rotate(7deg);
+	-webkit-transform: scale(1.15) rotate(7deg);
+	-o-transform: scale(1.15) rotate(7deg);
+	-ms-transform: scale(1.15) rotate(7deg);
+	transform: scale(1.15) rotate(7deg);
+}
+.thumbcontent
+{
+	position: relative;
+	height: 50px;
+	background-color: #af74af;
+	color: #fff;
+	transition: background-color .25s ease-in,color .25s ease-in;
+}
+.thumbcontainer:hover .thumbcontent
+{
+	background-color: #fff;
+	color: #000;
+}
+@media only screen and (max-width: 575.98px) {
+	.thumbcontent
+	{
+		min-height: 60px;
+	}
+}
+.thumbcontent p
+{
+	width: 100%;
+	margin: 0 auto;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
+}
+.thumbcontent p.collection-title
+{
+	padding-top: 2px;
+}
 
-
-
-
-
-
-
+/************************************************** MESSAGES */
 #no-pictures-msg {
 	/* #no-pictures-msg controls the "no collections", "no albums", and "no picture" messages displayed when a visitor goes to a page without collections, albums, or a picture */
 	margin: 50px;
@@ -308,6 +404,7 @@ a.pagPrev, a.pagNext {
 	text-align: justify;
 }
 
+/************************************************** UNSORTED */
 .checkbox {
 	/* .checkbox controls the appearance of the checkbox on all pages */
 	clear: both;
@@ -315,123 +412,145 @@ a.pagPrev, a.pagNext {
 	padding: 0;
 }
 
+
+
+
+/************************************************** ORIGINAL CSS BELOW, MOVE ABOVE LINE IF USED, DELETE WHEN NOT USED */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Begin collection and album page styles */
 
 #thumbnail-container {
 	/* #thumbnail-container contains the entire list of all collections or the entire list of all albums, as appropriate */
-	margin: 0;
-	padding: 0;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
 }
 
 #collections {
 	/* #collections contains the entire list of all collections or the entire list of all albums, as appropriate (yes, it's redundant to #thumbnail-container) */
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
 }
 
 .collection {
 	/* .collection contains each individual collection or album in the list, as appropriate */
-	margin: 10px 0 0 0;
-	padding: 10px 0;
-	float: left;
-	text-align: left;
-	border: 1px solid #bed2d2;
-	width: 798px; /* set this width to be 2px less than the width of #wrapper to account for borders */
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
 }
 
 .collection-image-link {
-	margin: 0 0 0 25px;
-	border: 1px solid #01b4e2;
-	display: block;
-	float: left;
-	margin-right: 15px;
-	padding: 3px;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
 }
 
 .collection-image-link:hover {
-	border: 1px solid #f60;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
 }
 
 .photos {
 	/* .photos controls the thumbnail picture on the collection(s) and album pages */
-	vertical-align: bottom; /* firefox hack to remove the gap below images surrounded by an anchor */
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
 }
 
 .collection p {
 	/* .collection p controls the collection or album description */
-	margin: 4px 0 0 0;
-	line-height: 1.5em;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
 }
 
 .collection h2 {
 	/* .collection h2 controls the collection or album title */
-	margin: 5px 0;
-	padding: 0;
-	font-size: 1.4em;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
 }
 
 .collection h2 a {
 	/* .collection h2 controls the link behavior of the collection or album title */
-	color: #01b4e2;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
 }
 
 .collection h2 a:hover {
 	/* .collection h2:hover controls the hover behavior of the collection or album title */
-	color: #f60;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(0,255,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(0,255,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(0,255,0,1);
 }
 
 .meta-header {
 	/* .meta-header controls the "Contains X Albums" or "Contains X Pictures" text */
-	margin: 0;
-	padding: 0;
-	color: #404040;
-	font-size: 90%;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
 }
 
 .thumbnail p {
 	/* .thumbnail p controls the description of the Collection or Album, as appropriate */
 	/* width is equal to the width of the thumbnail image, set inline in album.php */
-	padding: 0 6px;
-	margin: 4px 0 0 0;
-	line-height: 1.2em;
-	font-weight: bold;
-	height: 2.5em;
-	overflow: hidden;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
 }
 
 /* Begin album page styles */
 
 .slides {
 	/* ul.slides controls the unordered list of the thumbnails of images within an album */
-	margin-top: 10px;
-	padding: 0;
-	border: 1px solid #bed2d2;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
 }
 
 .thumbnail {
 	/* ul.slides li controls each list item within the unordered list of the thumbnails of images within an album */
 	/* width is calculated by PHP in the HTML, style is applied inline */
-	float: left;
-	margin: 0 0 0 13px;
-	padding: 10px;
-	display: inline;
-	text-align: center;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
 }
 
 .thumbnail img {
 	/* ul.slides li img controls the thumbnail image itself */
-	border: 1px solid #01b4e2;
-	background: #fff;
-	padding: 3px;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
 }
 
 .thumbnail a {
 	/* ul.slides li a controls the thumbnail image link behavior */
-	display: block; /* display:block required to make anchor tag's border surround img in Firefox */
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
 }
 
 .thumbnail img:hover {
 	/* ul.slides li img:hover controls the thumbnail image hover behavior */
-	background: #eaeae0;
-	border: 1px solid #f60;
+	-webkit-box-shadow: 1px 1px 5px 1px rgba(0,255,0,1);
+	-moz-box-shadow: 1px 1px 5px 1px rgba(0,255,0,1);
+	box-shadow: 1px 1px 5px 1px rgba(0,255,0,1);
 }
 
 /* Begin "picture" page styles */

@@ -1,22 +1,32 @@
 	<?php plogger_get_header(); ?>
 
-	<main id="thumbnail-container" class="clearfix">
+	<main id="thumbnail-container" class="container-fluid">
 		<div id="search" class="row gutters-10">
 
 			<?php if (plogger_has_pictures()) : ?>
 
 				<?php while (plogger_has_pictures()) : plogger_load_picture();
+					// Set variables for the thumbnails
+					$capt = plogger_get_picture_caption();
+					$date = plogger_get_picture_date();
+					$date_plus = $date . "<br /><br /><br />";
+					$title_capt = str_ireplace("<br />", "", plogger_get_picture_description());
 					// Find thumbnail width/height
 					$thumb_info = plogger_get_thumbnail_info();
 					$thumb_width = $thumb_info['width']; // The width of the image. It is integer data type.
 					$thumb_height = $thumb_info['height']; // The height of the image. It is an integer data type.
 				?>
 					<div class="col-6 col-sm-4 col-md-3 col-xl-2">
-						<div class="thumbnail">
-							<a href="<?php echo plogger_get_picture_url(); ?>"><img id="thumb-<?php echo plogger_get_picture_id(); ?>" class="photos" src="<?php echo plogger_get_picture_thumb(); ?>" width="<?php echo $thumb_width; ?>" height="<?php echo $thumb_height; ?>" title="<?php echo plogger_get_picture_caption(); ?>" alt="<?php echo plogger_get_picture_caption(); ?>" /></a>
-							<div class="checkbox"><?php echo plogger_download_checkbox(plogger_get_picture_id()); ?></div>
-							<p style="width: <?php echo $thumb_width; ?>px;"><?php echo plogger_get_picture_caption(); ?></p>
-						</div><!-- /thumbnail -->
+						<div class="thumbcontainer">
+							<a href="<?= plogger_get_picture_url(); ?>" title="<?= ($fill_date == 'true' && isset($date) && $title_capt == '&nbsp;') ? $date_plus : plogger_get_picture_description(); ?>">
+								<img src="<?= plogger_get_picture_thumb(); ?>" id="thumb-<?= plogger_get_picture_id(); ?>" class="photos" width="<?= $thumb_width; ?>px" height="<?= $thumb_height; ?>px" title="<?= ($fill_date == 'true' && isset($date) && $title_capt == '&nbsp;') ? $date : $title_capt; ?>" alt="<?= ($fill_date == 'true' && isset($date) && $capt == '&nbsp;') ? $date : $capt; ?>" />
+							</a>
+							<div class="checkbox"><?= plogger_download_checkbox(plogger_get_picture_id()); ?></div>
+							<div class="thumbcontent">
+								<p class="collection-title"><?= $picture_caption ?></p>
+								<p class="description"><?= str_ireplace($picture_caption . '<br />', '', plogger_get_picture_description()); ?></p>
+							</div>
+						</div><!-- /thumbcontainer -->
 					</div><!-- /col -->
 				<?php endwhile; ?>
 
@@ -24,8 +34,8 @@
 
 				<div class="col-12">
 					<div id="no-pictures-msg">
-						<h2><?php echo plog_tr('Search Results') ?></h2>
-						<p><?php echo plog_tr('Sorry, but there are no images that matched your search terms.') ?></p>
+						<h2><?= plog_tr('Search Results') ?></h2>
+						<p><?= plog_tr('Sorry, but there are no images that matched your search terms.') ?></p>
 					</div><!-- /no-pictures-msg -->
 				</div><!-- /col -->
 
