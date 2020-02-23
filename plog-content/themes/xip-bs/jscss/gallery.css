@@ -340,13 +340,26 @@ a.pagPrev, a.pagNext {
 	height: auto;
 	overflow: hidden;
 }
+.thumbcontainer a::before {
+	display: block;
+	position: relative;
+	content: '';
+	padding-top: 100%;
+}
 .thumbcontainer .photos {
 	/* .thumbcontainer img controls the thumbnail image itself */
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	background: #ccc;
 	padding: 0px;
 	vertical-align: middle;
 	max-width: 100%;
 	height: auto;
+	object-fit: contain;
+	object-position: center center;
 	opacity: .8;
 	-webkit-transition: all 130ms ease-in-out;
 	-moz-transition: all 130ms ease-in-out;
