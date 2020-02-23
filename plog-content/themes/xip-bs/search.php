@@ -11,6 +11,8 @@
 					$date = plogger_get_picture_date();
 					$date_plus = $date . "<br /><br /><br />";
 					$title_capt = str_ireplace("<br />", "", plogger_get_picture_description());
+					$picture_id = plogger_get_picture_id();
+
 					// Find thumbnail width/height
 					$thumb_info = plogger_get_thumbnail_info();
 					$thumb_width = $thumb_info['width']; // The width of the image. It is integer data type.
@@ -21,7 +23,7 @@
 							<a href="<?= plogger_get_picture_url(); ?>" title="<?= ($fill_date == 'true' && isset($date) && $title_capt == '&nbsp;') ? $date_plus : plogger_get_picture_description(); ?>">
 								<img src="<?= plogger_get_picture_thumb(); ?>" id="thumb-<?= plogger_get_picture_id(); ?>" class="photos" width="<?= $thumb_width; ?>px" height="<?= $thumb_height; ?>px" title="<?= ($fill_date == 'true' && isset($date) && $title_capt == '&nbsp;') ? $date : $title_capt; ?>" alt="<?= ($fill_date == 'true' && isset($date) && $capt == '&nbsp;') ? $date : $capt; ?>" />
 							</a>
-							<div class="checkbox"><?= plogger_download_checkbox(plogger_get_picture_id()); ?></div>
+							<div class="checkbox"><?= plogger_download_checkbox($picture_id, '<label for="checkbox_'.$picture_id.'"><i class="fas fa-download"></i></label>'); ?></div>
 							<div class="thumbcontent">
 								<p class="collection-title"><?= $picture_caption ?></p>
 								<p class="description"><?= str_ireplace($picture_caption . '<br />', '', plogger_get_picture_description()); ?></p>

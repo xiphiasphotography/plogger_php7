@@ -6,20 +6,24 @@
 			<?php if (plogger_has_albums()) : ?>
 
 				<?php while (plogger_has_albums()) : plogger_load_album();
+					// Set variables for the thumbnails
+					$num_pictures = plogger_album_picture_count();
+					$album_id = plogger_get_album_id();
+
 					// Find thumbnail width/height
 					$thumb_info = plogger_get_thumbnail_info();
 					$thumb_width = $thumb_info['width']; // The width of the image. It is integer data type.
 					$thumb_height = $thumb_info['height']; // The height of the image. It is an integer data type.
+
 					$thumb_desc = plogger_get_album_description();
 					$thumb_name = plogger_get_album_name();
-					$num_pictures = plogger_album_picture_count();
 				?>
 					<div class="col-6 col-sm-4 col-md-3 col-xl-2">
 						<div class="thumbcontainer">
 							<a href="<?= plogger_get_album_url(); ?>" rel="internal" title="<?= $thumb_name; ?>" class="collection-image-link">
 								<img src="<?= plogger_get_album_thumb(); ?>" class="photos" width="<?= $thumb_width; ?>" height="<?= $thumb_height; ?>" title="<?= $thumb_name; ?>" alt="<?= $thumb_name; ?>" />
 							</a>
-							<div class="checkbox"><?= plogger_download_checkbox(plogger_get_album_id()); ?></div>
+							<div class="checkbox"><?= plogger_download_checkbox($album_id, '<label for="checkbox_'.$album_id.'"><i class="fas fa-download"></i></label>'); ?></div>
 							<div class="thumbcontent">
 								<p class="collection-title"><?= $thumb_name; ?></p>
 								<p class="description"><?= $thumb_desc; ?></p>
