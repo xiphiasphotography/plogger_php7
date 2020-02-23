@@ -10,8 +10,6 @@
 					$fill_date = 'true'; // When the value of "$fill_date" is set to 'true', the theme will use the picture's date as a description if no description otherwise exists
 					$capt = plogger_get_picture_caption();
 					$date = plogger_get_picture_date();
-					$date_plus = $date . "<br /><br /><br />";
-					$title_capt = str_ireplace("<br />", "", plogger_get_picture_description());
 					$picture_id = plogger_get_picture_id();
 
 					// Find thumbnail width/height
@@ -19,8 +17,8 @@
 					$thumb_width = $thumb_info['width']; // The width of the image. It is integer data type.
 					$thumb_height = $thumb_info['height']; // The height of the image. It is an integer data type.
 
-					$thumb_desc = ($fill_date == 'true' && isset($date) && $title_capt == '&nbsp;') ? $date_plus : plogger_get_picture_description();
-					$thumb_name = ($fill_date == 'true' && isset($date) && $title_capt == '&nbsp;') ? $date : $title_capt;
+					$thumb_desc = ($fill_date == 'true' && isset($date) && $capt == '&nbsp;') ? $date : plogger_get_picture_description();
+					$thumb_name = ($fill_date == 'true' && isset($date) && $capt == '&nbsp;') ? $date : $capt;
 				?>
 					<div class="col-6 col-sm-4 col-md-3 col-xl-2">
 						<div class="thumbcontainer">
@@ -29,8 +27,8 @@
 							</a>
 							<div class="checkbox"><?= plogger_download_checkbox($picture_id, '<label for="checkbox_'.$picture_id.'"><i class="fas fa-download"></i></label>'); ?></div>
 							<div class="thumbcontent">
-								<p class="collection-title"><?= $picture_caption ?></p>
-								<p class="description"><?= str_ireplace($picture_caption . '<br />', '', plogger_get_picture_description()); ?></p>
+								<p class="collection-title"><?= $thumb_name ?></p>
+								<p class="description"><?= str_ireplace($capt . '<br />', '', $thumb_desc); ?></p>
 							</div>
 						</div><!-- /thumbcontainer -->
 					</div><!-- /col -->
