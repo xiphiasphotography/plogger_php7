@@ -113,12 +113,16 @@ footer {
 }
 #pagination {
 	/* #pagination contains the pagination */
+	height: 40px;
+	line-height: 40px;
 	margin-bottom: 10px;
 }
 
 .page-link, .page-link-current {
 	/* .page_link controls the page numbers (link and non-link) */
 	display: inline-block;
+	height: 40px;
+	line-height: 40px;
 	padding-right: 5px;
 	padding-left: 5px;
 	text-decoration: none;
@@ -148,6 +152,8 @@ a.pagPrev, a.pagNext {
 	/* #search-container input is the search input box */
 	float: left;
 	width: calc(100% - 100px);
+	height: 40px;
+	line-height: 40px;
 	padding: .5em;
 	border: 1px solid #ccc;
 }
@@ -155,6 +161,8 @@ a.pagPrev, a.pagNext {
 #search-container button {
 	/* #search-container button.submit is the search button */
 	width: 100px;
+	height: 40px;
+	line-height: 40px;
 	padding: .5em;
 	border: 1px solid #ccc;
 }
@@ -174,6 +182,8 @@ a.pagPrev, a.pagNext {
 #download-selected button {
 	/* #download-selected button.submit controls the "Download Selected" button itself */
 	width: 100%;
+	height: 40px;
+	line-height: 40px;
 	padding: .5em;
 	border: 1px solid #ccc;
 }
@@ -186,12 +196,16 @@ a.pagPrev, a.pagNext {
 }
 
 #navigation-container {
+	height: 40px;
+	line-height: 40px;
 	margin-bottom: 10px;
 }
 
 #navigation-container select {
 	/* #navigation-container contains the "Jump to..." navigation drop down menu */
 	width: 100%;
+	height: 40px;
+	line-height: 40px;
 	padding: .5em;
 	border: 1px solid #ccc;
 }
@@ -199,6 +213,8 @@ a.pagPrev, a.pagNext {
 #sort-control {
 	position: relative;
 	width: 100%;
+	height: 40px;
+	line-height: 40px;
 	margin-bottom: 10px;
 	padding-left: 25px;
 }
@@ -209,6 +225,8 @@ a.pagPrev, a.pagNext {
 	top: 0;
 	left: 0;
 	width: 20px;
+	height: 40px;
+	line-height: 40px;
 	margin-right: 5px;
 	padding: .5em;
 	font-family: 'Font Awesome 5 Free';
@@ -230,6 +248,8 @@ a.pagPrev, a.pagNext {
 
 #sort-control select {
 	/* #sort-control contains the "Sort by:" drop down menu */
+	height: 40px;
+	line-height: 40px;
 	padding: .5em;
 	border: 1px solid #ccc;
 }
@@ -290,6 +310,9 @@ a.pagPrev, a.pagNext {
 }
 
 /************************************************** THUMBNAIL CONTAINER */
+#thumbnail-container {
+	/* #thumbnail-container contains the entire list of all collections or the entire list of all albums, as appropriate */
+}
 .thumbcontainer {
 	position: relative;
 	text-align: center;
@@ -331,7 +354,7 @@ a.pagPrev, a.pagNext {
 	-o-transition: all 130ms ease-in-out;
 	transition: all 130ms ease-in-out;
 }
-.thumbcontainer:hover
+.thumbcontainer:hover .photos
 {
     background-color: rgba(71,0,71, 0.8);
 	border-color: #fff;
@@ -362,7 +385,8 @@ a.pagPrev, a.pagNext {
 .thumbcontent
 {
 	position: relative;
-	height: 60px;
+	height: 4em;
+	padding: .5em;
 	background-color: #470047;
 	color: #fff;
 	transition: background-color .25s ease-in,color .25s ease-in;
@@ -500,18 +524,9 @@ a.pagPrev, a.pagNext {
 
 /* Begin collection and album page styles */
 
-#thumbnail-container {
-	/* #thumbnail-container contains the entire list of all collections or the entire list of all albums, as appropriate */
-	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
-	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
-	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
-}
 
 #collections {
 	/* #collections contains the entire list of all collections or the entire list of all albums, as appropriate (yes, it's redundant to #thumbnail-container) */
-	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
-	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
-	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
 }
 
 .collection {
