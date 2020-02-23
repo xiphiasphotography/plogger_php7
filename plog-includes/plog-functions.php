@@ -3028,7 +3028,7 @@ function plogger_get_detail_link() {
 function plogger_download_checkbox($id, $label = '') {
 	global $config;
 	if ($config['allow_dl']) {
-		return '<input type="checkbox" name="checked[]" value="'.$id.'" />'.$label;
+		return '<input type="checkbox" name="checked[]" value="'.$id.'" id="checkbox_'.$id.'" />'.$label;
 	} else {
 		return '';
 	}
