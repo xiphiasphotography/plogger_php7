@@ -29,8 +29,8 @@
 							</a>
 							<div class="checkbox"><?= plogger_download_checkbox($picture_id, '<label for="checkbox_'.$picture_id.'"><i class="fas fa-download"></i></label>'); ?></div>
 							<div class="thumbcontent">
-								<p class="collection-title"><?= $picture_caption ?></p>
-								<p class="description"><?= str_ireplace($picture_caption . '<br />', '', plogger_get_picture_description()); ?></p>
+								<p class="collection-title"><?= $thumb_name ?></p>
+								<p class="description"><?= str_ireplace($capt . '<br />', '', plogger_get_picture_description()); ?></p>
 							</div>
 						</div><!-- /thumbnailcontainer -->
 					</div><!-- /col -->
