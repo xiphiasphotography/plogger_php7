@@ -297,12 +297,12 @@ a.pagPrev, a.pagNext {
 	min-height: 180px;
 	overflow: hidden;
     white-space: nowrap;
-	border: 1px solid #af74af;
+	border: 1px solid #470047;
 	border-radius: 5px !important;
     opacity: 1;
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    transform-origin: 50% 50% 0px;
-    background-color: rgba(12,12,12, 0.5);
+	transform-origin: 50% 50% 0px;
+    background-color: rgba(71,0,71, 0.5);
 	transition: border .25s ease-in,color .25s ease-in;
 }
 .thumbcontainer a
@@ -333,7 +333,7 @@ a.pagPrev, a.pagNext {
 }
 .thumbcontainer:hover
 {
-    background-color: rgba(12,12,12, 0.8);
+    background-color: rgba(71,0,71, 0.8);
 	border-color: #fff;
 	-webkit-box-shadow: 3px 3px 10px rgba(0,0,0,.5);
 	-moz-box-shadow: 3px 3px 10px rgba(0,0,0,.5);
@@ -362,8 +362,8 @@ a.pagPrev, a.pagNext {
 .thumbcontent
 {
 	position: relative;
-	height: 50px;
-	background-color: #af74af;
+	height: 60px;
+	background-color: #470047;
 	color: #fff;
 	transition: background-color .25s ease-in,color .25s ease-in;
 }
@@ -389,7 +389,11 @@ a.pagPrev, a.pagNext {
 }
 .thumbcontent p.collection-title
 {
-	padding-top: 2px;
+	font-weight: bold;
+}
+.thumbcontent p.description
+{
+	font-size: smaller;
 }
 
 /************************************************** MESSAGES */
