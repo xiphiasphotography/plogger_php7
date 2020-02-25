@@ -1119,10 +1119,11 @@ function SmartAddSlashes($str) {
 		// returned the fixed string if the evil "magic_quotes_gpc" setting is on
 		if (get_magic_quotes_gpc()) {
 			return $str;
+		} else {
+			$str = addslashes($str);
 		}
-	} else {
-		return addslashes($str);
 	}
+	return $str;
 }
 
 function SmartStripSlashes($str) {
