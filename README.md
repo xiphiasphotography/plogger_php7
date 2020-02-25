@@ -1,10 +1,12 @@
-THIS FORK IS STILL A WORK IN PROGRESS, SOME BITS HAVE BEEN UPDATED AND WORK ON PHP 7 BUT NOT EVERYTHING HAS BEEN CHECKED AND TESTED YET. 
+THIS FORK IS STILL A WORK IN PROGRESS, SOME BITS HAVE BEEN UPDATED AND WORK ON PHP 7.4 BUT NOT EVERYTHING HAS BEEN CHECKED AND TESTED YET. 
 USE AT OWN RISK!!!
 
 plogger-php7
 =======
 A simple php7-based web gallery that can be integrated into your website.
-This fork is based on the the fork by wuffleton which uses PDO as the database backend instead of the depreciated mysql library. This includes support for mysql and pgsql out of the box. I've updated and altered all the code so it will run on PHP 7.4.
+This fork is based on the fork by wuffleton which uses PDO as the database backend instead of the depreciated mysql library. This includes support for mysql and pgsql out of the box. I've updated and altered all the code so it will run on PHP 7.4.
+
+This install also includes a Bootstrap 4 and Font Awesome 5 based theme. To use Font Awesome some functions in plog-functions.php have been altered to support this. The 3 base themes will be updated to work with these changes, this is all still a work in progress.
 
 Installation & Usage
 --------------------
