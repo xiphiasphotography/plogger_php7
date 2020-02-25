@@ -1130,11 +1130,10 @@ function SmartStripSlashes($str) {
 	if (version_compare(PHP_VERSION, '7.4.0', '<')) {
 		// returned the fixed string if the evil "magic_quotes_gpc" setting is on
 		if (get_magic_quotes_gpc()) {
-			return stripslashes($str);
+			$str = stripslashes($str);
 		} 
-	} else {
-		return $str;
 	}
+	return $str;
 }
 
 // This tries hard to figure out level and object id from textual path to a resource, used
