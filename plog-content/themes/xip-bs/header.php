@@ -10,7 +10,7 @@
 			</div>
 			<div class="col-9">
 				<nav id="breadcrumbs">
-					<?php echo generate_breadcrumb('<i class="fas fa-home"></i>', ' | '); ?>
+					<?php echo generate_breadcrumb('<i class="fas fa-home"></i>', ''); ?>
 				</nav><!-- /breadcrumbs -->
 
 				<div id="slideshow" class="col-3">
