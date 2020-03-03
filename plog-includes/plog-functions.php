@@ -17,22 +17,24 @@ function generate_breadcrumb($title = false, $sep = ' &raquo; ') {
 	global $config;
 
 	$id = $GLOBALS['plogger_id'];
+    $c = "";
 
 	if ($title === false) {
 		if (!empty($config['gallery_name'])) {
-			$title = $config['gallery_name'];
+            $title = $config['gallery_name'];
+            $c = " id=\"gallery-name\"";
 		} else {
 			$title = plog_tr('Home');
 		}
 	}
 
-	$collections_link = '<a href="'.generate_url('collections').'">'.$title.'</a>';
-	$collections_name = '<strong>'.$title.'</strong>';
+	$collections_link = '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="'.generate_url('collections').'" itemprop="item" typeof="WebPage" '.$c.'><span itemprop="name">'.$title.'</span></a><meta itemprop="position" content="1" /></li>';
+	$collections_name = '<li id="gallery-name" itemscope="name">'.$title.'</li>';
 
 	switch ($GLOBALS['plogger_level']) {
 		case 'collection':
 			$row = get_collection_by_id($id);
-			$collection_name = '<strong>'.SmartStripSlashes($row['name']).'</strong>';
+			$collection_name = '<li property="name">'.SmartStripSlashes($row['name']).'</li>';
 
 			if ($config['truncate_breadcrumb'] == 'collection') {
 				$breadcrumbs = $collections_name;
@@ -46,12 +48,13 @@ function generate_breadcrumb($title = false, $sep = ' &raquo; ') {
 			break;
 		case 'slideshow':
 		case 'album':
-			$row = get_album_by_id($id);
-			$album_name = '<strong>'.SmartStripSlashes($row['name']).'</strong>';
-			$album_link = '<a accesskey="/" href="'.generate_url('album', $row['id']).'">'.SmartStripSlashes($row['name']).'</a>';
+            $row = get_album_by_id($id);
+            $album_desc = explode('<br>', $row['description']);
+			$album_name = '<li>'.SmartStripSlashes($row['name']).' - '.SmartStripSlashes(trim($album_desc[0])).'</li>';
+			$album_link = '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a accesskey="/" href="'.generate_url('album', $row['id']).'" itemprop="item"><span itemprop="name">'.SmartStripSlashes($row['name']).'</span></a><meta itemprop="position" content="3" /></li>';
 
 			$row = get_collection_by_id($row['parent_id']);
-			$collection_link = '<a accesskey="/" href="'.generate_url('collection', $row['id']).'">'.SmartStripSlashes($row['name']).'</a>';
+			$collection_link = '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a accesskey="/" href="'.generate_url('collection', $row['id']).'" itemprop="item"><span itemprop="name">'.SmartStripSlashes($row['name']).'</span></a><meta itemprop="position" content="2" /></li>';
 
 			if ($config['truncate_breadcrumb'] == 'album') {
 				$breadcrumbs = $collections_name;
@@ -68,13 +71,13 @@ function generate_breadcrumb($title = false, $sep = ' &raquo; ') {
 			break;
 		case 'picture':
 			$row = get_picture_by_id($id);
-			$picture_name = '<span id="image_name"><strong>'.SmartStripSlashes(get_caption_filename($row)).'</strong></span>';
+			$picture_name = '<li id="image-name"><strong>'.SmartStripSlashes(get_caption_filename($row)).'</strong></li>';
 
 			$row = get_album_by_id($row['parent_album']);
-			$album_link = '<a accesskey="/" href="'.generate_url('album', $row['id']).'">'.SmartStripSlashes($row['name']).'</a>';
+			$album_link = '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a accesskey="/" href="'.generate_url('album', $row['id']).'" itemprop="item"><span itemprop="name">'.SmartStripSlashes($row['name']).'</span></a><meta itemprop="position" content="3" /></li>';
 
 			$row = get_collection_by_id($row['parent_id']);
-			$collection_link = '<a accesskey="/" href="'.generate_url('collection', $row['id']).'">'.SmartStripSlashes($row['name']).'</a>';
+			$collection_link = '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a accesskey="/" href="'.generate_url('collection', $row['id']).'" itemprop="item"><span itemprop="name">'.SmartStripSlashes($row['name']).'</span></a><meta itemprop="position" content="2" /></li>';
 
 			if ($config['truncate_breadcrumb'] == 'album') {
 				$breadcrumbs = $collections_link.$sep.$picture_name;
@@ -91,25 +94,25 @@ function generate_breadcrumb($title = false, $sep = ' &raquo; ') {
 		case 'search':
 			if ($config['truncate_breadcrumb'] == 'album') {
 				$row = get_album_by_id($id);
-				$album_link = '<a accesskey="/" href="'.generate_url('album', $row['id']).'">'.SmartStripSlashes($row['name']).'</a>';
-				$breadcrumbs = $album_link.$sep.'<strong>'.plog_tr('Search').'</strong>'.$sep.plog_tr('You searched for').' <strong>'.htmlspecialchars(SmartStripSlashes($_REQUEST['searchterms'])).'</strong>.';
+				$album_link = '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a accesskey="/" href="'.generate_url('album', $row['id']).'" itemprop="item"><span itemprop="name">'.SmartStripSlashes($row['name']).'</span></a><meta itemprop="position" content="3" /></li>';
+				$breadcrumbs = $album_link.$sep.'<li>'.plog_tr('Search').'</li><li>'.$sep.plog_tr('You searched for').' <strong>"'.htmlspecialchars(SmartStripSlashes($_REQUEST['searchterms'])).'"</strong>.</li>';
 			} else if ($config['truncate_breadcrumb'] == 'collection') {
 				$row = get_collection_by_id($id);
 				$collection_link = '<a accesskey="/" href="'.generate_url('collection', $row['id']).'">'.SmartStripSlashes($row['name']).'</a>';
-				$breadcrumbs = $collection_link.$sep.'<strong>'.plog_tr('Search').'</strong>'.$sep.plog_tr('You searched for').' <strong>'.htmlspecialchars(SmartStripSlashes($_REQUEST['searchterms'])).'</strong>.';
+				$breadcrumbs = $collection_link.$sep.'<li>'.plog_tr('Search').'</li><li>'.$sep.plog_tr('You searched for').' <strong>"'.htmlspecialchars(SmartStripSlashes($_REQUEST['searchterms'])).'"</strong>.</li>';
 			} else {
-				$breadcrumbs = $collections_link.$sep.'<strong>'.plog_tr('Search').'</strong>'.$sep.plog_tr('You searched for').' <strong>'.htmlspecialchars(SmartStripSlashes($_REQUEST['searchterms'])).'</strong>.';
+				$breadcrumbs = $collections_link.$sep.'<li>'.plog_tr('Search').'</li><li>'.$sep.plog_tr('You searched for').' <strong>"'.htmlspecialchars(SmartStripSlashes($_REQUEST['searchterms'])).'"</strong>.</li>';
 			}
 			break;
 		case '404':
-			$breadcrumbs = $collections_link.$sep.'<strong>'.plog_tr('404 Error - Not Found').'</strong>';
+			$breadcrumbs = $collections_link.$sep.'<li><strong>'.plog_tr('404 Error - Not Found').'</strong></li>';
 			break;
 		default:
 			$breadcrumbs = $collections_name;
 			break;
 	}
 
-	return '<div id="breadcrumb-links">'.$breadcrumbs.'</div>';
+	return '<ol id="breadcrumb-links" itemscope itemtype="http://schema.org/BreadcrumbList">'.$breadcrumbs.'</ol>';
 }
 
 function generate_title() {
