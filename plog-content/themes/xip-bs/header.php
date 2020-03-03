@@ -8,16 +8,16 @@
 			<div class="col-12">
 				<?php echo generate_header(); ?>
 			</div>
-			<div class="col-9">
-				<nav id="breadcrumbs">
-					<?php echo generate_breadcrumb('<i class="fas fa-home"></i>', ''); ?>
-				</nav><!-- /breadcrumbs -->
+			
+			<nav id="breadcrumbs" class="col-9">
+				<?php echo generate_breadcrumb('<i class="fas fa-home"></i>', ''); ?>
+			</nav><!-- /breadcrumbs -->
 
-				<div id="slideshow" class="col-3">
-					<?php echo plogger_slideshow_link(); ?>
-					<?php echo plogger_print_button(); ?>
-				</div><!-- /slideshow -->
-			</div><!-- /row -->
+			<div id="slideshow" class="col-3">
+				<?php echo plogger_slideshow_link(); ?>
+				<?php echo plogger_print_button(); ?>
+			</div><!-- /slideshow -->
+		</div><!-- /row -->
 	</header>
 
 	<?php echo plogger_download_selected_form_start(); ?>
