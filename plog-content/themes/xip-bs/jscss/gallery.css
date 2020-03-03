@@ -74,6 +74,16 @@ header p {
 	text-align: left;
 }
 
+#breadcrumbs ol {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+#breadcrumbs li {
+	float: left;
+}
+
 #breadcrumb-links {
 	/* #breadcrumb_links controls the breadcrumbs text that isn't a link */
 }
