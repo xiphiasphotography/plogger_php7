@@ -82,6 +82,25 @@ header p {
 }
 #breadcrumbs li {
 	float: left;
+	padding-left: 20px;
+	position: relative;
+}
+#breadcrumbs li::before {
+	display: block;
+	position: absolute;
+	top: 2px;
+	left: 6px;
+	font-family: 'Font Awesome 5 Free';
+	content: '\f105';
+	font-weight: 900;
+}
+
+#breadcrumbs li:first-of-type {
+	padding-left: 0;
+}
+#breadcrumbs li:first-of-type::before {
+	content: '';
+	display: none;
 }
 
 #breadcrumb-links {
@@ -100,7 +119,29 @@ header p {
 
 #slideshow a {
 	/* #slideshow a controls the text of the View as Slideshow link */
-	text-decoration: underline;
+	text-decoration: none;
+	content: '';
+	visibility: hidden;
+}
+
+#slideshow a::after {
+	visibility: visible;
+	display: inline;
+	font-family: 'Font Awesome 5 Free';
+	content: '\f302';
+	font-weight: 40;
+}
+
+#slideshow .print {
+	content: '';
+	visibility: hidden;
+}
+#slideshow .print::after {
+	visibility: visible;
+	display: inline;
+	font-family: 'Font Awesome 5 Free';
+	content: '\f02f';
+	font-weight: 900;
 }
 
 
