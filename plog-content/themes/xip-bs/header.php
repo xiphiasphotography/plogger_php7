@@ -9,9 +9,9 @@
 				<?php echo generate_header(); ?>
 			</div>
 			<div class="col-9">
-				<div id="breadcrumbs">
+				<nav id="breadcrumbs">
 					<?php echo generate_breadcrumb('<i class="fas fa-home"></i>', ' | '); ?>
-				</div><!-- /breadcrumbs -->
+				</nav><!-- /breadcrumbs -->
 
 				<div id="slideshow" class="col-3">
 					<?php echo plogger_slideshow_link(); ?>
