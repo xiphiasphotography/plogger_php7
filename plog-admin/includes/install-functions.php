@@ -585,7 +585,7 @@ function configure_plogger($form) {
 		$config['gallery_url'] = substr($config['gallery_url'], 0, strpos($config['gallery_url'], 'plog-admin/'));
 	}
 	// Verify that gallery URL contains a trailing slash. if not, add one.
-	if ($config['gallery_url']{strlen($config['gallery_url'])-1} != '/') {
+	if ($config['gallery_url'][strlen($config['gallery_url'])-1] != '/') {
 		$config['gallery_url'] .= '/';
 	}
 
