@@ -214,7 +214,7 @@ a.pagPrev, a.pagNext {
 	width: 100px;
 	height: 40px;
 	line-height: 40px;
-	padding: .5em;
+	padding: 0 .5em;
 	border: 1px solid #ccc;
 }
 
@@ -235,7 +235,7 @@ a.pagPrev, a.pagNext {
 	width: 100%;
 	height: 40px;
 	line-height: 40px;
-	padding: .5em;
+	padding: 0 .5em;
 	border: 1px solid #ccc;
 }
 
@@ -506,12 +506,14 @@ a.pagPrev, a.pagNext {
 }
 
 .checkbox input[type="checkbox"] {
-    opacity: 0;
+	opacity: 0;
 }
 
 .checkbox label {
     position: relative;
     display: inline-block;
+
+	text-shadow: 1px 1px 5px rgba(0,0,0,0.75);
     
     /*16px width of fake checkbox + 6px distance between fake checkbox and text*/
     padding-left: 22px;
@@ -532,7 +534,11 @@ a.pagPrev, a.pagNext {
     width: 16px;
     
     border: 1px solid;
-    left: 0px;
+	left: 0px;
+
+	-webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);	
     
     /*(24px line-height - 16px height of fake checkbox) / 2 - 1px for the border
      *to vertically center it.
@@ -565,7 +571,7 @@ a.pagPrev, a.pagNext {
 
 /*Adding focus styles on the outer-box of the fake checkbox*/
 .checkbox input[type="checkbox"]:focus + label::before {
-    outline: rgb(59, 153, 252) auto 5px;
+    outline: #470047 auto 5px;
 }
 
 
@@ -649,9 +655,7 @@ a.pagPrev, a.pagNext {
 
 .meta-header {
 	/* .meta-header controls the "Contains X Albums" or "Contains X Pictures" text */
-	-webkit-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
-	-moz-box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
-	box-shadow: 1px 1px 5px 1px rgba(255,0,0,1);
+	font-size: 75%;
 }
 
 .thumbnail p {
