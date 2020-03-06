@@ -22,14 +22,14 @@ function generate_breadcrumb($title = false, $sep = ' &raquo; ') {
 	if ($title === false) {
 		if (!empty($config['gallery_name'])) {
             $title = $config['gallery_name'];
-            $c = " id=\"gallery-name\"";
+            $c = " class=\"gallery-name\"";
 		} else {
 			$title = plog_tr('Home');
 		}
 	}
 
 	$collections_link = '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="'.generate_url('collections').'" itemprop="item" typeof="WebPage" '.$c.'><span itemprop="name">'.$title.'</span></a><meta itemprop="position" content="1" /></li>';
-	$collections_name = '<li id="gallery-name" itemscope="name">'.$title.'</li>';
+	$collections_name = '<li class="gallery-name" itemscope="name">'.$title.'</li>';
 
 	switch ($GLOBALS['plogger_level']) {
 		case 'collection':
@@ -2248,7 +2248,7 @@ function plogger_download_selected_form_start() {
 	global $config;
 	if ($GLOBALS['plogger_level'] != 'picture' && $GLOBALS['plogger_mode'] != 'slideshow' && $GLOBALS['plogger_level'] !='404' && $config['allow_dl']) {
 		return "\n\t" . '<form action="'.$config['gallery_url'].'plog-download.php" method="post">
-	<p><input type="hidden" name="dl_type" value="'.$GLOBALS['plogger_level'].'" /></p>' . "\n";
+		<input type="hidden" name="dl_type" value="'.$GLOBALS['plogger_level'].'" />' . "\n";
 	}
 }
 
