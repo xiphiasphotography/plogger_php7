@@ -57,4 +57,4 @@
 
 	<?php echo plogger_download_selected_form_end(); ?>
 
-	</div><!-- /plog-wrapper -->
+</div><!-- /plog-wrapper -->

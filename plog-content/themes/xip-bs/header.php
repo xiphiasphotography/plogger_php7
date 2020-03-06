@@ -3,6 +3,8 @@
 
 <div id="plog-wrapper">
 
+	<?php echo plogger_download_selected_form_start(); ?>
+
 	<header id="header" class="container-fluid">
 		<div class="row gutters-10">
 			<div class="col-12">
@@ -19,5 +21,3 @@
 			</div><!-- /slideshow -->
 		</div><!-- /row -->
 	</header>
-
-	<?php echo plogger_download_selected_form_start(); ?>
