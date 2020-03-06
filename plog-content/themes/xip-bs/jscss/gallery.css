@@ -678,9 +678,9 @@ a.pagPrev, a.pagNext {
 
 #big-picture-container {
 	/* #big-picture-container contains the picture, the prev/next buttons, the camera details and the thumbnail nav (if enabled) */
-	border: 1px solid #bed2d2;
-	margin: 10px 0 10px 0;
-	padding: 10px 0 20px 0;
+	border: 0px solid Transparent;
+	margin: 0;
+	padding: 10px 0 20px;
 }
 
 .picture-title {
