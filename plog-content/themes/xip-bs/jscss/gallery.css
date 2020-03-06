@@ -355,11 +355,21 @@ a.pagPrev, a.pagNext {
 	text-align: right;
 }
 
+#rss-tag-container a::after {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 5px;
+	font-family: 'Font Awesome 5 Free';
+	content: '\f09e';
+	font-weight: 900;
+}
+
 #rss-image {
 	/* #rss-image controls the rss image */
+	display: none;
 	margin: 0;
 	padding: 0;
-	display: inline;
 }
 
 .link-back {
@@ -398,7 +408,7 @@ a.pagPrev, a.pagNext {
 	border: 1px solid #073654;
 	border-radius: 5px !important;
 	opacity: 1;
-    background-color: rgba(71,0,71, 0.5);
+    background-color: rgba(0,0,0,.5);
 	transition: border .25s ease-in,color .25s ease-in;
 }
 .thumbcontainer a
