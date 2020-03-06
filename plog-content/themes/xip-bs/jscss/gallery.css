@@ -440,11 +440,6 @@ a.pagPrev, a.pagNext {
 {
 	/* .thumbcontainer:hover img controls the thumbnail image hover behavior */
 	opacity: 1;
-	-moz-transform: scale(1.15) rotate(7deg);
-	-webkit-transform: scale(1.15) rotate(7deg);
-	-o-transform: scale(1.15) rotate(7deg);
-	-ms-transform: scale(1.15) rotate(7deg);
-	transform: scale(1.15) rotate(7deg);
 }
 .thumbcontent
 {
