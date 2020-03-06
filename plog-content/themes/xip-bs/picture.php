@@ -1,6 +1,6 @@
 <?php plogger_get_header(); ?>
 
-	<main id="big-picture-container" class="container-fluid">
+	<main id="big-picture-container" class="container-fluid picture">
 
 		<?php if (plogger_has_pictures()) : 
 			while(plogger_has_pictures()) : 

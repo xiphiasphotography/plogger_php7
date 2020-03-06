@@ -1,6 +1,6 @@
 <?php plogger_get_header(); ?>
 
-	<div id="big-picture-container">
+	<main id="big-picture-container" class="container-fluid slideshow">
 
 <?php if (plogger_has_pictures()) : ?>
 		<script type="text/javascript">
@@ -46,5 +46,5 @@
 		</div><!-- /no-pictures-msg -->
 <?php endif; ?>
 
-	</div><!-- /big-picture-container -->
+</main><!-- /big-picture-container -->
 <?php plogger_get_footer(); ?>

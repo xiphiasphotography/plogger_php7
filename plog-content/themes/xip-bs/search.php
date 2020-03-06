@@ -1,6 +1,6 @@
 	<?php plogger_get_header(); ?>
 
-	<main id="thumbnail-container" class="container-fluid">
+	<main id="thumbnail-container" class="container-fluid search">
 		<div id="search" class="row gutters-10">
 
 			<?php if (plogger_has_pictures()) : ?>

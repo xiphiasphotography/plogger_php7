@@ -37,7 +37,9 @@
 				<?php } ?>
 			</div>
 		</div>
+	</footer><!-- /container-fluid -->
 
+	<footer class="container-fluid bottom">
 		<div class="row gutters-10">
 			<div class="col-10">
 				<span class="link-back"><?php echo plogger_link_back(); ?>.</span>
