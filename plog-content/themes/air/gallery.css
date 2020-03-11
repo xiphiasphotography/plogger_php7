@@ -100,6 +100,16 @@ a:hover {
 	color: #fff;
 }
 
+#breadcrumbs ol {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+#breadcrumbs li {
+	float: left;
+}
+
 #breadcrumb-links {
 	/* #breadcrumb_links controls the breadcrumbs text that isn't a link */
 	float: left;
@@ -347,6 +357,10 @@ ul.slides li img:hover {
 	padding: 3px;
 	background: #fff;
 	border: 1px solid #dfded6;
+	max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    box-sizing: border-box;
 }
 
 #picture-holder a:hover {
