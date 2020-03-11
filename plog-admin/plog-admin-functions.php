@@ -321,7 +321,7 @@ function add_picture($album_id, $tmpname, $filename, $caption, $desc, $allow_com
 		}
 
 		$exif['date_taken'] = (isset($exif_raw['SubIFD']['DateTimeOriginal'])) ? trim($exif_raw['SubIFD']['DateTimeOriginal']) : '';
-		$exif['camera'] = $makeModel;
+		$exif['camera'] = $exifMakeModel;
 		$exif['shutter_speed'] = (isset($exif_raw['SubIFD']['ExposureTime'])) ? $exif_raw['SubIFD']['ExposureTime'] : '';
 		$exif['focal_length'] = (isset($exif_raw['SubIFD']['FocalLength'])) ? $exif_raw['SubIFD']['FocalLength'] : '';
 		$exif['flash'] = (isset($exif_raw['SubIFD']['Flash'])) ? $exif_raw['SubIFD']['Flash'] : '';
