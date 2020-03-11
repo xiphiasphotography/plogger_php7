@@ -3037,27 +3037,27 @@ function plogger_download_checkbox($id, $label = '') {
 	}
 }
 
-function plogger_get_next_picture_link() {
+function plogger_get_next_picture_link($icon = '&raquo;') {
 	global $config;
 	$next_url = plogger_get_next_picture_url();
 	if ($next_url)
 	if ($config['embedded'] == 0) {
-		$next_link = '<a id="next-button" accesskey="." href="'.$next_url.'">'.plog_tr('Next').' &raquo;</a>';
+		$next_link = '<a id="next-button" accesskey="." href="'.$next_url.'">'.plog_tr('Next').' '.$icon.'</a>';
 	} else {
-		$next_link = '<a id="next-button" accesskey="." href="'.$next_url.'">'.plog_tr('Next').' &raquo;</a>';
+		$next_link = '<a id="next-button" accesskey="." href="'.$next_url.'">'.plog_tr('Next').' '.$icon.'</a>';
 	} else
 		$next_link = '';
 	return $next_link;
 }
 
-function plogger_get_prev_picture_link() {
+function plogger_get_prev_picture_link($icon = '&laquo;') {
 	global $config;
 	$prev_url = plogger_get_prev_picture_url();
 	if ($prev_url)
 	if ($config['embedded'] == 0) {
-		$prev_link = '<a id="prev-button" accesskey="," href="'.$prev_url.'">&laquo; '.plog_tr('Previous').'</a>';
+		$prev_link = '<a id="prev-button" accesskey="," href="'.$prev_url.'">'.$icon.' '.plog_tr('Previous').'</a>';
 	} else {
-		$prev_link = '<a id="prev-button" accesskey="," href="'.$prev_url.'">&laquo; '.plog_tr('Previous').'</a>';
+		$prev_link = '<a id="prev-button" accesskey="," href="'.$prev_url.'">'.$icon.' '.plog_tr('Previous').'</a>';
 	} else
 		$prev_link = '';
 	return $prev_link;
