@@ -11,11 +11,11 @@
 				<?php echo generate_header(); ?>
 			</div>
 
-			<nav id="breadcrumbs" class="col-9">
+			<nav id="breadcrumbs" class="col">
 				<?php echo generate_breadcrumb('<i class="fas fa-home"></i>', ''); ?>
 			</nav><!-- /breadcrumbs -->
 
-			<div id="slideshow" class="col-3 text-right">
+			<div id="slideshow" class="col-auto text-right">
 				<?php echo plogger_slideshow_link(); ?>
 				<?php echo plogger_print_button(); ?>
 			</div><!-- /slideshow -->
