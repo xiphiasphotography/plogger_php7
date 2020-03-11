@@ -71,8 +71,9 @@ header p {
 
 #breadcrumbs {
 	/* #breadcrumbs contains the breadcrumbs */
-	color: #073654;
+	color: #ccc;
 	text-align: left;
+	font-weight: 300;
 }
 
 #breadcrumbs ol {
@@ -110,12 +111,12 @@ header p {
 
 #breadcrumb-links a {
 	/* #breadcrumb_links a controls the breadcrumbs text that is a link */
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 #breadcrumb-links a:hover, #slideshow a:hover {
 	/* #breadcrumb_links a:hover, #slideshow a:hover a controls hover behavior of the breadcrumbs text that is a link */
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 #slideshow a {
@@ -695,92 +696,85 @@ a.pagPrev, a.pagNext {
 
 .picture-title {
 	/* .picture-title controls the picture title */
-	width: 70%;
 	margin: 0 auto 6px;
 	text-align: center;
 	font-size: 1.3em;
-	color: #4b4c57;
+	color: #fff;
 }
 
 .date {
 	/* .date controls the picture date */
-	width: 70%;
-	margin: 0 auto 0;
+	margin: 0 auto;
 	text-align: center;
 	font-size: 1.1em;
-	color: #8689a2;
+	color: #ccc;
 	letter-spacing: 1px;
 }
 
 #nav-link-img-prev, #nav-link-img-next {
 	/* #nav-link-img-prev, #nav-link-img-next control those elements that both the prev and next buttons have in common */
+	display: inline;
 	margin: 5px 0 0;
 	padding: 6px 15px;
-	font-size: 1.1em;
 }
 
 #nav-link-img-prev {
 	/* #nav-link-img-prev controls the prev button */
 	float: left;
-	display: inline;
 }
 
 #nav-link-img-next {
 	/* #nav-link-img-next controls the next button */
 	float: right;
-	display: inline;
 }
 
 #nav-link-img-prev a {
 	/* #nav-link-img-prev a controls the text of the prev button */
-	border: 1px solid #fff;
 	padding: 5px 15px;
 	color: #01b4e2;
 }
 
 #nav-link-img-next a {
 	/* #nav-link-img-next a controls the text of the next button */
-	border: 1px solid #fff;
 	padding: 5px 15px;
 	color: #01b4e2;
 }
 
 #nav-link-img-prev a:hover, #nav-link-img-next a:hover {
 	/* #nav-link-img-prev a:hover, #nav-link-img-next a:hover controls the common link behavior of the prev/next buttons  */
-	border: 1px solid #039acb;
-	background: #01b4e2 url("images/blue-gradient.gif") repeat-x;
+	background: #01b4e2;
 	color: #fff;
 }
 
 #picture-holder {
 	/* #picture-holder contains the picture */
-	clear: both;
-	margin: 10px 0 0 0;
+	margin: 10px 0 0;
 }
 
 .photos-large {
 	/* .photos-large controls the picture itself */
-	margin: 0 0 20px 0;
-	padding: 3px;
-	background: #fff;
-	border: 1px solid #dfded6;
+	background: #073654;
+	max-width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+
+#picture-holder a {
+	display: block;
 }
 
 #picture-holder a:hover {
 	/* #picture-holder a:hover controls the hover behavior of the picture itself */
-	white-space: normal;
 }
 
 #picture-description {
 	/* #picture-description controls the picture's description */
-	width: 80%;
 	margin: 6px auto 6px;
 	text-align: center;
 	font-size: 1.1em;
 }
 
 /* Exif stuff is for the 'camera details' table */
-
 #exif-toggle {
 	margin: 0 0 20px 0;
 	padding: 0;
@@ -859,6 +853,11 @@ a.pagPrev, a.pagNext {
 #comment-section form p {
 	/* #comment-section form p contains the "post a comment" input fields */
 	margin: 6px 0;
+}
+
+#comment-section input, 
+#comment-section textarea {
+	max-width: 100%;
 }
 
 .comment, .comment-alt {
