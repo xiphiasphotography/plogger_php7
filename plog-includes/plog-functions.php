@@ -321,7 +321,7 @@ function plogger_require_captcha() {
 
 function generate_header() {
 	global $config;
-	$output = '<h1 id="gallery-name">'.stripslashes($config['gallery_name']).'</h1>';
+	$output = '<p id="gallery-name" class="h1">'.stripslashes($config['gallery_name']).'</p>';
 	return $output;
 }
 
