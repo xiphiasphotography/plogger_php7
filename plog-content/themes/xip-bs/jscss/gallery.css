@@ -10,8 +10,8 @@ body {
 	/* body contains and controls all visible elements of the entire page, this is where you want to set things like the background of the page */
 	margin: 0;
 	padding: 0;
-	background: #195B71;
-	color: #30ACD8;
+	background: #195b71;
+	color: #fff;
 	font: 16px "Montserrat", "Lucida Grande", Verdana, Arial, sans-serif;
 	text-align: center;
 }
@@ -19,6 +19,10 @@ body {
 img {
 	/* img controls anything that all of the images have in common; in this case, we make sure no images have borders (we can add borders to specific images later) */
 	border: 0;
+}
+
+a {
+	color: #30acd8
 }
 
 a:link, a:visited {
@@ -29,7 +33,7 @@ a:link, a:visited {
 
 a:hover {
 	/* a:hover controls the default hover behavior of all links */
-	color: #30ACD8;
+	color: #30acd8;
 }
 
 /************************************************** BOOTSTRAP OVERRIDES */
@@ -118,6 +122,15 @@ header p {
 	/* #breadcrumb_links a:hover, #slideshow a:hover a controls hover behavior of the breadcrumbs text that is a link */
 	text-decoration: underline;
 }
+
+@media only screen and (max-width: 575.98px) {
+	#breadcrumbs li:last-of-type {
+		display: none;
+	}
+
+}
+
+
 
 #slideshow a {
 	/* #slideshow a controls the text of the View as Slideshow link */
@@ -706,8 +719,8 @@ a.pagPrev, a.pagNext {
 	/* .date controls the picture date */
 	margin: 0 auto;
 	text-align: center;
-	font-size: 1.1em;
 	color: #ccc;
+	font-size: .75rem;
 	letter-spacing: 1px;
 }
 
@@ -776,8 +789,12 @@ a.pagPrev, a.pagNext {
 
 /* Exif stuff is for the 'camera details' table */
 #exif-toggle {
-	margin: 0 0 20px 0;
+	margin: 20px 0;
 	padding: 0;
+}
+
+#exif-toggle a {
+	color: #30acd8;
 }
 
 #exif-toggle-container {
@@ -858,6 +875,21 @@ a.pagPrev, a.pagNext {
 #comment-section input, 
 #comment-section textarea {
 	max-width: 100%;
+}
+@media (max-width: 0.98px) {
+	#commentform p {
+		display: flex;
+	}
+	#commentform input {
+		order: 2;
+		width: 100%;
+	}
+	#commentform label {
+		order: 1;
+		display: block;
+		width: 100%;
+	}
+
 }
 
 .comment, .comment-alt {
