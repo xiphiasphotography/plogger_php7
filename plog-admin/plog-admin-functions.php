@@ -312,11 +312,13 @@ function add_picture($album_id, $tmpname, $filename, $caption, $desc, $allow_com
 		$exifMakeModel = '';
 		if (isset($exif_raw['IFD0']['Make']) && isset($exif_raw['IFD0']['Model']))
 		{
-			if (substr(trim($exif_raw['IFD0']['Model']), 0, strlen(trim($exif_raw['IFD0']['Make'])) != trim($exif_raw['IFD0']['Make'])))
+			$exifMake = trim($exif_raw['IFD0']['Make']);
+			$exifModel = trim($exif_raw['IFD0']['Model']);
+			if (substr($exifModel, 0, strlen($exifMake)) != $exifMake)
 			{
-				$exifMakeModel = trim($exif_raw['IFD0']['Make']).' ';
+				$exifMakeModel = $exifMake.' ';
 			}
-			$exifMakeModel .= trim($exif_raw['IFD0']['Model']);
+			$exifMakeModel .= $exifModel;
 			$exifMakeModel = str_replace('Gopro', 'GoPro', $exifMakeModel);
 		}
 
