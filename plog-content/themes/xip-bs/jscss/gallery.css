@@ -168,15 +168,30 @@ header p {
 }
 
 main {
-	min-height: calc(100vh - 177px);
+	min-height: calc(100vh - 277px);
 	background: rgb(25,91,113);
 	background: -moz-linear-gradient(0deg, rgba(7,54,84,1) 0%, rgba(25,91,113,1) 15%, rgba(25,91,113,1) 85%, rgba(7,54,84,1) 100%);
 	background: -webkit-linear-gradient(0deg, rgba(7,54,84,1) 0%, rgba(25,91,113,1) 15%, rgba(25,91,113,1) 85%, rgba(7,54,84,1) 100%);
 	background: linear-gradient(0deg, rgba(7,54,84,1) 0%, rgba(25,91,113,1) 15%, rgba(25,91,113,1) 85%, rgba(7,54,84,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#195B71",endColorstr="#073654",GradientType=1);
 }
+main.collections {
+	min-height: calc(100vh - 258px);
+}
 main.album {
-	min-height: calc(100vh - 227px);
+	min-height: calc(100vh - 377px);
+}
+
+@media only screen and (min-width: 768px) {
+	main {
+		min-height: calc(100vh - 177px);
+	}
+	main.collections {
+		min-height: calc(100vh - 177px);
+	}
+	main.album {
+		min-height: calc(100vh - 227px);
+	}
 }
 
 /************************************************** FOOTER */
@@ -703,8 +718,8 @@ a.pagPrev, a.pagNext {
 #big-picture-container {
 	/* #big-picture-container contains the picture, the prev/next buttons, the camera details and the thumbnail nav (if enabled) */
 	border: 0px solid Transparent;
-	margin: 0;
-	padding: 10px 0 20px;
+	padding-top: 10px;
+	padding-bottom: 20px;
 }
 
 .picture-title {
@@ -824,40 +839,51 @@ a.pagPrev, a.pagNext {
 
 #thumb-nav {
 	/* #thumb-nav controls the unordered list that comprises the thumbnail navigation */
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+
 	list-style-type: none;
-	margin: 25px;
+	margin: 25px -5px;
 }
 
 #thumb-nav li {
 	/* #thumb-nav li controls each unordered list item that comprises the thumbnail navigation button */
-	float: left;
-	margin: 0 10px 0 0;
+	box-sizing: border-box;
+	padding: 5px;
 }
 
 #thumb-nav li img {
 	/* #thumb-nav li img controls the image within each unordered list item that comprises the thumbnail navigation button */
-	border: 1px solid #01b4e2;
+	max-height: 100%;
+	min-width: 40px;
+	width: 100%;
+	max-width: 80px;
+	object-fit: cover;
+	vertical-align: bottom;
+	background: #073654;
 	padding: 3px;
-	display: inline;
-	background: #fff;
+	border: 1px solid #073654;
 }
 
 #thumb-nav li img:hover {
 	/* #thumb-nav li img:hover controls the hover behavior of the image within each unordered list item that comprises the thumbnail navigation button, wheee! */
-	background: #eaeae0;
-	border: 1px solid #f60;
+	background: #30acd8;
+	border-color: #30acd8;
 }
 
-#thumb-nav li.current img, #thumb-nav li.current img:hover {
-	background: #01b4e2;
+#thumb-nav li.current img,
+#thumb-nav li.current img:hover {
+	background: #fff;
+	border-color: #fff;
 }
 
 /* Begin comment styles */
 
 #comment-section {
 	/* #comment-section contains the comments, the "post a comment" input fields, and the submit button */
-	margin: 10px 25px 10px 25px;
-	clear: both;
+	margin: 0 auto;
 	text-align: left;
 }
 
@@ -876,18 +902,22 @@ a.pagPrev, a.pagNext {
 #comment-section textarea {
 	max-width: 100%;
 }
-@media (max-width: 0.98px) {
+@media (max-width: 767.98px) {
 	#commentform p {
 		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
 	}
-	#commentform input {
+	#commentform p > input,
+	#commentform p > textarea {
 		order: 2;
 		width: 100%;
 	}
-	#commentform label {
+	#commentform p > span {
 		order: 1;
 		display: block;
 		width: 100%;
+		color: #ccc;
 	}
 
 }

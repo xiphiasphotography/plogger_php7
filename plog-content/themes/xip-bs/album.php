@@ -17,7 +17,7 @@
 					$thumb_width = $thumb_info['width']; // The width of the image. It is integer data type.
 					$thumb_height = $thumb_info['height']; // The height of the image. It is an integer data type.
 
-					$thumb_desc = ($fill_date == 'true' && isset($date) && $capt == '&nbsp;') ? $date : plogger_get_picture_description();
+					$thumb_desc = ($fill_date == 'true' && isset($date) && $capt == '&nbsp;') ? '' : plogger_get_picture_description();
 					$thumb_name = ($fill_date == 'true' && isset($date) && $capt == '&nbsp;') ? $date : $capt;
 				?>
 					<div class="col-6 col-sm-4 col-md-3 col-xl-2">

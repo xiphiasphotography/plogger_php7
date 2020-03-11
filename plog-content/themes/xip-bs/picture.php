@@ -24,7 +24,7 @@
 				</div>
 
 		
-				<div class="row">
+				<div class="row no-gutters">
 					<div class="col-12">
 						<div id="picture-holder">
 							<a accesskey="v" href="<?php echo plogger_get_source_picture_url(); ?>"><img class="photos-large" src="<?php echo plogger_get_picture_thumb(THUMB_LARGE); ?>" width="<?php echo $thumb_width; ?>" height="<?php echo $thumb_height; ?>" title="<?php echo plogger_get_picture_caption('clean'); ?>" alt="<?php echo plogger_get_picture_caption('clean'); ?>" /></a>
@@ -49,7 +49,7 @@
 					</div>
 				</div>
 
-				<div class="row justify-content-center">
+				<div class="row no-gutters justify-content-center">
 					<div class="col">
 						<?php echo plogger_display_comments(); ?>
 					</div>
