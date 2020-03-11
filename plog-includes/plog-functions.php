@@ -50,7 +50,7 @@ function generate_breadcrumb($title = false, $sep = ' &raquo; ') {
 		case 'album':
             $row = get_album_by_id($id);
             $album_desc = explode('<br>', $row['description']);
-			$album_name = '<li>'.SmartStripSlashes($row['name']).' - '.SmartStripSlashes(trim($album_desc[0])).'</li>';
+			$album_name = '<li>'.SmartStripSlashes($row['name']).'</li>';
 			$album_link = '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a accesskey="/" href="'.generate_url('album', $row['id']).'" itemprop="item"><span itemprop="name">'.SmartStripSlashes($row['name']).'</span></a><meta itemprop="position" content="3" /></li>';
 
 			$row = get_collection_by_id($row['parent_id']);
