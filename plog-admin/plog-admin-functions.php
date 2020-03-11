@@ -5,6 +5,22 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
 	exit();
 }
 
+function tokenTruncate($string, $your_desired_width) {
+//  $parts = preg_split('/([\s\n\r]+)/', $string, null, PREG_SPLIT_DELIM_CAPTURE);
+  $parts = preg_split('/([\n\r]+)/', $string, null, PREG_SPLIT_DELIM_CAPTURE);
+  $parts_count = count($parts);
+
+  $length = 0;
+  $last_part = 0;
+  for (; $last_part < $parts_count; ++$last_part) {
+    $length += strlen($parts[$last_part]);
+    if ($length > $your_desired_width) { break; }
+  }
+
+//  return implode(array_slice($parts, 0, $last_part));
+  return implode(array_slice($parts, 0, 1));
+}
+
 function get_files($directory, $get_all_files = false, $get_folders = false, $relative_path = false) {
 	global $config;
 	$sep = (substr($directory, -1) == '/') ? '': '/';
@@ -293,15 +309,42 @@ function add_picture($album_id, $tmpname, $filename, $caption, $desc, $allow_com
 		require_once(PLOGGER_DIR.'plog-includes/lib/exifer1_7/exif.php');
 		$exif_raw = read_exif_data_raw($final_fqfn, false);
 		$exif = array();
+		$exifMakeModel = '';
+		if (isset($exif_raw['IFD0']['Make']) && isset($exif_raw['IFD0']['Model']))
+		{
+			if (substr(trim($exif_raw['IFD0']['Model']), 0, strlen(trim($exif_raw['IFD0']['Make'])) != trim($exif_raw['IFD0']['Make'])))
+			{
+				$exifMakeModel = trim($exif_raw['IFD0']['Make']).' ';
+			}
+			$exifMakeModel .= trim($exif_raw['IFD0']['Model']);
+			$exifMakeModel = str_replace('Gopro', 'GoPro', $exifMakeModel);
+		}
 
 		$exif['date_taken'] = (isset($exif_raw['SubIFD']['DateTimeOriginal'])) ? trim($exif_raw['SubIFD']['DateTimeOriginal']) : '';
-		$exif['camera'] = (isset($exif_raw['IFD0']['Make']) && isset($exif_raw['IFD0']['Model'])) ? trim($exif_raw['IFD0']['Make']).' '.trim($exif_raw['IFD0']['Model']) : '';
+		$exif['camera'] = $makeModel;
 		$exif['shutter_speed'] = (isset($exif_raw['SubIFD']['ExposureTime'])) ? $exif_raw['SubIFD']['ExposureTime'] : '';
 		$exif['focal_length'] = (isset($exif_raw['SubIFD']['FocalLength'])) ? $exif_raw['SubIFD']['FocalLength'] : '';
 		$exif['flash'] = (isset($exif_raw['SubIFD']['Flash'])) ? $exif_raw['SubIFD']['Flash'] : '';
 		$exif['aperture'] = (isset($exif_raw['SubIFD']['FNumber'])) ? $exif_raw['SubIFD']['FNumber'] : '';
 		$exif['iso'] = (isset($exif_raw['SubIFD']['ISOSpeedRatings'])) ? $exif_raw['SubIFD']['ISOSpeedRatings'] : '';
-
+		if (strlen($caption) == 0) :
+			$caption = (isset($exif_raw['IFD0']['ImageDescription'])) ? $exif_raw['IFD0']['ImageDescription'] : '';
+			$caption = nl2br(tokenTruncate($caption, 24));
+		endif;
+		if (strlen($desc) == 0) :
+			$desc = (isset($exif_raw['IFD0']['ImageDescription'])) ? $exif_raw['IFD0']['ImageDescription'] : '';
+//			$desc = preg_replace('/\r?\n|\r/','<br />', $desc);
+//			$desc = str_replace(array("\r\n","\r","\n"),"<br />", $desc);
+			$desc = nl2br($desc);
+		endif;
+/* DEBUG Exif
+		echo '<pre>';
+		var_dump($exif_raw);
+		var_dump("'".$desc."'");
+		var_dump("'".nl2br($desc)."'");
+		var_dump($exif_raw['IFD0']['ImageDescription']);
+		echo '</pre>';
+*/
 		$picture_path = $create_path.'/'.$final_filename;
 		
 		if (empty($exif['date_taken'])) {
