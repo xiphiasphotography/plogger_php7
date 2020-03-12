@@ -15,8 +15,10 @@ function validate_checkboxes(field) {
 
 function flip(rid) {
 	// Show/hide image details
-	current=(document.getElementById(rid).style.display == 'none') ? 'block' : 'none';
-	document.getElementById(rid).style.display = current;
+	// current=(document.getElementById(rid).style.display == 'none') ? 'block' : 'none';
+	// document.getElementById(rid).style.display = current;
+	var el = document.querySelector('#' + rid);
+	el.classList.toggle('hidden');
 }
 
 function display_overlay(img, content) {

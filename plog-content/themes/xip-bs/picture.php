@@ -35,7 +35,7 @@
 						<h2 id="picture-description"><?php echo plogger_get_picture_description(); ?></h2>
 						<h3 class="date"><?php echo plogger_get_picture_date(); ?></h3>
 						<?php if (showEXIF()) { ?>
-							<div id="exif-toggle"><?php echo plogger_get_detail_link(); ?></div>
+							<div id="exif-toggle"><?php echo plogger_get_detail_link('View image details', '<i class="fas fa-chevron-down"></i>'); ?></div>
 							<div id="exif-toggle-container">
 								<?php echo generate_exif_table(plogger_get_picture_id()); ?>
 							</div><!-- /exif-toggle-container -->
@@ -50,7 +50,7 @@
 				</div>
 
 				<div class="row no-gutters justify-content-center">
-					<div class="col">
+					<div class="col-auto align-self-center">
 						<?php echo plogger_display_comments(); ?>
 					</div>
 				</div>

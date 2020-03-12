@@ -12,8 +12,8 @@
 
 					// Find thumbnail width/height
 					$thumb_info = plogger_get_thumbnail_info();
-					$thumb_width = $thumb_info['width']; // The width of the image. It is integer data type.
-					$thumb_height = $thumb_info['height']; // The height of the image. It is an integer data type.
+					$thumb_width = (gettype($thumb_info) == 'array') ? $thumb_info['width'] : 0; // The width of the image. It is integer data type.
+					$thumb_height = (gettype($thumb_info) == 'array') ? $thumb_info['height'] : 0; // The height of the image. It is an integer data type.
 
 					$thumb_desc = plogger_get_collection_description();
 					$thumb_name = plogger_get_collection_name();

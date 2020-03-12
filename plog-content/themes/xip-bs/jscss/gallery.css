@@ -78,6 +78,7 @@ header p {
 	color: #ccc;
 	text-align: left;
 	font-weight: 300;
+	font-size: smaller;
 }
 
 #breadcrumbs ol {
@@ -127,10 +128,7 @@ header p {
 	#breadcrumbs li:last-of-type {
 		display: none;
 	}
-
 }
-
-
 
 #slideshow a {
 	/* #slideshow a controls the text of the View as Slideshow link */
@@ -315,38 +313,24 @@ a.pagPrev, a.pagNext {
 }
 
 #sort-control {
-	position: relative;
 	width: 100%;
 	height: 40px;
 	line-height: 40px;
 	margin-bottom: 10px;
-	padding-left: 25px;
-}
-
-#sort-control::before {
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 20px;
-	height: 40px;
-	line-height: 40px;
-	margin-right: 5px;
-	padding: .5em;
-	font-family: 'Font Awesome 5 Free';
-	font-weight: 900;
-	content: '\f0dc';
-	text-align: center;
 }
 
 #sort-control form,
 #sort-control .nomargin {
 	display: inline-block;
-	float: left;
 	margin: 0;
 }
 
+#change_sortdir {
+	width: 140px;
+}
+
 #sort-control label {
+	/* #sort-control label contains the ["Sort by:" text and 'by which criteria' menu] and [ascending/descending menu] */
 	display: none;
 }
 
@@ -371,12 +355,9 @@ a.pagPrev, a.pagNext {
 	padding: .5em;
 }
 
-#sort-control span {
-	/* #sort-control span contains the ["Sort by:" text and 'by which criteria' menu] and [ascending/descending menu] */
-}
-
 #change_sortby {
 	/* #change_sortby controls the 'by which criteria' menu */
+	width: calc(100% - 140px);
 }
 
 #rss-tag-container {
@@ -521,6 +502,7 @@ a.pagPrev, a.pagNext {
 .thumbcontent p.description
 {
 	font-size: smaller;
+	color: #ccc;
 }
 
 /************************************************** MESSAGES */
@@ -727,23 +709,25 @@ a.pagPrev, a.pagNext {
 	margin: 0 auto 6px;
 	text-align: center;
 	font-size: 1.3em;
+	letter-spacing: 1px;
 	color: #fff;
 }
 
 .date {
 	/* .date controls the picture date */
-	margin: 0 auto;
-	text-align: center;
+	margin: 0 -15px;
+	line-height: 36px;
+	background-color: #073654;
 	color: #ccc;
 	font-size: .75rem;
 	letter-spacing: 1px;
+	text-align: center;
 }
 
 #nav-link-img-prev, #nav-link-img-next {
 	/* #nav-link-img-prev, #nav-link-img-next control those elements that both the prev and next buttons have in common */
 	display: inline;
 	margin: 5px 0 0;
-	padding: 6px 15px;
 }
 
 #nav-link-img-prev {
@@ -764,7 +748,7 @@ a.pagPrev, a.pagNext {
 
 #nav-link-img-next a {
 	/* #nav-link-img-next a controls the text of the next button */
-	padding: 5px 15px;
+	padding: 5px 10px;
 	color: #01b4e2;
 }
 
@@ -776,12 +760,12 @@ a.pagPrev, a.pagNext {
 
 #picture-holder {
 	/* #picture-holder contains the picture */
-	margin: 10px 0 0;
+	margin: 10px -15px 0;
 }
 
 .photos-large {
 	/* .photos-large controls the picture itself */
-	background: #073654;
+	background: Transparent;
 	max-width: 100%;
 	height: auto;
 	object-fit: contain;
@@ -797,30 +781,63 @@ a.pagPrev, a.pagNext {
 
 #picture-description {
 	/* #picture-description controls the picture's description */
-	margin: 6px auto 6px;
-	text-align: center;
+	margin: 0 -15px;
+	padding: 15px;
+	background-color: #073654;
 	font-size: 1.1em;
+	text-align: center;
 }
 
 /* Exif stuff is for the 'camera details' table */
 #exif-toggle {
-	margin: 20px 0;
-	padding: 0;
+	margin: 0 -15px;
+	padding: 0 15px;
+	background-color: #073654;
+	border-top: 1px solid #ccc;
+	font-size: smaller;
 }
 
 #exif-toggle a {
+	display: block;
+	height: 36px;
+	line-height: 36px;
 	color: #30acd8;
 }
 
 #exif-toggle-container {
+	margin: 0 -15px;
+	padding: 0 15px;
+	background-color: #073654;
+	background-image: linear-gradient(#073654, #195b71);
 }
 
-#exif-table {
+#show_info-exif-table.hidden {
+	padding: 0;
+	max-height: 0px;
+	opacity: 0;
+}
+
+#show_info-exif-table {
+	overflow: hidden;
+
+	padding: 15px 0;
+	max-height: 200px;
+	opacity: 1;
+	-webkit-transition: all .5s ease .25s;
+	-moz-transition: all .5s ease .25s;
+	-ms-transition: all .5s ease .25s;
+	-o-transition: all .5s ease .25s;
+	transition: all .5s ease .25s;
 }
 
 #exif-data {
 	margin: 0 auto 0;
 	text-align: left;
+	font-size: smaller;
+}
+
+#exif-data td {
+	vertical-align: top;
 }
 
 #exif-data td.exif-label {
@@ -833,6 +850,7 @@ a.pagPrev, a.pagNext {
 	text-align: left;
 	padding-right: 10px;
 	width: 50%;
+	color: #ccc;
 }
 
 /* Begin thumbnail navigation styles */
@@ -919,7 +937,6 @@ a.pagPrev, a.pagNext {
 		width: 100%;
 		color: #ccc;
 	}
-
 }
 
 .comment, .comment-alt {

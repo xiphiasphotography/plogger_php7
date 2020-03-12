@@ -1,7 +1,7 @@
 	<footer id="footer" class="container-fluid">
 
 		<div class="row gutters-10">
-			<div class="col-12 order-1 col-md-6 col-lg-4">
+			<div class="col-12 order-1 col-lg-8">
 				<?php if (plogger_pagination_control() != '') { ?>
 					<div id="pagination">
 						<?php echo plogger_pagination_control(5); ?>
@@ -9,9 +9,9 @@
 				<?php } ?>
 			</div>
 
-			<div class="col-12 order-2 col-md-12 order-md-3 col-lg-8 order-lg-2">
+			<div class="col-12 order-2 col-md-6 order-md-3 col-lg-4 order-lg-2">
 				<?php if (plogger_sort_control() != '') { ?>
-					<div id="sort-control">
+					<div id="sort-control" class="text-right">
 						<?php echo plogger_sort_control(); ?>
 					</div><!-- /sort-control -->
 				<?php } ?>
