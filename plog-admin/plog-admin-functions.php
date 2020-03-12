@@ -347,6 +347,7 @@ function add_picture($album_id, $tmpname, $filename, $caption, $desc, $allow_com
 //			$desc = str_replace(array("\r\n","\r","\n"),"<br />", $desc);
 			$desc = nl2br($desc);
 		endif;
+		$exif['copyright'] = (isset($exif_raw['SubIFD']['Copyright'])) ? $exif_raw['SubIFD']['Copyright'] : '';
 /* DEBUG Exif
 		echo '<pre>';
 		var_dump($exif_raw);
