@@ -3024,8 +3024,8 @@ function plogger_get_album_id() {
 	return $GLOBALS['current_album']['id'];
 }
 
-function plogger_get_detail_link() {
-	return '<a accesskey="d" title="'.plog_tr('View Image Details').'" href="#" onclick="flip(\'show_info-exif-table\'); return false;">'.plog_tr('View Image Details').'</a>';
+function plogger_get_detail_link($label = 'View Image Details', $icon = '') {
+	return '<a accesskey="d" title="'.plog_tr($label).'" href="javascript:;" onclick="flip(\'show_info-exif-table\'); return false;">'.plog_tr($label).' '.$icon.'</a>';
 }
 
 function plogger_download_checkbox($id, $label = '') {
