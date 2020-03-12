@@ -345,19 +345,17 @@ function generate_sortby($level, $id) {
 		// into a separate file
 		// I need to merge those 2 forms. and since I'm reloading stuff anyway, I can just
 		// create correct urls. oh yeah, baby.
-		$output .= "\n\t\t\t\t\t" . '<form action="#" method="get">
-						<div class="nomargin">
-							<label for="change_sortby">'.plog_tr('Sort by').':</label>
-							<select id="change_sortby" name="change_sortby" onchange="document.location.href=this.options[this.selectedIndex].value;">';
+		$output .= '<label for="change_sortby">'.plog_tr('Sort by').':</label>
+						<select id="change_sortby" name="change_sortby" onchange="document.location.href=this.options[this.selectedIndex].value;">';
 		foreach($fields as $fkey => $fval) {
 			$value = generate_url('album', $id, array(1 => 'sorted', 'sortby' => $fkey, 'sortdir' => $_SESSION['plogger_sortdir']));
-			$output .= "\n\t\t\t\t\t\t\t\t" . '<option value="'.$value.'"';
+			$output .= '<option value="'.$value.'"';
 			if ($_SESSION['plogger_sortby'] == $fkey) {
 				$output .= ' selected="selected"';
 			}
 			$output .= ">$fval</option>";
 		}
-		$output .= "\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form><!-- /sort by -->";
+		$output .= "</select>";
 	}
 	return $output;
 }
@@ -374,18 +372,16 @@ function generate_sortdir($level, $id) {
 	);
 
 	if ($level == 'album') {
-		$output .= "\n\t\t\t\t\t" . '<form action="#" method="get">
-						<div class="nomargin">
-							<select id="change_sortdir" name="change_sortdir" onchange="document.location.href=this.options[this.selectedIndex].value;">';
+		$output .= '<select id="change_sortdir" name="change_sortdir" onchange="document.location.href=this.options[this.selectedIndex].value;">';
 		foreach($orders as $okey => $oval) {
 			$value = generate_url('album', $id, array(1 => 'sorted', 'sortby' => $_SESSION['plogger_sortby'], 'sortdir' => $okey));
-			$output .= "\n\t\t\t\t\t\t\t\t<option value=\"$value\"";
+			$output .= '<option value="'.$value.'"';
 			if(strcasecmp($_SESSION['plogger_sortdir'], $okey) === 0) {
-				$output .= ' selected="selected"';
+				$output .= ' selected';
 			}
-			$output .= ">$oval</option>";
+			$output .= '>'.$oval.'</option>';
 		}
-		$output .= "\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form><!-- /sort asc/desc -->\n\t\t\t\t";
+		$output .= '</select>';
 	}
 	return $output;
 }
@@ -2343,7 +2339,7 @@ function plogger_slideshow_redirect() {
 
 function plogger_sort_control() {
 	if ($GLOBALS['plogger_mode'] != 'slideshow')
-	return generate_sortby($GLOBALS['plogger_level'], $GLOBALS['plogger_id']).generate_sortdir($GLOBALS['plogger_level'], $GLOBALS['plogger_id']);
+		return generate_sortby($GLOBALS['plogger_level'], $GLOBALS['plogger_id']).generate_sortdir($GLOBALS['plogger_level'], $GLOBALS['plogger_id']);
 }
 
 function plogger_pagination_control($page_range = false) {
