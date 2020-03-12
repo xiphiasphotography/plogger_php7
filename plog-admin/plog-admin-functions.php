@@ -5,6 +5,14 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
 	exit();
 }
 
+function escape($value)
+{
+	$search = array("\\",  "\x00", "\n",  "\r",  "'",  '"', "\x1a");
+	$replace = array("\\\\","\\0","\\n", "\\r", "\'", '\"', "\\Z");
+
+	return str_replace($search, $replace, $value);
+}
+
 function tokenTruncate($string, $your_desired_width) {
 //  $parts = preg_split('/([\s\n\r]+)/', $string, null, PREG_SPLIT_DELIM_CAPTURE);
   $parts = preg_split('/([\n\r]+)/', $string, null, PREG_SPLIT_DELIM_CAPTURE);
@@ -703,9 +711,9 @@ function update_collection($collection_id, $name, $description, $thumbnail_id = 
 		}
 	}
 
-	$target_name = $PLOGGER_DBH->quote($target_name);
+	//$target_name = $PLOGGER_DBH->quote($target_name);
 
-	$query = "UPDATE ".PLOGGER_TABLE_PREFIX."collections SET name = $name, path = $target_name, description = $description, thumbnail_id = '$thumbnail_id' WHERE id='$collection_id'";
+	$query = "UPDATE ".PLOGGER_TABLE_PREFIX."collections SET name = $name, path = '".escape($target_name)."', description = $description, thumbnail_id = '$thumbnail_id' WHERE id='$collection_id'";
 	$result = run_query($query, false, "");
 	if (!$result) {
 		return array('errors' => 'Failed to modify collection - DB Error');
@@ -930,15 +938,15 @@ function update_album($album_id, $name, $description, $thumbnail_id = 0) {
 		}
 	}
 
-	$target_name = $PLOGGER_DBH->quote($target_name);
+	//$target_name = $PLOGGER_DBH->quote($target_name);
 
 	// Proceed only if rename succeeded
-	$query = "UPDATE ".PLOGGER_TABLE_PREFIX."albums SET
-			name = $name,
-			description = $description,
-			thumbnail_id = '$thumbnail_id',
-			path = $target_name
-		WHERE id='$album_id'";
+	$query ="UPDATE ".PLOGGER_TABLE_PREFIX."albums SET
+				name = $name,
+				description = $description,
+				thumbnail_id = '$thumbnail_id',
+				path = '".escape($target_name)."'
+			WHERE id='$album_id'";
 
 	$result = run_query($query, false, "");
 	if (!$result) {
