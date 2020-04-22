@@ -22,7 +22,6 @@
 						<div id="nav-link-img-next"><?php echo plogger_get_next_picture_link('<i class="fas fa-chevron-right"></i>'); ?></div>
 					</div>
 				</div>
-
 		
 				<div class="row no-gutters">
 					<div class="col-12">
