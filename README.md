@@ -26,7 +26,7 @@ In the BODY section where you want the gallery -> ```<?php the_plogger_gallery()
 
 UPGRADING from original Plogger
 -------------------------------
-- Edit add the following lines to your config file preferably above the line /* The name of the database for Plogger */
+- Add the following lines to your config file preferably above the line /* The name of the database for Plogger */
 and enter yout DB type, mysql or pgsql.
 
 /* Database Type */
