@@ -85,7 +85,7 @@ class gettext_reader {
 
   function load_tables($translations=false) {
     // if tables are loaded do not load them again
-    if (!is_array($this->ORIGINALS)) {
+    if (!isset($this->ORIGINALS) || !is_array($this->ORIGINALS)) {
       $this->ORIGINALS = array();
       $this->STREAM->seekto($this->originals);
       for ($i=0; $i<$this->total; $i++) {
@@ -96,7 +96,7 @@ class gettext_reader {
     }
 
     // similar for translations
-    if ($translations and !is_array($this->TRANSLATIONS)) {
+    if ($translations and (!isset($this->TRANSLATIONS) || !is_array($this->TRANSLATIONS))) {
       $this->TRANSLATIONS = array();
       $this->STREAM->seekto($this->translations);
       for ($i=0; $i<$this->total; $i++) {
