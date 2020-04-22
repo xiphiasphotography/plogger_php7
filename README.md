@@ -24,6 +24,26 @@ First line of the .php file -> ```<?php require("path/to/plogger.php");``` ?>
 In the HEAD section -> ```<?php the_plogger_head(); ?>```
 In the BODY section where you want the gallery -> ```<?php the_plogger_gallery(); ?>```
 
+UPGRADING from original Plogger
+-------------------------------
+Edit add the following lines to yout config file
+
+/* Database Type
+ * Currently supports 'mysql' and 'pgsql' */
+define('PLOGGER_DB_TYPE', '');
+
+/* Database Port (Ignored for MySQL, optional for PgSQL) */
+define('PLOGGER_DB_PORT', '');
+
+Preferably above the line /* The name of the database for Plogger */
+and enter yout DB type, mysql or pgsql.
+
+Alter your PREFIX_config table structure and after gallery_url add
+cdn_url	varchar(255)	utf8_general_ci
+
+I will need to find out how I can do this via the _upgrade.php.
+Help welcome.
+
 Upgrading from -RC1
 -------------------
 - Edit your DB information and table prefix into /plog-admin/_upgrade.php 
