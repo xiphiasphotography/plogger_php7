@@ -26,15 +26,15 @@ In the BODY section where you want the gallery -> ```<?php the_plogger_gallery()
 
 UPGRADING from original Plogger
 -------------------------------
-- Add the following lines to your config file preferably above the line /* The name of the database for Plogger */
+- Add the following lines to your config file preferably above the line `/* The name of the database for Plogger */`
 and enter yout DB type, mysql or pgsql.
 
-/* Database Type */
-/* Currently supports 'mysql' and 'pgsql' */
-define('PLOGGER_DB_TYPE', '');
+`/* Database Type */`
+`/* Currently supports 'mysql' and 'pgsql' */`
+`define('PLOGGER_DB_TYPE', '');`
 
-/* Database Port (Ignored for MySQL, optional for PgSQL) */
-define('PLOGGER_DB_PORT', '');
+`/* Database Port (Ignored for MySQL, optional for PgSQL) */`
+`define('PLOGGER_DB_PORT', '');`
 
 - Alter your PREFIX_config table structure and after gallery_url add
 cdn_url	varchar(255)	utf8_general_ci
