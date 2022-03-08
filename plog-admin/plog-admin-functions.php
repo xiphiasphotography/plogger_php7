@@ -1730,11 +1730,11 @@ function plog_picture_manager($id, $from, $limit) {
 			<col style="width: 15px;" />
 			<tr class="header">
 				<th class="table-header-left align-center width-15"><input name="allbox" type="checkbox" onclick="checkToggle(document.getElementById(\'contentList\'));" /></th>
-				<th class="table-header-middle align-center width-150">'.plog_tr('Thumb').'</th>
-				<th class="table-header-middle align-left width-175">'.plog_tr('Filename').'</th>
+				<th class="table-header-middle align-center width-100">'.plog_tr('Thumb').'</th>
+				<th class="table-header-middle align-left width-275">'.plog_tr('Filename').'</th>
 				<th class="table-header-middle align-left">'.plog_tr('Caption').'/'.plog_tr('Description').'</th>
 				<th class="table-header-middle align-center width-125">'.$allow_comment.'</th>
-				<th class="table-header-right align-center width-100">'.plog_tr('Actions').'</th>
+				<th class="table-header-right align-center width-50">'.plog_tr('Actions').'</th>
 			</tr>';
 		$counter = 0;
 
@@ -1749,8 +1749,8 @@ function plog_picture_manager($id, $from, $limit) {
 			$output .= "\n\t\t\t\t" . '<td class="align-center width-15"><p class="margin-5"><input type="checkbox" name="selected[]" value="'.$id.'" /></p></td>';
 			$thumbpath = plogger_get_picture_thumb();
 			$imgtag = '<img src="'.$thumbpath.'" title="'.plogger_get_picture_caption('clean').'" alt="'.plogger_get_picture_caption('clean').'" />';
-			$output .= "\n\t\t\t\t" . '<td class="align-center width-150"><div class="img-shadow"><a href="'.plogger_get_picture_thumb(THUMB_LARGE).'" rel="lightbox" title="'.plogger_get_picture_caption('code').'">'.$imgtag.'</a></div></td>';
-			$output .= "\n\t\t\t\t" . '<td class="align-left width-175"><p class="margin-5"><strong><a href="'.$_SERVER['PHP_SELF'].'?level=comments&amp;id='.$id.'">'.basename(plogger_get_source_picture_path()).'</a></strong><br /><br /><span>'.sprintf(plog_tr('Comments: %d'), plogger_picture_comment_count()).'</span></p></td>';
+			$output .= "\n\t\t\t\t" . '<td class="align-center width-100"><div class="img-shadow"><a href="'.plogger_get_picture_thumb(THUMB_LARGE).'" rel="lightbox" title="'.plogger_get_picture_caption('code').'">'.$imgtag.'</a></div></td>';
+			$output .= "\n\t\t\t\t" . '<td class="align-left width-275"><p class="margin-5"><strong><a href="'.$_SERVER['PHP_SELF'].'?level=comments&amp;id='.$id.'">'.basename(plogger_get_source_picture_path()).'</a></strong><br /><br /><span>'.sprintf(plog_tr('Comments: %d'), plogger_picture_comment_count()).'</span></p></td>';
 			$output .= "\n\t\t\t\t" . '<td class="align-left vertical-top">
 					<p class="margin-5 no-margin-bottom"><strong>'.plog_tr('Caption').':</strong></p>
 					<p class="margin-5 no-margin-top" id="picture-caption-'.plogger_get_picture_id().'">'.plogger_get_picture_caption().'</p>
@@ -1763,12 +1763,12 @@ function plog_picture_manager($id, $from, $limit) {
 				$allow_comments = '&nbsp;';
 			}
 			$output .= "\n\t\t\t\t" . '<td class="align-center width-125"><p class="margin-5">'.$allow_comments.'</p></td>';
-			$output .= "\n\t\t\t\t" . '<td class="align-center width-100"><p class="margin-5"><a href="?action=edit-picture&amp;id='.$id;
+			$output .= "\n\t\t\t\t" . '<td class="align-center width-50"><p class="margin-5"><a href="?action=edit-picture&amp;id='.$id;
 			if (isset($_GET['entries_per_page'])) $output .= '&amp;entries_per_page='.intval($_GET['entries_per_page']);
 			if (isset($_GET['plog_page'])) $output .= '&amp;plog_page='.intval($_GET['plog_page']);
 			$output .= '"><img style="display: inline;" src="'.$config['gallery_url'].'plog-admin/images/edit.gif" alt="'.plog_tr('Edit').'" title="'.plog_tr('Edit').'" /></a>';
 			$parent_id = $_REQUEST['id'];
-			$output .= '&nbsp;&nbsp;&nbsp;<a href="?action=move-delete&amp;selected%5B%5D='.$id.'&amp;level=pictures&amp;delete_checked=1&amp;id='.$parent_id;
+			$output .= ' <a href="?action=move-delete&amp;selected%5B%5D='.$id.'&amp;level=pictures&amp;delete_checked=1&amp;id='.$parent_id;
 			if (isset($_GET['plog_page'])) $output .= '&amp;plog_page='.intval($_GET['plog_page']);
 			$output .= '" onclick="return confirm(\''.plog_tr('Are you sure you want to delete this item?').'\');"><img style="display: inline;" src="'.$config['gallery_url'].'plog-admin/images/x.gif" alt="'.plog_tr('Delete').'" title="'.plog_tr('Delete').'" /></a></p></td>';
 			$output .= "\n\t\t\t" . '</tr>';
