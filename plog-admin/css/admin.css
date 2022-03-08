@@ -58,9 +58,10 @@ h3 {
 }
 
 img {
-	border: 0;
-	padding: 5px
 	display: inline;
+	padding: 5px;
+	max-width: 100%;
+	border: 0;
 }
 
 input, select, textarea {
@@ -73,7 +74,6 @@ input, select, textarea {
 
 input.submit, input.submit-create, input.submit-delete, input.submit-cancel {
 	border: none;
-	-moz-border-radius: 8px;
 	-khtml-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
@@ -172,7 +172,6 @@ ul {
 	padding: 5px 5px 5px 10px;
 	background-color: #f9f9f9;
 	border: 1px solid #d9d9d9;
-	-moz-border-radius: 5px;
 	-khtml-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
@@ -297,7 +296,6 @@ a.folder {
 	margin-left: 0;
 	background-color: #f9f9f9;
 	border: 1px solid #d9d9d9;
-	-moz-border-radius: 8px;
 	-khtml-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
@@ -307,8 +305,7 @@ a.folder {
 
 /* Manage and Feedback page elements */
 
-#contentList {
-}
+/* #contentList {} */
 
 #contentList #breadcrumb_links, #contentList #comment-count {
 	font-size: 1.0em;
@@ -325,7 +322,6 @@ a.folder {
 
 #contentList .pagination span.page-link, #contentList .pagination a.page-link {
 	border: 1px solid #bbb;
-	-moz-border-radius: 3px;
 	-khtml-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
@@ -359,7 +355,6 @@ a.folder {
 
 #contentList .pagination span.page-link-current {
 	border: 1px solid #369;
-	-moz-border-radius: 3px;
 	-khtml-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
@@ -418,7 +413,6 @@ a#show-collection:hover, a#show-album:hover {
 	margin-left: 0;
 	background-color: #f9f9f9;
 	border: 1px solid #d9d9d9;
-	-moz-border-radius: 5px;
 	-khtml-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
@@ -428,7 +422,6 @@ a#show-collection:hover, a#show-album:hover {
 
 .edit img {
 	border: 1px solid #d9d9d9;
-	-moz-border-radius: 5px;
 	-khtml-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
@@ -453,7 +446,6 @@ a#show-collection:hover, a#show-album:hover {
 	margin-right: 5px;
 	margin-bottom: 15px;
 	border: 1px solid #d9d9d9;
-	-moz-border-radius: 5px;
 	-khtml-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
@@ -491,7 +483,6 @@ a#show-collection:hover, a#show-album:hover {
 tr.alt td.left {
 	background: #f7f7f7;
 	border-bottom: 1px solid #f3f3f3;
-	-moz-border-radius: 8px 0 0 8px;
 	-webkit-border-top-left-radius: 8px;
 	-webkit-border-bottom-left-radius: 8px;
 	-khtml-border-top-left-radius: 8px;
@@ -503,7 +494,6 @@ tr.alt td.left {
 tr.alt td.right {
 	background: #f7f7f7;
 	border-bottom: 1px solid #f3f3f3;
-	-moz-border-radius: 0 8px 8px 0;
 	-webkit-border-top-right-radius: 8px;
 	-khtml-border-top-right-radius: 8px;
 	-webkit-border-bottom-right-radius: 8px;
@@ -561,7 +551,6 @@ th.cssbox-upload-head-blue h2, th.cssbox-upload-head-green h2 {
 	padding: 4px 18px;
 	height: 17px;
 	width: auto;
-	-moz-border-radius: 12px 12px 0 0;
 	-webkit-border-top-right-radius: 12px;
 	-webkit-border-top-left-radius: 12px;
 	-khtml-border-top-right-radius: 12px;
@@ -587,7 +576,6 @@ td.cssbox-upload-body {
 	border-right: 1px solid #d9d9d9;
 	border-bottom: 1px solid #d9d9d9;
 	border-left: 1px solid #d9d9d9;
-	-moz-border-radius: 0 0 12px 12px;
 	-webkit-border-bottom-right-radius: 12px;
 	-webkit-border-bottom-left-radius: 12px;
 	-khtml-border-bottom-right-radius: 12px;
@@ -628,7 +616,6 @@ td.cssbox-upload-body {
 	border: 0;
 	padding: 3px 15px 3px 15px;
 	height: 17px;
-	-moz-border-radius: 8px 8px 0 0;
 	-webkit-border-top-right-radius: 8px;
 	-webkit-border-top-left-radius: 8px;
 	-khtml-border-top-right-radius: 8px;
@@ -653,7 +640,6 @@ td.cssbox-upload-body {
 	border-right: 1px solid #d9d9d9;
 	border-bottom: 1px solid #d9d9d9;
 	border-left: 1px solid #d9d9d9;
-	-moz-border-radius: 0 0 8px 8px;
 	-webkit-border-bottom-right-radius: 8px;
 	-webkit-border-bottom-left-radius: 8px;
 	-khtml-border-bottom-right-radius: 8px;
@@ -680,7 +666,6 @@ td.cssbox-upload-body {
 	background-position: 5px 8px;
 	margin-right: 5px;
 	margin-bottom: 15px;
-	-moz-border-radius: 5px;
 	-khtml-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
@@ -809,7 +794,6 @@ tr.breadcrumb {
 }
 
 tr.footer, tr.footer td {
-	-moz-border-radius: 0 0 8px 8px;
 	-webkit-border-bottom-right-radius: 8px;
 	-webkit-border-bottom-left-radius: 8px;
 	-khtml-border-bottom-right-radius: 8px;
@@ -864,6 +848,10 @@ tr.footer td.invert-selection a:hover {
 
 .width-15 {
 	width: 15px;
+}
+
+.width-25 {
+	width: 25px;
 }
 
 .width-50 {
