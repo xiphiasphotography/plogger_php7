@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
 	$show_exif = (isset($_POST['show_exif'])) ? 1 : 0;
 
 	// Verify that gallery URL contains a trailing slash. If not, add one.
-	if ($_POST['gallery_url']{ strlen($_POST['gallery_url'])-1} != '/') {
+	if ($_POST['gallery_url'][strlen($_POST['gallery_url'])-1] != '/') {
 		$_POST['gallery_url'] .= '/';
 	}
 
