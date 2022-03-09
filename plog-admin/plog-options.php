@@ -190,11 +190,11 @@ $output .= "\n\t" . '<h1>'.plog_tr('General').'</h1>
 					</tr>
 					<tr class="alt">
 						<td class="left"><label for="admin_password">'.plog_tr('New Password').':</label></td>
-						<td class="right"><input size="40" type="password" id="admin_password" name="admin_password" value="" /></td>
+						<td class="right"><input size="40" type="password" id="admin_password" name="admin_password" value="" autocomplete="new-password" /></td>
 					</tr>
 					<tr>
 						<td class="left"><label for="confirm_admin_password">'.plog_tr('Confirm New Password').':</label></td>
-						<td class="right"><input size="40" type="password" id="confirm_admin_password" name="confirm_admin_password" value="" /></td>
+						<td class="right"><input size="40" type="password" id="confirm_admin_password" name="confirm_admin_password" value="" autocomplete="new-password" /></td>
 					</tr>
 				</table>
 
