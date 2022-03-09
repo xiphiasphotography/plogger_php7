@@ -14,7 +14,7 @@ if (!empty($_REQUEST['path'])) {
 	// The following line calculates the path in the album and excludes any subdirectories if
 	// Plogger is installed in one
 	$path = join('/', array_diff_assoc(explode('/', $_SERVER['REQUEST_URI']), explode('/', $_SERVER['PHP_SELF'])));
-	if ($path{ strlen($path)-1} == '/') {
+	if ($path[strlen($path)-1] == '/') {
 		$path = substr($path, 0, -1);;
 	}
 	$resolved_path = resolve_path($path);
