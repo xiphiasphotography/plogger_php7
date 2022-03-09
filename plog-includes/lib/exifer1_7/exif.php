@@ -673,7 +673,7 @@ function formatData($type, $tag, $intel, $data) {
 				case '9000':	// ExifVersion
 				case 'a000':	// FlashPixVersion
 				case '0002':	// InteroperabilityVersion
-					$data=gettext('version').' '.$data/100;
+					$data=gettext('version').' '.$data; // $data/100;
 					break;
 				case 'a300':	// FileSource
 					$data = bin2hex($data);
