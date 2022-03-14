@@ -25,12 +25,12 @@ foreach($init_vars as $var) {
 ?>
 <h1><?php echo plog_tr('Plogger Configuration Setup') ?></h1>
 
-	<p><?php echo plog_tr('To install, simply fill out the following form. If there are any problems, you will be notified and asked to fix them before the installation will continue. After the installation is complete, you will be redirected to the Plogger Gallery Admin page.') ?></p>
+<p><?php echo plog_tr('To install, simply fill out the following form. If there are any problems, you will be notified and asked to fix them before the installation will continue. After the installation is complete, you will be redirected to the Plogger Gallery Admin page.') ?></p>
 
-	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 	<p><input type="hidden" name="action" value="install" /></p>
 	<table>
-<?php if (!defined('PLOGGER_DB_HOST')) { ?>
+		<?php if (!defined('PLOGGER_DB_HOST')) { ?>
 		<tr>
 			<td colspan="2"><h2><?= plog_tr('Database Setup') ?></h2></td>
 		</tr>
@@ -63,44 +63,44 @@ foreach($init_vars as $var) {
 			<td class="form_label"><label for="db_name"><?= plog_tr('Database Name') ?>:</label></td>
 			<td class="form_input"><input type="text" name="db_name" id="db_name" value="<?= $form['db_name']; ?>" /></td>
 		</tr>
-<?php
-} // End database setup
-
-if (
-	!isset($config['gallery_name']) ||
-	!isset($config['admin_email']) ||
-	!isset($config['admin_username']) ||
-	!isset($config['admin_password'])
-) {
-?>
+		<?php
+		} // End database setup
+		
+		if (
+			!isset($config['gallery_name']) ||
+			!isset($config['admin_email']) ||
+			!isset($config['admin_username']) ||
+			!isset($config['admin_password'])
+		) {
+		?>
 		<tr>
 			<td colspan="2"><h2><?php echo plog_tr('Administrative Setup') ?></h2></td>
 		</tr>
-	<?php if (!isset($config['gallery_name'])) { ?>
+		<?php if (!isset($config['gallery_name'])) { ?>
 		<tr>
 			<td class="form_label"><label for="gallery_name"><?php echo plog_tr('Gallery Name') ?>:</label></td>
 			<td class="form_input"><input type="text" name="gallery_name" id="gallery_name" value="<?php echo $form['gallery_name']; ?>" /></td>
 		</tr>
-<?php
-	}
-	if (!isset($config['admin_email'])) {
-?>
+		<?php
+			}
+			if (!isset($config['admin_email'])) {
+		?>
 		<tr>
 			<td class="form_label"><label for="admin_email"><?php echo plog_tr('Your Email') ?>:</label></td>
 			<td class="form_input"><input type="text" name="admin_email" id="admin_email" value="<?php echo $form['admin_email']; ?>" /></td>
 		</tr>
-<?php
-	}
-	if (!isset($config['admin_username'])) {
-?>
+		<?php
+			}
+			if (!isset($config['admin_username'])) {
+		?>
 		<tr>
 			<td class="form_label"><label for="admin_username"><?php echo plog_tr('Username') ?>:</label></td>
 			<td class="form_input"><input type="text" name="admin_username" id="admin_username" value="<?php echo $form['admin_username']; ?>" /></td>
 		</tr>
-<?php
-	}
-	if (!isset($config['admin_password'])) {
-?>
+		<?php
+			}
+			if (!isset($config['admin_password'])) {
+		?>
 		<tr>
 			<td class="form_label"><label for="admin_password"><?php echo plog_tr('Password') ?>:</label></td>
 			<td class="form_input"><input type="password" name="admin_password" id="admin_password" value="" /></td>
@@ -109,14 +109,14 @@ if (
 			<td class="form_label"><label for="admin_password_confirm"><?php echo plog_tr('Confirm Password') ?>:</label></td>
 			<td class="form_input"><input type="password" name="admin_password_confirm" id="admin_password_confirm" value="" /></td>
 		</tr>
-<?php
-	}
-} // End administrative setup
+		<?php
+			}
+		} // End administrative setup
 
-// If server is safe_mode enabled, prompt user for FTP info for FTP workaround
-if (ini_get('safe_mode')) {
-	if (function_exists('ftp_connect')) {
-?>
+		// If server is safe_mode enabled, prompt user for FTP info for FTP workaround
+		if (ini_get('safe_mode')) {
+			if (function_exists('ftp_connect')) {
+		?>
 		<tr>
 			<td colspan="2">
 				<h2><?php echo plog_tr('Safe_mode FTP workaround') ?></h2>
@@ -139,22 +139,22 @@ if (ini_get('safe_mode')) {
 			<td class="form_label"><label for="ftp_path"><?php echo plog_tr('FTP Path to Plogger Base Folder (from FTP login)') ?>:</label></td>
 			<td class="form_input"><input type="text" name="ftp_path" id="ftp_path" value="<?php echo $form['ftp_path']; ?>" /></td>
 		</tr>
-<?php
-	} else {
-	// Cannot use workaround, but safe mode is still enabled
-?>
+		<?php
+			} else {
+			// Cannot use workaround, but safe mode is still enabled
+		?>
 		<tr>
 			<td colspan="2">
 				<h2><?php echo plog_tr('Safe_mode Detected') ?></h2>
 				<p><?php echo plog_tr("Safe_mode has been detected on your server and your server is missing PHP's FTP commands. Plogger cannot function correctly with safe_mode enabled and without FTP access.") ?></p>
 			</td>
 		</tr>
-<?php
-	}
-} // End safe_mode FTP workaround
-?>
+		<?php
+			}
+		} // End safe_mode FTP workaround
+		?>
 		<tr>
 			<td class="submitButtonRow" colspan="2"><input type="submit" class="submit" name="submit" id="submit" value="<?php echo plog_tr('Proceed') ?>" /></td>
 		</tr>
 	</table>
-	</form>
+</form>

@@ -5,6 +5,8 @@ if (is_file(dirname(dirname(__FILE__)).'/plog-config.php')) {
 include_once(dirname(dirname(__FILE__)).'/plog-globals.php');
 include_once(PLOGGER_DIR.'plog-includes/plog-functions.php');
 include_once(PLOGGER_DIR.'plog-admin/includes/install-functions.php');
+
+// Error reporting all, used for debugging
 error_reporting(E_ALL);
 
 // Set a session variable for session checks
@@ -18,8 +20,7 @@ if (!empty($_POST['dlconfig']) && !empty($_SESSION['plogger_config'])) {
 	exit();
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Plogger <?php echo plog_tr('Gallery | Install') ?></title>
