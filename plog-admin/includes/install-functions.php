@@ -88,13 +88,15 @@ function check_requirements() {
 	// Check that the session variable can be read
 	if (!isset($_SESSION['plogger_session'])) {
 		$save_path = ini_get('session.save_path');
+
+		if (!defined('SESSION_SAVE_PATH')) {
+			$sample_text = ' ('.sprintf(plog_tr('see %s if your %s does not contain this variable'), 'plog-config-sample.php', 'plog-config.php').')';
+		} else {
+			$sample_text = '';
+		}
+
 		// Check that session.save_path is set (not set by default on PHP5)
 		if (empty($save_path)) {
-			if (!defined('SESSION_SAVE_PATH')) {
-				$sample_text = ' ('.sprintf(plog_tr('see %s if your %s does not contain this variable'), 'plog-config-sample.php', 'plog-config.php').')';
-			} else {
-				$sample_text = '';
-			}
 			$errors[] = sprintf( plog_tr('The PHP %s variable is not set in your php.ini file.'), '<strong>session.save_path</strong>').' '.sprintf(plog_tr('You can attempt to set this by adding a writable directory path to the %s variable in %s or contact your webhost on how to set this system variable.'), '<strong>SESSION_SAVE_PATH</strong>', 'plog-config.php'.$sample_text);
 		} else {
 			$errors[] = sprintf(plog_tr('PHP session cookies are not being set. Please check that session cookies are enabled on your browser or verify that your %s variable is set up correctly.'), '<strong>session.save_path</strong>').' '.sprintf(plog_tr('You can attempt to set this by adding a writable directory path to the %s variable in %s or contact your webhost on how to set this system variable.'), '<strong>SESSION_SAVE_PATH</strong>', 'plog-config.php'.$sample_text);
