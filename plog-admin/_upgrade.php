@@ -18,7 +18,10 @@
         
         // Add column for show/hide exif to config table
         $db->query('ALTER TABLE ' . $table_prefix . "config ADD show_exif tinyint default '1'");
-        
+
+        // Add column for CDN URL to config table
+        $db->query('ALTER TABLE ' . $table_prefix . "config ADD cdn_url varchar(255) utf8_general_ci");
+
         // Fix any existing exif data
         $pics = $db->query('SELECT id,exif_date_taken FROM ' . $table_prefix . 'pictures');
         $fixed_exif = array();
