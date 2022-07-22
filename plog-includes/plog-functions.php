@@ -248,7 +248,12 @@ function generate_exif_table($id) {
 		// get image size
 		$img = $config['basedir'].'plog-content/images/'.SmartStripSlashes($row['path']);
 		list($width, $height, $type, $attr) = getimagesize($img);
-		$size = round(filesize($img) / 1024, 2);
+
+		$size = filesize($img);
+		if ( $size > 2000000) 		$size = round(($size / 1024) / 1024, 2).' MB';
+		elseif ( $size > 500000 )	$size = round($size / 1024, 2).' KB';
+		else 						$size .= ' bytes';
+
 		$table_data = "\t\t\t\t\t\t" . '<div id="show_info-exif-table">
 							<script type="text/javascript">flip(\'show_info-exif-table\');</script>
 							<table id="exif-data">
@@ -258,7 +263,7 @@ function generate_exif_table($id) {
 								</tr>
 								<tr>
 									<td class="exif-label">'.plog_tr('File size').':</td>
-									<td class="exif-info">'.$size.' kbytes</td>
+									<td class="exif-info">'.$size.'</td>
 								</tr>';
 		if (!empty($row['exif_date_taken'])) {
 			$table_data .= '<tr>
