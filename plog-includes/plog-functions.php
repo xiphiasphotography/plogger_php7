@@ -1182,7 +1182,7 @@ function resolve_path($str = '') {
 		}
 		$sql = "SELECT *
 		FROM \"".PLOGGER_TABLE_PREFIX."collections\"
-		WHERE \"path\"='".$names['collection']."'";
+		WHERE \"path\"=".$names['collection'];
 		$result = run_query($sql);
 
 		// No such collection
@@ -1210,7 +1210,7 @@ function resolve_path($str = '') {
 		}
 		$sql = "SELECT *
 		FROM \"".PLOGGER_TABLE_PREFIX."albums\"
-		WHERE \"path\"='".$names['album']."'
+		WHERE \"path\"=".$names['album']."
 		AND \"parent_id\"=".intval($collection['id']);
 		$result = run_query($sql);
 
@@ -1255,7 +1255,7 @@ function resolve_path($str = '') {
 		}
 		$sql = "SELECT *
 		FROM \"".PLOGGER_TABLE_PREFIX."pictures\"
-		WHERE \"caption\"='".$names['picture']."'
+		WHERE \"caption\"=".$names['picture']."
 		AND \"parent_album\"=".intval($album['id']);
 		$result = run_query($sql);
 
@@ -1268,12 +1268,23 @@ function resolve_path($str = '') {
 				$feed = array_pop($names);
 			}
 			$filepath = join('/', $names);
+
+			// Need to trim the quotes that were added by the quote() function before we create the string to be searched
+			$urlsegments = [];
+			foreach($names as $name) {
+				$urlsegments[] = trim($name, "'");
+			}
+
+			$filepath = join('/', $urlsegments);
+
 			$like_match = array('_', '%');
 			$like_replace = array('\_', '\%');
 			$filepath = str_replace($like_match, $like_replace, $filepath);
+			$filepath = "'$filepath.%'";
+
 			$sql = "SELECT *
 			FROM \"".PLOGGER_TABLE_PREFIX."pictures\"
-			WHERE \"path\" LIKE '".$filepath.".%'
+			WHERE \"path\" LIKE $filepath
 			AND \"parent_album\"=".intval($album['id']);
 			$result = run_query($sql);
 			$picture = $result->fetch();
