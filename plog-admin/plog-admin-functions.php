@@ -865,9 +865,9 @@ function add_album($album_name, $description, $pid) {
 	if (!makeDirs($create_path)) {
 		$errors .= sprintf(plog_tr('Could not create directory %s!'), '<strong>'.$create_path.'</strong>');
 	} else {
-		$sql_name = $PLOGGER_DBH->quote($album_name);
-		$description = $PLOGGER_DBH->quote($description);
-		$album_folder = $PLOGGER_DBH->quote($album_folder);
+		$sql_name = $PLOGGER_DBH->real_escape_string($album_name);
+		$description = $PLOGGER_DBH->real_escape_string($description);
+		$album_folder = $PLOGGER_DBH->real_escape_string($album_folder);
 		$query = "INSERT INTO ".PLOGGER_TABLE_PREFIX."albums (\"name\",\"description\",\"parent_id\",\"path\") VALUES ($sql_name, $description, '$pid', $album_folder)";
 		$result = run_query($query);
 		$serialobj = getSerialObj('albums');	
