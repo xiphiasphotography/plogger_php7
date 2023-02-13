@@ -33,7 +33,7 @@ function generate_albums_menu($albums) {
 		$selected = '';
 		// If we are on the current album then set it to be the default option
 		if (isset($_REQUEST['albums_menu']) && isset($_REQUEST['new_album_name'])) {
-			if ($albums_menu == $album_id || $new_album_name == $album['album_name']) {
+			if ($_REQUEST['albums_menu'] == $album_id || $_REQUEST['new_album_name'] == $album['album_name']) {
 				$selected = ' selected="selected"';
 			}
 		}
