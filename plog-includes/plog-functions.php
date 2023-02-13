@@ -588,6 +588,30 @@ function run_query($query, $isFatal = true, $errmsg = "A database error occurred
 	return $result;
 }
 
+/*
+function run_query($query, $isFatal = true, $errmsg = "A database error occurred. Enable PLOGGER_DEBUG for details.") {
+	global $PLOGGER_DBH;
+	connect_db();
+	$result = false;
+	if (defined('PLOGGER_DEBUG') && PLOGGER_DEBUG == '1') {
+		$GLOBALS['query_count']++;
+		$GLOBALS['queries'][] = $query;
+	}	
+	try {
+		$result = $PLOGGER_DBH->query($query);
+	} catch (PDOException $ex) {
+		echo $errmsg;
+		if (PLOGGER_DEBUG == '1') {
+			echo "<br />Query: " . $query ."<br />Error details: " . $ex->getMessage();
+		}
+		if ($isFatal) {
+			exit();
+		}
+	}
+	return $result;
+}
+*/
+
 function get_active_collections_albums() {
 	$image_collection_count = array();
 	$image_album_count = array();
