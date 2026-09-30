@@ -870,7 +870,7 @@ function add_album($album_name, $description, $pid) {
 		$album_folder = $PLOGGER_DBH->real_escape_string($album_folder);
 		$query = "INSERT INTO ".PLOGGER_TABLE_PREFIX."albums (\"name\",\"description\",\"parent_id\",\"path\") VALUES ($sql_name, $description, '$pid', $album_folder)";
 		$result = run_query($query);
-		$serialobj = getSerialObj('albums');	
+		$serialobj = getSerialObj('albums');
 		$id = $PLOGGER_DBH->lastInsertID($serialobj);	
 
 		$output .= sprintf(plog_tr('You have successfully created the album %s.'), '<strong>'.$album_name.'</strong>');
